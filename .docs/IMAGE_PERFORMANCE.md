@@ -1,6 +1,6 @@
 # Wydajność obrazów
 
-Ten dokument opisuje kontrakt obrazów w Starter Kit. Należy go przeczytać przed zmianą `SmartImage.astro`, `optimize-images.ts` albo danych galerii.
+Ten dokument opisuje kontrakt obrazów w UI Library. Należy go przeczytać przed zmianą `SmartImage.astro`, `optimize-images.ts` albo danych galerii.
 
 ## Zasada źródła
 

@@ -21,7 +21,7 @@ const localFontFace = `@font-face {
 }`;
 
 // Why: The package includes several font formats and relative paths to node_modules.
-// Starter Kit uses one local woff2, so we only replace the font-face,
+// UI Library uses one local woff2, so we only replace the font-face,
 // while maintaining the full list of icon selectors from the version installed in the project.
 const generatedCss = sourceCss.replace(/@font-face\s*\{[\s\S]*?\n\}/, localFontFace);
 

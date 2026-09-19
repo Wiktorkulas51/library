@@ -1,0 +1,21 @@
+---
+import ComponentPreviewFrame from '@components/dev/component-library/ComponentPreviewFrame.astro';
+import { getDeveloperCatalog } from '@components/dev/component-library/component-catalog';
+
+export function getStaticPaths() {
+	return getDeveloperCatalog().map((selected) => ({
+		params: {
+			section: selected.sectionId,
+			variant: selected.variantId,
+		},
+		props: { selected },
+	}));
+}
+
+const { selected: staticSelected } = Astro.props;
+const selected = getDeveloperCatalog().find((item) => (
+	item.sectionId === Astro.params.section && item.variantId === Astro.params.variant
+)) || staticSelected;
+---
+
+<ComponentPreviewFrame selected={selected} thumbnail />

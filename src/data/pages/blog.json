@@ -19,7 +19,7 @@
   "block": {
     "label": "Blog",
     "title": "Latest posts",
-    "description": "A short overview of the latest articles published in the starter kit.",
+    "description": "A short overview of the latest articles published in the UI library.",
     "ctaLabel": "See all posts"
   }
 }

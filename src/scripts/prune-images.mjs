@@ -1,5 +1,5 @@
 // Removes media and fonts from dist/ that are not used by the generated pages.
-// The sources in public/ remain untouched, so the Starter Kit still has the full library
+// The sources in public/ remain untouched, so the UI Library still has the full library
 // assets during development. The cleanup only applies to the final build.
 // Executed PO clean-dist.mjs to ignore dev-only pages.
 import fs from 'node:fs';

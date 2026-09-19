@@ -14,7 +14,7 @@ const BASE_URL = 'http://localhost:4321';
 const OUTPUT_DIR = join(process.cwd(), 'audit-reports');
 
 async function main() {
-  console.log('🚀 Starter Kit — Audyt Techniczny + Pełny Tekst\n');
+  console.log('🚀 UI Library, audyt techniczny i pełny tekst\n');
   console.log(`📌 Bazowy URL: ${BASE_URL}`);
   console.log('');
 

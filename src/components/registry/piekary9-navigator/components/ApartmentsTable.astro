@@ -34,28 +34,28 @@ const DEFAULT_FINISH = ui.renovation;
 					<th class="px-4 py-4 font-bold text-brand-dark">{ui.local}</th>
 					<th class="px-4 py-4 font-bold text-brand-dark cursor-pointer group/sort select-none" data-sort-key="rooms">
 						<div class="flex items-center justify-center gap-1.5 transition-colors group-hover/sort:text-brand-accent">
-							{ui.rooms} <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+							{ui.rooms} <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
 						</div>
 					</th>
 					<th class="px-4 py-4 font-bold text-brand-dark cursor-pointer group/sort select-none" data-sort-key="area">
 						<div class="flex items-center justify-center gap-1.5 transition-colors group-hover/sort:text-brand-accent">
-							{ui.area} <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+							{ui.area} <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
 						</div>
 					</th>
 					<th class="px-4 py-4 font-bold text-brand-dark cursor-pointer group/sort select-none" data-sort-key="floor">
 						<div class="flex items-center justify-center gap-1.5 transition-colors group-hover/sort:text-brand-accent">
-							{ui.floorLabel} <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+							{ui.floorLabel} <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
 						</div>
 					</th>
 					<th class="px-4 py-4 font-bold text-brand-dark text-center">{ui.finish}</th>
 					<th class="px-4 py-4 font-bold text-brand-dark cursor-pointer group/sort select-none" data-sort-key="price">
 						<div class="flex items-center justify-end gap-1.5 transition-colors group-hover/sort:text-brand-accent">
-							{ui.price} <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+							{ui.price} <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
 						</div>
 					</th>
 					<th class="px-4 py-4 font-bold text-brand-dark cursor-pointer group/sort select-none" data-sort-key="price-m2">
 						<div class="flex items-center justify-end gap-1.5 transition-colors group-hover/sort:text-brand-accent">
-							{ui.pricePerM2} <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+							{ui.pricePerM2} <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
 						</div>
 					</th>
 					<th class="px-4 py-4 font-bold text-brand-dark text-center">PDF</th>
@@ -341,7 +341,7 @@ const DEFAULT_FINISH = ui.renovation;
 				sortHeaders.forEach(h => {
 					const icon = h.querySelector('i');
 					if (icon) {
-						icon.className = 'ph ph-sort-ascending text-brand-dark/40';
+						icon.className = 'ph ph-caret-up-down text-brand-dark/40';
 					}
 					h.classList.remove('text-brand-accent');
 				});
@@ -350,8 +350,8 @@ const DEFAULT_FINISH = ui.renovation;
 				const icon = header.querySelector('i');
 				if (icon) {
           icon.className = currentSort.order === 'asc'
-            ? 'ph ph-sort-ascending text-brand-accent'
-            : 'ph ph-sort-descending text-brand-accent';
+            ? 'ph ph-caret-up text-brand-accent'
+            : 'ph ph-caret-down text-brand-accent';
 				}
 				header.classList.add('text-brand-accent');
 
@@ -383,5 +383,4 @@ const DEFAULT_FINISH = ui.renovation;
 		applyFilters();
 	});
 </script>
-
 

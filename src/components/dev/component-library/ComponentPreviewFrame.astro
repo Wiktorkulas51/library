@@ -1,5 +1,5 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import GalleryLayout from '@layouts/GalleryLayout.astro';
 import type { DeveloperCatalogVariant } from './component-catalog';
 
 interface Props {
@@ -17,19 +17,17 @@ const frameBodyClass = [
 ].join(' ');
 ---
 
-<Layout
+<GalleryLayout
   title={`${selected.sectionLabel} / ${selected.variantId}`}
-  noIndex={true}
   theme="default"
   bodyClass={frameBodyClass}
-  showShell={false}
   clientRuntime={!isThumbnail}
   enableLenis={false}
 >
   <div class="component-frame__canvas">
     <PreviewComponent {...selected.props} theme="light" />
   </div>
-</Layout>
+</GalleryLayout>
 
 <script is:inline>
   if (window.top === window.self) {

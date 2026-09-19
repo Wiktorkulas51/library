@@ -1,6 +1,6 @@
 # Obowiązkowa macierz wizualnej weryfikacji
 
-Ta macierz jest częścią QA starter kita. Każdy nowy layout, wariant sekcji i zmiana breakpointu należy sprawdzić przy wszystkich poniższych szerokościach.
+Ta macierz jest częścią lokalnego QA biblioteki. Każdy nowy layout, wariant sekcji i zmiana breakpointu należy sprawdzić przy wszystkich poniższych szerokościach.
 
 | Szerokość viewportu | Cel kontroli |
 | ---: | --- |

@@ -1,5 +1,5 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import GalleryLayout from '@layouts/GalleryLayout.astro';
 import Section from '@components/ui/layout/Section.astro';
 import Container from '@components/ui/layout/Container.astro';
 import Card from '@components/ui/atoms/Card.astro';
@@ -14,8 +14,8 @@ interface Props {
 }
 
 const { selected } = Astro.props;
-const frameHref = `/dev/components/preview/${encodeURIComponent(selected.sectionId)}/${encodeURIComponent(selected.variantId)}/`;
-const thumbnailHref = `/dev/components/thumbnail/${encodeURIComponent(selected.sectionId)}/${encodeURIComponent(selected.variantId)}/`;
+const frameHref = `/components/preview/${encodeURIComponent(selected.sectionId)}/${encodeURIComponent(selected.variantId)}/`;
+const thumbnailHref = `/components/thumbnail/${encodeURIComponent(selected.sectionId)}/${encodeURIComponent(selected.variantId)}/`;
 const copyPrompt = galleryCopy.copyPromptText
   .replace('{uid}', String(selected.uid))
   .replace('{sectionId}', selected.sectionId)
@@ -23,7 +23,7 @@ const copyPrompt = galleryCopy.copyPromptText
   .replace('{componentName}', selected.componentName);
 ---
 
-<Layout title={`${selected.sectionLabel} / ${selected.variantId}`} noIndex={true} theme="default" bodyClass="component-preview-page" enableLenis={false}>
+<GalleryLayout title={`${selected.sectionLabel} / ${selected.variantId}`} theme="default" bodyClass="component-preview-page" enableLenis={false}>
   <Section tone="page" class="min-h-screen">
     <Container class="py-8 sm:py-12 lg:py-16">
       <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -34,7 +34,7 @@ const copyPrompt = galleryCopy.copyPromptText
           <Text variant="body" class="text-brand-dark/60">{selected.hint || galleryCopy.fallbackHint}</Text>
         </div>
         <div class="flex flex-wrap gap-3 sm:justify-end">
-          <Button href="/dev/components/" variant="outline" size="md">{galleryCopy.backToLibraryLabel}</Button>
+          <Button href="/" variant="outline" size="md">{galleryCopy.backToLibraryLabel}</Button>
           <Button href={thumbnailHref} variant="primary" size="md" target="_blank" rel="noreferrer">
             {galleryCopy.openThumbnailLabel}
           </Button>
@@ -71,7 +71,7 @@ const copyPrompt = galleryCopy.copyPromptText
       </Card>
     </Container>
   </Section>
-</Layout>
+</GalleryLayout>
 
 <script is:inline>
   const previewFrame = document.getElementById('component-preview-frame');

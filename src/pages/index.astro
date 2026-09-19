@@ -1,4 +1,9 @@
 ---
-// Library home: the gallery is the product, so root redirects to it.
-return Astro.redirect("/dev/components/");
+import ComponentGallery from '@components/dev/component-library/ComponentGallery.astro';
+import { getDeveloperCatalogMetadata } from '@components/dev/component-library/component-catalog-metadata';
+
+const catalog = getDeveloperCatalogMetadata();
+const selectedSectionId = 'all';
 ---
+
+<ComponentGallery catalog={catalog} activeSectionId={selectedSectionId} />

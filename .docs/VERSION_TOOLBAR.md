@@ -4,7 +4,7 @@
 
 VersionToolbar (`src/components/dev/VersionToolbar.astro`) to sticky pasek na dole strony, aktywny tylko w dev. Skanuje DOM w poszukiwaniu grup `data-version-group` i pozwala przełączać wersje UI bez reloadu: klik w pasek albo parametr `?sv=` w URL.
 
-Jest podpięty raz w `src/layouts/Layout.astro` (import + render na końcu `<body>`), więc działa na każdej stronie projektu. Nie trzeba go nigdzie dodawać ani szukać. Demo: `/dev/demo/` z parametrem `?vt=1`.
+Jest podpięty raz w `src/layouts/GalleryLayout.astro` (import oraz render na końcu `<body>`), więc działa na lokalnych stronach galerii. Nie dodawaj nowych tras developerskich. Podgląd uruchamiaj z poziomu rootu `/`.
 
 ## Jak włączyć
 

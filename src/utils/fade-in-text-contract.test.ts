@@ -25,7 +25,7 @@ describe('minimalny kontrakt Fade In Text', () => {
 		const heroSplit = read('src/components/registry/hero/HeroSplitBlock.astro');
 		const features = read('src/components/registry/services/FeaturesBlock.astro');
 		const portfolio = read('src/components/registry/portfolio/PortfolioBentoBlock.astro');
-		const layout = read('src/layouts/Layout.astro');
+		const layout = read('src/layouts/GalleryLayout.astro');
 		const section = read('src/components/ui/layout/Section.astro');
 
 		expect(motion).toContain("document.addEventListener('astro:page-load'");
@@ -87,7 +87,7 @@ describe('minimalny kontrakt Fade In Text', () => {
 
 	it('ładuje globalny CSS i runtime w Layoucie', () => {
 		const globalStyles = read('src/styles/global.css');
-		const layout = read('src/layouts/Layout.astro');
+		const layout = read('src/layouts/GalleryLayout.astro');
 
 		expect(globalStyles).toContain('@import "./motion.css";');
 		expect(layout).toContain('src="/js/motion.js"');

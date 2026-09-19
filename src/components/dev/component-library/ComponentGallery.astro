@@ -1,5 +1,5 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import GalleryLayout from '@layouts/GalleryLayout.astro';
 import Section from '@components/ui/layout/Section.astro';
 import Container from '@components/ui/layout/Container.astro';
 import Card from '@components/ui/atoms/Card.astro';
@@ -136,11 +136,11 @@ const clientTabs = [
 ];
 
 function previewHref(item: DeveloperCatalogMetadata) {
-  return `/dev/components/${encodeURIComponent(item.sectionId)}/${encodeURIComponent(item.variantId)}/`;
+  return `/components/${encodeURIComponent(item.sectionId)}/${encodeURIComponent(item.variantId)}/`;
 }
 
 function frameHref(item: DeveloperCatalogMetadata) {
-  return `/dev/components/thumbnail/${encodeURIComponent(item.sectionId)}/${encodeURIComponent(item.variantId)}/`;
+  return `/components/thumbnail/${encodeURIComponent(item.sectionId)}/${encodeURIComponent(item.variantId)}/`;
 }
 
 function copyPrompt(item: DeveloperCatalogMetadata) {
@@ -181,10 +181,9 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
 }
 ---
 
-<Layout
+<GalleryLayout
   title={galleryCopy.title}
   description={galleryCopy.description}
-  noIndex={true}
   theme="default"
   bodyClass="component-library"
   enableLenis={false}
@@ -402,7 +401,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
       </div>
     </Container>
   </Section>
-</Layout>
+</GalleryLayout>
 
 <script is:inline>
   (() => {
@@ -669,10 +668,10 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
 
       // Why: categories filter in place (like customers) instead of navigating,
       // so that switching does not reload the page. We update the URL by
-      // history.pushState, so deep links /dev/components/library/<id>/
+      // history.pushState, so deep links /library/<id>/
       // they still work (the server renders the same directory with the active section).
       const sectionHref = (sectionId) => (
-        sectionId === 'all' ? '/dev/components/' : `/dev/components/library/${encodeURIComponent(sectionId)}/`
+        sectionId === 'all' ? '/' : `/library/${encodeURIComponent(sectionId)}/`
       );
 
       // Why: Polish variation of the number of variants (1 variant, 2-4 variants,

@@ -1,0 +1,17 @@
+---
+import ComponentGallery from '@components/dev/component-library/ComponentGallery.astro';
+import { getDeveloperCatalogMetadata } from '@components/dev/component-library/component-catalog-metadata';
+
+export function getStaticPaths() {
+	const catalog = getDeveloperCatalogMetadata();
+	return [...new Set(catalog.map((item) => item.groupId))].map((section) => ({
+		params: { section },
+		props: { catalog },
+	}));
+}
+
+const { catalog } = Astro.props;
+const activeSectionId = Astro.params.section || 'all';
+---
+
+<ComponentGallery catalog={catalog} activeSectionId={activeSectionId} />
