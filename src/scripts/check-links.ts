@@ -34,10 +34,9 @@ if (fs.existsSync(distDir)) {
     cwd: distDir,
     ignore: ['**/qa/**', '**/dev/**'],
   });
-  targets = targets.concat(distHtml.map((f) => `dist/${f}`));
 
-  // Static Astro output is the authoritative route list for generated pages,
-  // including concrete paths produced from dynamic routes such as blog slugs.
+  // Build output supplies concrete dynamic routes, but is audited separately by
+  // check:build-output. Scanning it here would treat component fixtures as pages.
   for (const file of distHtml) {
     const route = `/${file.replace(/\\/g, '/').replace(/index\.html$/, '').replace(/\.html$/, '')}`;
     routes.validRoutes.add(route === '/' ? '/' : route.replace(/\/$/, ''));

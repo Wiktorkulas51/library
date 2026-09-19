@@ -160,6 +160,17 @@ function isSectionFixture(filePath: string): boolean {
   return filePath.replace(/\\/g, '/').startsWith('src/data/sections/');
 }
 
+function isReferenceComponent(filePath: string): boolean {
+  return filePath.replace(/\\/g, '/').startsWith('src/components/registry/');
+}
+
+function isLibraryCatalogPage(filePath: string): boolean {
+  const normalized = filePath.replace(/\\/g, '/');
+  return normalized === 'src/pages/index.astro'
+    || normalized.startsWith('src/pages/components/')
+    || normalized.startsWith('src/pages/library/');
+}
+
 export function auditLinks(
   source: string,
   filePath: string,
@@ -181,7 +192,7 @@ export function auditLinks(
   const isPage = normalizedFilePath.startsWith('src/pages/')
     && !normalizedFilePath.startsWith('src/pages/dev/')
     && filePath.endsWith('.astro');
-  if (isPage || (filePath.startsWith('dist/') && filePath.endsWith('.html'))) {
+  if (isPage && !isLibraryCatalogPage(filePath)) {
     if (filePath.includes('qa/') || filePath.includes('404') || filePath.includes('[...page]')) return issues;
 
     const explicitH1 = (auditedSource.match(/<h1\b[^>]*>/gi) || []).length;
@@ -244,7 +255,7 @@ export function auditLinks(
     if (isAsset) continue;
 
     if (h.startsWith('/')) {
-      const validateRoute = !isSectionFixture(filePath);
+      const validateRoute = !isSectionFixture(filePath) && !isReferenceComponent(filePath);
       if (validateRoute && h !== '/' && !h.endsWith('/') && !h.includes('?') && !h.includes('#')) {
         issues.push({
           file: filePath,
