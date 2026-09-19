@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "Home | Company Name",
+    "description": "Professional websites for businesses. We design modern, fast and effective websites that attract customers."
+  },
+  "heading": "Your trusted partner in the construction industry",
+  "sections": [
+    { "id": "navbar", "variant": "floating" },
+    { "id": "heroSplit", "variant": "default" },
+    { "id": "features", "variant": "default" },
+    { "id": "portfolio", "variant": "bento" },
+    { "id": "about", "variant": "default" },
+    { "id": "processTimelineScroll", "variant": "default" },
+    { "id": "testimonials", "variant": "marquee" },
+    { "id": "faq", "variant": "simple" },
+    { "id": "contactInfoForm", "variant": "default" },
+    { "id": "footer", "variant": "columns" }
+  ]
+}

@@ -1,0 +1,20 @@
+#!/bin/sh
+# Pre-commit hook: sprawdza polskie znaki w treściach strony
+# Wywoływany przez GitButler pre-commit hook z tego samego katalogu
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+PROJECT_NAME=$(node -p "require('./package.json').name" 2>/dev/null || true)
+
+if [ "$PROJECT_NAME" = "starter-kit" ]; then
+  echo "ℹ️ Starter kit: pomijam blokadę placeholderów danych klienta."
+else
+  echo "🔍 Sprawdzam polskie znaki w treściach..."
+  node ./node_modules/tsx/dist/cli.mjs src/scripts/check-content.ts || exit 1
+fi
+
+echo "🔒 Sprawdzam hardcoded treści (JSON jako SSOT)..."
+node ./node_modules/tsx/dist/cli.mjs src/scripts/check-hardcoded.ts || exit 1
+
+echo "🎬 Sprawdzam stare tokeny animacji..."
+node ./node_modules/tsx/dist/cli.mjs src/scripts/check-legacy-motion.ts || exit 1

@@ -1,0 +1,77 @@
+---
+import Section from "@components/ui/layout/Section.astro";
+import SectionHeader from "@components/ui/molecules/SectionHeader.astro";
+import FaqAccordionItem from "@components/ui/molecules/FaqAccordionItem.astro";
+import { resolveLocaleContent } from "@utils/normalization";
+import data from "@data/sections/faq-accordion.json";
+
+// FaqAccordionBlock mirrors the source FAQ section.
+// Marek-jodlowski (FaqSimpleBlock, "simple" variant used on client site):
+// accordion with <details> where the first question is by default open, header
+// section with the section-heading-lg variant (larger than standard) and label
+// in the right side. Content input was taken over by the global motion mechanism.
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+export interface Props {
+  /** Section ID, default "faq".*/
+  sectionId?: string;
+  /** Content language with JSON. PL is the default language for this section copy.*/
+  lang?: "pl" | "en";
+  title?: string;
+  description?: string;
+  tagline?: string;
+  items?: FaqItem[];
+  /** Section header tag: 'h2' by default, 'h1' when the block is the first section of a page without hero (SEO).*/
+  headingTag?: string;
+  /** Additional classes per section (e.g. with PageBuilder).*/
+  class?: string;
+}
+
+const {
+  sectionId = "faq",
+  lang = "pl",
+  title,
+  description,
+  tagline,
+  items,
+  headingTag = "h2",
+  class: className = "",
+} = Astro.props as Props;
+
+const t = resolveLocaleContent(data, lang);
+
+// Why: "props || json" pattern to make the block work independently with the data
+// sections, and PageBuilder or CMS could overwrite any text.
+const resolvedTitle = title || t.title;
+const resolvedDescription = description || t.description;
+const resolvedTagline = tagline || t.tagline;
+const list = items && items.length > 0 ? items : t.items;
+---
+
+<Section id={sectionId} tone="page" class:list={["ui-bg-page", className]}>
+  <div class="ui-container">
+    <!-- Why: section header with the section-heading-lg variant (as in the original
+         client) and a max-in-3xl limitation so that the lead does not spread throughout
+         width.-->
+    <SectionHeader
+            title={resolvedTitle}
+            description={resolvedDescription}
+            tagline={resolvedTagline}
+            titleVariant="section-heading-lg"
+            titleTag={headingTag}
+            align="center"
+            class="max-w-3xl"
+    />
+
+    <!-- Why: shared FaqAccordionItem molecule keeps item markup identical across
+         flat FAQ variants. First question open by default (open on idx 0).-->
+    <div class="mx-auto mt-12 w-full max-w-2xl space-y-2" data-accordion>
+      {list.map((item, idx) => (
+        <FaqAccordionItem q={item.q} a={item.a} open={idx === 0} answerClass="faq-answer" />
+      ))}
+    </div>
+  </div>
+</Section>

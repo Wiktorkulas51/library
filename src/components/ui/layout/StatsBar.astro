@@ -1,0 +1,30 @@
+---
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+
+type Stat = {
+  value: string;
+  label: string;
+};
+
+interface Props {
+  stats: Stat[];
+  class?: string;
+}
+
+const { stats = [], class: className = "" } = Astro.props as Props;
+---
+
+<div
+  class:list={[
+    "ui-stats-bar grid grid-cols-2 rounded-t-[var(--rounded-lg)] bg-brand-dark px-[clamp(1rem,3vw,2.5rem)] py-[clamp(2rem,3vw,2.5rem)] text-brand-light md:grid-cols-4",
+    className,
+  ]}
+>
+  {stats.map((stat) => (
+    <div class="relative flex flex-col items-center gap-[0.35rem] px-[clamp(1.25rem,2.5vw,2rem)] text-center md:[&:not(:first-child)]:before:absolute md:[&:not(:first-child)]:before:inset-y-[25%] md:[&:not(:first-child)]:before:left-0 md:[&:not(:first-child)]:before:w-px md:[&:not(:first-child)]:before:bg-brand-light/20 md:[&:not(:first-child)]:before:content-['']">
+      <Heading tag="strong" variant="section-heading-lg" class="text-brand-accent">{stat.value}</Heading>
+      <Text tag="span" variant="feature-body-sm" class="text-inherit">{stat.label}</Text>
+    </div>
+  ))}
+</div>

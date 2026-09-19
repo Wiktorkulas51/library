@@ -1,0 +1,56 @@
+---
+// Why: single source for the plus-icon accordion item shared by the flat FAQ
+// variants (FaqSimpleBlock, FaqAccordionBlock). One markup location stops the
+// variants drifting apart through copy-paste edits.
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+
+export interface Props {
+  q: string;
+  a: string;
+  /** First item open by default (accordion pattern). */
+  open?: boolean;
+  /** Question heading tag. Simple variant uses h4, accordion variant uses h3. */
+  questionTag?: string;
+  /** Question heading classes. Defaults match the accordion client pattern. */
+  questionClass?: string;
+  /** Extra classes for <details> (e.g. "min-w-0"). */
+  detailsClass?: string;
+  /** Extra classes for <summary> (e.g. "min-w-0"). */
+  summaryClass?: string;
+  /** Extra classes for the answer wrapper (e.g. the "faq-answer" hook). */
+  answerClass?: string;
+}
+
+const {
+  q,
+  a,
+  open = false,
+  questionTag = "h3",
+  questionClass = "pr-8 !text-[16px] leading-snug font-medium text-brand-dark/80",
+  detailsClass = "",
+  summaryClass = "",
+  answerClass = "",
+} = Astro.props as Props;
+---
+
+<details
+  class:list={["group ui-bg-surface ui-radius-lg overflow-hidden border border-brand-dark/5", detailsClass]}
+  open={open ? true : undefined}
+>
+  <summary class:list={["flex w-full cursor-pointer list-none select-none items-center justify-between p-4 text-left", summaryClass]}>
+    <Heading tag={questionTag} class={questionClass}>
+      {q}
+    </Heading>
+    <div class="text-brand-primary transition-transform duration-300 group-open:-rotate-45">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+      </svg>
+    </div>
+  </summary>
+  <div class:list={["px-4 pb-4", answerClass]}>
+    <Text variant="feature-body-sm" class="ui-text-on-light-subtle">
+      {a}
+    </Text>
+  </div>
+</details>

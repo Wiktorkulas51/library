@@ -1,0 +1,959 @@
+{
+  "_comment": "Auto-generated. Run: npm run check:baseline-update",
+  "entries": [
+    {
+      "file": "src/components/ui/atoms/Checkbox.astro",
+      "rule": "touch-target",
+      "line": 22,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/FeatureItem.astro",
+      "rule": "atomic-markup",
+      "line": 18,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/Logo.astro",
+      "rule": "missing-min-width",
+      "line": 44,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/Logo.astro",
+      "rule": "missing-width",
+      "line": 29,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/Logo.astro",
+      "rule": "missing-height",
+      "line": 29,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/MockupMedia.astro",
+      "rule": "missing-min-width",
+      "line": 29,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/MockupMedia.astro",
+      "rule": "missing-min-width",
+      "line": 30,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/Toast.astro",
+      "rule": "missing-min-width",
+      "line": 4,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/atoms/card/CardDescription.astro",
+      "rule": "atomic-markup",
+      "line": 9,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/layout/Section.astro",
+      "rule": "atomic-markup",
+      "line": 21,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "missing-min-width",
+      "line": 18,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "missing-min-width",
+      "line": 34,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "touch-target",
+      "line": 22,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "touch-target",
+      "line": 28,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "touch-target",
+      "line": 35,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Floating.astro",
+      "rule": "hover-interaction",
+      "line": 28,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "missing-min-width",
+      "line": 32,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "missing-min-width",
+      "line": 44,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "missing-min-width",
+      "line": 55,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "touch-target",
+      "line": 46,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "touch-target",
+      "line": 50,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "touch-target",
+      "line": 57,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "hover-interaction",
+      "line": 46,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/layouts/Local.astro",
+      "rule": "hover-interaction",
+      "line": 50,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/MobileDrawer.astro",
+      "rule": "missing-min-width",
+      "line": 37,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/MobileDrawer.astro",
+      "rule": "touch-target",
+      "line": 50,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/MobileDrawer.astro",
+      "rule": "touch-target",
+      "line": 57,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/MobileDrawer.astro",
+      "rule": "touch-target",
+      "line": 64,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/MobileDrawer.astro",
+      "rule": "touch-target",
+      "line": 71,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "mobile-first-layout",
+      "line": 16,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "missing-min-width",
+      "line": 8,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "missing-min-width",
+      "line": 27,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "touch-target",
+      "line": 9,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "touch-target",
+      "line": 18,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "touch-target",
+      "line": 28,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Navbar/shared/NavbarMainCentered.astro",
+      "rule": "hover-interaction",
+      "line": 18,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 23,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 24,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 32,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 34,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 50,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "missing-min-width",
+      "line": 59,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "touch-target",
+      "line": 37,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "touch-target",
+      "line": 56,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "touch-target",
+      "line": 61,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "hover-interaction",
+      "line": 37,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "hover-interaction",
+      "line": 56,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/Footer.astro",
+      "rule": "hover-interaction",
+      "line": 61,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "atomic-markup",
+      "line": 14,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "atomic-markup",
+      "line": 19,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "missing-min-width",
+      "line": 9,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "missing-min-width",
+      "line": 10,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "missing-min-width",
+      "line": 11,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "missing-min-width",
+      "line": 23,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "touch-target",
+      "line": 20,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "touch-target",
+      "line": 24,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "touch-target",
+      "line": 31,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "hover-interaction",
+      "line": 20,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "hover-interaction",
+      "line": 24,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/ui/molecules/CookieConsent.astro",
+      "rule": "hover-interaction",
+      "line": 31,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqFlatBlock.astro",
+      "rule": "missing-min-width",
+      "line": 47,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqFlatBlock.astro",
+      "rule": "missing-min-width",
+      "line": 49,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqGridBlock.astro",
+      "rule": "missing-min-width",
+      "line": 55,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqGridBlock.astro",
+      "rule": "missing-min-width",
+      "line": 57,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqGridBlock.astro",
+      "rule": "missing-min-width",
+      "line": 66,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqGroupedBlock.astro",
+      "rule": "missing-min-width",
+      "line": 67,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "missing-min-width",
+      "line": 53,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "missing-min-width",
+      "line": 69,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "touch-target",
+      "line": 58,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "touch-target",
+      "line": 99,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "empty-href",
+      "line": 99,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "hover-interaction",
+      "line": 58,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqListBlock.astro",
+      "rule": "hover-interaction",
+      "line": 99,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FaqSimpleBlock.astro",
+      "rule": "missing-min-width",
+      "line": 53,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "atomic-markup",
+      "line": 70,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "atomic-markup",
+      "line": 89,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "atomic-markup",
+      "line": 119,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "atomic-markup",
+      "line": 123,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 33,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 41,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 91,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 92,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 102,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 103,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 117,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "missing-min-width",
+      "line": 128,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "touch-target",
+      "line": 35,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "touch-target",
+      "line": 74,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "touch-target",
+      "line": 124,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "touch-target",
+      "line": 132,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "hover-interaction",
+      "line": 74,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "hover-interaction",
+      "line": 95,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "hover-interaction",
+      "line": 106,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "hover-interaction",
+      "line": 124,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterColumnsBlock.astro",
+      "rule": "hover-interaction",
+      "line": 132,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "atomic-markup",
+      "line": 24,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "atomic-markup",
+      "line": 60,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "atomic-markup",
+      "line": 63,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "missing-min-width",
+      "line": 23,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "missing-min-width",
+      "line": 30,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "touch-target",
+      "line": 34,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "touch-target",
+      "line": 46,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "touch-target",
+      "line": 64,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "hover-interaction",
+      "line": 34,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "hover-interaction",
+      "line": 46,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterMinimalBlock.astro",
+      "rule": "hover-interaction",
+      "line": 64,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 86,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 105,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 140,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 141,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 157,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 52,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 60,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 107,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 108,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 118,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 119,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 134,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 139,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 156,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 162,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "touch-target",
+      "line": 54,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "touch-target",
+      "line": 90,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "touch-target",
+      "line": 166,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "hover-interaction",
+      "line": 90,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "hover-interaction",
+      "line": 111,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "hover-interaction",
+      "line": 122,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/FooterPromoBlock.astro",
+      "rule": "hover-interaction",
+      "line": 166,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 31,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 33,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 37,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 50,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 52,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/MarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 56,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioBentoBlock.astro",
+      "rule": "missing-min-width",
+      "line": 40,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCarouselBlock.astro",
+      "rule": "missing-min-width",
+      "line": 35,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCarouselBlock.astro",
+      "rule": "missing-min-width",
+      "line": 43,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCarouselBlock.astro",
+      "rule": "touch-target",
+      "line": 44,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCarouselBlock.astro",
+      "rule": "touch-target",
+      "line": 54,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCategorizedBlock.astro",
+      "rule": "missing-min-width",
+      "line": 44,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCategorizedBlock.astro",
+      "rule": "missing-min-width",
+      "line": 60,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioCategorizedBlock.astro",
+      "rule": "touch-target",
+      "line": 46,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "hidden-overflow",
+      "line": 58,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 58,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 60,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 61,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 78,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 98,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 99,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioDoubleMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 116,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioMarqueeBlock.astro",
+      "rule": "hidden-overflow",
+      "line": 54,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 54,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 55,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/PortfolioMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 84,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/ShadcnDemoBlock.astro",
+      "rule": "atomic-markup",
+      "line": 21,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/TestimonialsMarqueeBlock.astro",
+      "rule": "hidden-overflow",
+      "line": 91,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/TestimonialsMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 91,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/TestimonialsMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 92,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    },
+    {
+      "file": "src/components/registry/TestimonialsMarqueeBlock.astro",
+      "rule": "missing-min-width",
+      "line": 103,
+      "reason": "Pre-existing — do refaktoryzacji w osobnym tasku"
+    }
+  ]
+}

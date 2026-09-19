@@ -1,0 +1,30 @@
+{
+  "menu": [
+    { "label": "About", "href": "/about/" },
+    {
+      "label": "Services",
+      "href": "/services/",
+      "children": [
+        { "label": "Websites", "href": "/services/websites/" },
+        { "label": "Online Stores", "href": "/services/shops/" },
+        { "label": "SEO & Marketing", "href": "/services/seo/" }
+      ]
+    },
+    { "label": "Portfolio", "href": "/portfolio/" },
+    { "label": "Pricing", "href": "/pricing/" },
+    { "label": "Blog", "href": "/blog/" }
+  ],
+  "cta": {
+    "label": "Contact",
+    "href": "/contact/",
+    "prefix": "",
+    "hoverLabel": "Get in touch!"
+  },
+  "aria": {
+    "menuOpen": "Navigation menu",
+    "menuClose": "Close menu",
+    "menuExpand": "Expand subpages",
+    "navMain": "Main navigation",
+    "drawer": "Navigation menu"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "pl": {
+    "eyebrow": "Nasza oferta",
+    "heading": "Umów bezpłatną konsultację",
+    "description": "Opowiedz nam o swoim projekcie, a my zaproponujemy najlepsze rozwiązanie.",
+    "ctaLabel": "Skontaktuj się",
+    "ctaHover": "Napisz do nas",
+    "ctaHref": "/kontakt/"
+  },
+  "en": {
+    "eyebrow": "Our offer",
+    "heading": "Book a free consultation",
+    "description": "Tell us about your project and we will suggest the best solution.",
+    "ctaLabel": "Contact us",
+    "ctaHover": "Write to us",
+    "ctaHref": "/kontakt/"
+  },
+  "image": {
+    "src": "/assets/placeholders/image-landscape.svg",
+    "alt": "Przykładowy obrazek krajobrazowy ukazujący styl projektu"
+  }
+}

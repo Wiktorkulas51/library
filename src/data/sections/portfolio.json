@@ -1,0 +1,84 @@
+{
+  "title": "Wybrane realizacje",
+  "description": "Starannie dobrana kolekcja naszych najlepszych projektów, ukazująca dbałość o szczegóły i doskonałość w designie.",
+  "tagline": "Portfolio",
+  "variants": {
+    "bento": {
+      "title": "Wybrane realizacje",
+      "description": "Starannie dobrana kolekcja naszych najlepszych projektów, ukazująca dbałość o szczegóły i doskonałość w designie.",
+      "tagline": "Portfolio"
+    },
+    "carousel": {
+      "title": "Odkryj nasze projekty",
+      "description": "Przewijaj, przesuwaj lub użyj strzałek, aby przeglądać ostatnie realizacje.",
+      "tagline": "Galeria",
+      "ariaPrevProject": "Poprzedni projekt",
+      "ariaNextProject": "Następny projekt"
+    },
+    "categorized": {
+      "title": "Nasze portfolio",
+      "description": "Przeglądaj nasz bogaty katalog zrealizowanych projektów w różnych kategoriach.",
+      "tagline": "Projekty"
+    },
+    "marquee": {
+      "title": "Odkryj nasze projekty",
+      "description": "Poznaj nasze najnowsze realizacje w płynącej prezentacji.",
+      "tagline": "Galeria"
+    },
+    "doubleMarquee": {
+      "title": "Odkryj nasze projekty",
+      "description": "Poznaj nasze najnowsze realizacje płynące w wielu kierunkach.",
+      "tagline": "Galeria"
+    },
+    "masonry": {
+      "title": "Nasze najnowsze realizacje",
+      "description": "Poznaj nasze ostatnie prace i zobacz, jak realizujemy pomysły z precyzją i dbałością o szczegóły.",
+      "tagline": "Portfolio"
+    }
+  },
+  "categories": ["Wszystkie", "Mieszkalne", "Komercyjne", "Wnętrza", "Zieleń"],
+  "items": [
+    { 
+      "title": "Szklany Dom", 
+      "category": "Mieszkalne", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-2 md:row-span-2",
+      "height": "h-[400px]"
+    },
+    { 
+      "title": "Minimalistyczny Loft", 
+      "category": "Wnętrza", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-1 md:row-span-1",
+      "height": "h-[300px]"
+    },
+    { 
+      "title": "Miejska Oaza", 
+      "category": "Zieleń", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-1 md:row-span-1",
+      "height": "h-[350px]"
+    },
+    { 
+      "title": "Nadmorski Azyl", 
+      "category": "Mieszkalne", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-2 md:row-span-1",
+      "height": "h-[450px]"
+    },
+    { 
+      "title": "Nowoczesne Biuro", 
+      "category": "Komercyjne", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-1 md:row-span-1",
+      "height": "h-[350px]"
+    },
+    { 
+      "title": "Luksusowa Łazienka", 
+      "category": "Wnętrza", 
+      "img": "/assets/placeholders/image-landscape.svg",
+      "span": "md:col-span-1 md:row-span-1",
+      "height": "h-[300px]"
+    }
+  ]
+}

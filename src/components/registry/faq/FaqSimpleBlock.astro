@@ -1,0 +1,63 @@
+---
+import Section from "@components/ui/layout/Section.astro";
+import SectionHeader from "@components/ui/molecules/SectionHeader.astro";
+import FaqAccordionItem from "@components/ui/molecules/FaqAccordionItem.astro";
+import faqData from "@data/sections/faq.json";
+
+// FaqSimpleBlock is the FAQ variant without categories.
+// Simpler than FaqListBlock, ideal for pages with few questions.
+// It doesn't group questions, it just displays them as a flat list with accordion.
+interface FaqItem {
+	q: string;
+	a: string;
+}
+
+interface Props {
+	class?: string;
+	title?: string;
+	description?: string;
+	tagline?: string;
+	items?: FaqItem[];
+	/** Section header tag: 'h2' by default, 'h1' when the block is the first section of a page without hero (SEO).*/
+	headingTag?: string;
+}
+
+const { 
+	class: className = "", 
+	title = faqData.title, 
+	description = faqData.description,
+	tagline = faqData.tagline,
+	headingTag = "h2",
+	items
+} = Astro.props;
+
+// Why: fallback to faqData.items when the customer does not provide their own questions.
+// Enables you to preview a component with demo data.
+const list = items && items.length > 0 ? items : faqData.items;
+---
+
+<Section class:list={["ui-bg-page", className]}>
+	<div class="ui-container">
+		<SectionHeader 
+			title={title}
+			description={description}
+			tagline={tagline}
+			titleTag={headingTag}
+			align="center"
+		/>
+
+		<!-- Why: shared FaqAccordionItem molecule keeps item markup identical across flat FAQ variants.-->
+		<div class="w-full max-w-2xl mx-auto mt-12 space-y-2" data-accordion>
+			{list.map((item) => (
+				<FaqAccordionItem
+					q={item.q}
+					a={item.a}
+					questionTag="h4"
+					questionClass="pr-8 !text-[16px] leading-snug !font-sans !font-semibold text-brand-dark/80"
+					detailsClass="min-w-0"
+					summaryClass="min-w-0"
+				/>
+			))}
+		</div>
+	</div>
+</Section>

@@ -1,0 +1,928 @@
+<div
+  class="relative p-8 shadow bg-linear-180 outline outline-border from-muted to-background lg:p-16 rounded-xl"
+>
+  <div class="max-w-xl mx-auto text-center lg:text-balance">
+    <div class="absolute inset-x-0 z-10 flex justify-center -top-10">
+      <div class="inline-block p-4 rounded-2xl bg-muted">
+        <svg
+          class="h-12 text-foreground"
+          viewBox="0 0 2895 2895"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1936.72 1316.69V1677.28L1700.54 1540.97V1452.99L1537.73 1359.06L1461.65 1315.07V1042.46L1536.29 1085.55L1773.92 1222.76L1936.72 1316.69Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M988.017 1041.56V1315.79L913.191 1359.06L753.454 1451.19V1537.55L516.003 1674.75V1314.16L675.746 1221.85L911.752 1085.55L988.017 1041.56Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M2408.73 1044.08L2096.46 1224.38L1936.72 1316.69L1773.92 1222.75L1536.29 1085.55L1461.65 1042.46L1621.57 950.15L1696.21 907.06L1933.65 769.856L2408.73 1044.08Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1696.23 632.653L1383.96 812.947L1224.03 905.257L1061.23 811.324L748.96 631.03L1221.15 358.425L1696.23 632.653Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M988.023 1041.56L911.761 1085.55L675.754 1221.85L516.012 1314.16L353.21 1220.05L40.9387 1039.76L512.947 767.333L748.954 903.635L825.218 947.627L988.023 1041.56Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M2408.73 1044.08V1404.67L1936.72 1677.28V1316.69L2096.46 1224.38L2408.73 1044.08Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1700.55 1452.99V1813.58L1228.54 2086.18V1725.59L1388.28 1633.28L1624.47 1496.98L1700.55 1452.99Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1700.55 1452.99L1624.47 1496.98L1388.28 1633.28L1228.54 1725.59L1065.74 1631.48L828.288 1494.46L753.468 1451.19L913.207 1359.06L988.031 1315.79L1149.39 1222.75L1224.03 1179.66L1225.48 1178.76L1300.12 1221.85L1461.66 1315.07L1537.75 1359.06L1700.55 1452.99Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1228.54 1725.59V2086.18L753.468 1811.77V1451.19L828.288 1494.46L1065.74 1631.48L1228.54 1725.59Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M516.012 1314.16V1674.75L40.9387 1400.34V1039.76L353.21 1220.05L516.012 1314.16Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1696.22 632.651V907.059L1621.58 950.149L1461.66 1042.46V1128.64L1300.12 1221.85L1225.47 1178.76L1224.03 1179.66V905.256L1383.95 812.945L1696.22 632.651Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M1224.03 905.257V1179.66L1149.39 1222.75L988.03 1129.54V1041.56L825.225 947.626L748.96 903.634V631.029L1061.23 811.323L1224.03 905.257Z"
+            stroke="currentColor"
+            stroke-width="18.0294"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <h2
+      class="text-2xl md:text-3xl lg:text-4xl mt-12 font-semibold tracking-tight text-foreground lg:text-balance"
+    >
+      Unlock your team's potential
+    </h2>
+    <p class="text-sm mt-4 text-muted-foreground lg:text-balance">
+      Simple, powerful tools to help you collaborate, organize, and launch
+      faster. No clutter, just what you need to succeed.
+    </p>
+    <div
+      class="flex flex-wrap items-center justify-center mt-8 text-foreground gap-y-2 gap-x-8"
+    >
+      <p class="text-sm">Trusted by thousands</p>
+      <p class="text-sm">100% focused on your growth</p>
+      <p class="text-sm">Independently built, always improving</p>
+    </div>
+    <button
+      class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-background bg-foreground outline outline-foreground hover:opacity-90 focus-visible:outline-border h-10 px-5 text-sm gap-2 flex mx-auto mt-8 w-fit"
+    >
+      Try it free <span aria-hidden="true">—</span>No credit card needed
+    </button>
+  </div>
+</div>
+
+---
+
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:items-end gap-8">
+  <div>
+    <h3
+      class="text-xl sm:text-xl md:text-2xl font-semibold tracking-tighter text-foreground text-balance"
+    >
+      Break the scroll cycle — rediscover your focus in
+      <span class="text-foreground">one week</span>.
+    </h3>
+    <div class="flex flex-wrap mt-4 sm:items-center gap-4">
+      <button
+        class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-accent-foreground bg-brand outline outline-brand hover:opacity-90 focus-visible:outline-border h-9 px-4 text-sm"
+      >
+        Focus up now
+      </button>
+      <div class="text-xs text-muted-foreground lg:items-center">
+        <span class="block"
+          >4.9/5 from people who finally finished a project</span
+        >
+        <span class="block">(and didn’t check their phone once)</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p class="text-base text-muted-foreground text-balance">
+      Designed for anyone juggling endless tabs, constant pings, and the urge to
+      unplug.
+    </p>
+    <div class="flex flex-col mt-8 md:flex-row lg:items-center gap-2">
+      <div class="flex -space-x-2">
+        <img
+          src="/_astro/1.DY3DawfE_ZpGnqN.webp"
+          alt="#_"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="auto"
+          width="200"
+          height="200"
+          class="inline-block object-cover object-center rounded-full size-8 outline-2 outline-border"
+        /><img
+          src="/_astro/2.BjsEma6b_ZriRIh.webp"
+          alt="#_"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="auto"
+          width="200"
+          height="200"
+          class="inline-block object-cover object-center rounded-full size-8 outline-2 outline-border"
+        /><img
+          src="/_astro/3.B0zvZgFW_2irCUt.webp"
+          alt="#_"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="auto"
+          width="200"
+          height="200"
+          class="inline-block object-cover object-center rounded-full size-8 outline-2 outline-border"
+        /><img
+          src="/_astro/4.DJTHqGk9_2ahWkI.webp"
+          alt="#_"
+          loading="lazy"
+          decoding="async"
+          fetchpriority="auto"
+          width="200"
+          height="200"
+          class="inline-block object-cover object-center rounded-full size-8 outline-2 outline-border"
+        />
+      </div>
+      <div class="text-xs text-muted-foreground lg:items-center">
+        <span class="block">Loved by introverts, deep thinkers,</span>
+        <span class="block"> and anyone who values quiet focus.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+---
+
+<div class="max-w-xl mx-auto text-center lg:text-balance">
+  <h2
+    class="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground lg:text-balance"
+  >
+    Oxbow is now available for desktop
+  </h2>
+  <p class="text-sm mt-4 text-muted-foreground lg:text-balance">
+    The wait is over—download the app and get started instantly.
+  </p>
+</div>
+<dl
+  class="max-w-3xl mx-auto mt-10 text-left grid grid-cols-1 md:grid-cols-2 gap-4"
+>
+  <div
+    class="p-8 bg-linear-180 outline outline-border from-muted to-background rounded-xl"
+  >
+    <div>
+      <dt>
+        <h3
+          class="text-lg md:text-xl font-semibold tracking-tight text-foreground"
+        >
+          Take charge of your workflow before it takes charge of you.
+        </h3>
+      </dt>
+      <dd>
+        <p class="text-base mt-2 text-muted-foreground">
+          Tailor it your way—whether you’re a pro or just figuring it out.
+        </p>
+      </dd>
+    </div>
+    <dd class="pt-4 mt-4 border-t border-border">
+      <p class="text-sm text-sm text-muted-foreground">
+        Say goodbye to outdated tools and upgrade to a modern experience.
+      </p>
+    </dd>
+  </div>
+  <div
+    class="p-8 bg-linear-180 outline outline-border from-muted to-background rounded-xl"
+  >
+    <div>
+      <dt>
+        <h3
+          class="text-lg md:text-xl font-semibold tracking-tight text-foreground"
+        >
+          Work smarter, not harder—your process, your rules.
+        </h3>
+      </dt>
+      <dd>
+        <p class="text-base mt-2 text-muted-foreground">
+          Easy to customize, simple to use, no expertise required.
+        </p>
+      </dd>
+    </div>
+    <dd class="pt-4 mt-4 border-t border-border">
+      <p class="text-sm text-sm text-muted-foreground">
+        It just works. No manuals, no confusion—just productivity.
+      </p>
+    </dd>
+  </div>
+</dl>
+<div class="flex flex-wrap items-center justify-center mt-8 gap-2">
+  <button
+    class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-background bg-foreground outline outline-foreground hover:opacity-90 focus-visible:outline-border h-10 px-5 text-sm shrink-0"
+  >
+    Get Mac version
+  </button>
+  <button
+    class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-accent-foreground bg-brand outline outline-brand hover:opacity-90 focus-visible:outline-border h-10 px-5 text-sm shrink-0"
+  >
+    Get Windows version
+  </button>
+  <button
+    class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-muted-foreground bg-muted outline outline-border hover:opacity-90 focus-visible:outline-border h-10 px-5 text-sm shrink-0"
+  >
+    Get Linux version
+  </button>
+</div>
+<p class="mt-6 text-xs italic text-muted-foreground">
+  *Still in beta, but ready for real work. Give it a spin!
+</p>
+
+
+---
+
+<div
+  class="items-center max-w-md mx-auto grid grid-cols-1 gap-12 lg:gap-24 lg:max-w-none md:grid-cols-2"
+>
+  <div class="max-w-xl lg:text-balance lg:order-last">
+    <h2
+      class="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground lg:text-balance"
+    >
+      Bring order to your day.
+    </h2>
+    <p class="text-sm mt-4 text-muted-foreground lg:text-balance">
+      We won’t claim to solve everything, but you’ll look (and feel) more
+      organized than ever. Sometimes that’s all you need.
+    </p>
+    <div class="flex flex-col mt-8 gap-4">
+      <div class="flex items-center gap-2 text-muted-foreground">
+        <div
+          class="p-2 text-foreground rounded-lg bg-background outline outline-border"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-circle-check size-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l5 5l10 -10"></path>
+          </svg>
+        </div>
+        <p class="text-sm">
+          Dashboards that impress in meetings—even if you have to explain them
+          later.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-muted-foreground">
+        <div
+          class="p-2 text-foreground rounded-lg bg-background outline outline-border"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-circle-check size-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l5 5l10 -10"></path>
+          </svg>
+        </div>
+        <p class="text-sm">
+          Tasks that organize themselves, so you can focus on what matters (or
+          just scroll in peace).
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-muted-foreground">
+        <div
+          class="p-2 text-foreground rounded-lg bg-background outline outline-border"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-circle-check size-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l5 5l10 -10"></path>
+          </svg>
+        </div>
+        <p class="text-sm">
+          Notifications that keep you informed—without the stress.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 text-muted-foreground">
+        <div
+          class="p-2 text-foreground rounded-lg bg-background outline outline-border"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-circle-check size-4"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l5 5l10 -10"></path>
+          </svg>
+        </div>
+        <p class="text-sm">
+          A UI so simple you’ll think something’s missing. (It’s not—it’s just
+          that clean.)
+        </p>
+      </div>
+    </div>
+    <div class="flex mt-12">
+      <button
+        class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-accent-foreground bg-brand outline outline-brand hover:opacity-90 focus-visible:outline-border h-10 px-5 text-sm"
+      >
+        Get Started Today
+      </button>
+    </div>
+  </div>
+  <div class="h-full">
+    <img
+      src="/_astro/activity.BiMDWJrj_15cNnj.svg"
+      alt="Product showcase"
+      loading="eager"
+      decoding="async"
+      fetchpriority="auto"
+      width="600"
+      height="800"
+      class="w-full rounded-lg shadow outline outline-border"
+    />
+  </div>
+</div>
+
+---
+
+<div class="max-w-xl mx-auto lg:text-balance lg:text-center">
+  <p
+    class="text-xs relative font-semibold uppercase tracking-wide text-muted-foreground"
+  >
+    Surprisingly Helpful Tools
+  </p>
+  <h2
+    class="text-xl md:text-2xl lg:text-3xl mt-12 font-semibold tracking-tight text-foreground lg:text-balance"
+  >
+    Take control of your tasks—before they take control of you
+  </h2>
+</div>
+<dl
+  class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 lg:text-center lg:text-balance"
+>
+  <div>
+    <dt class="flex flex-col text-foreground lg:items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler-external-brain size-5 text-foreground"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"
+        ></path>
+        <path
+          d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"
+        ></path>
+        <path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"></path>
+        <path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"></path>
+        <path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"></path>
+        <path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"></path>
+      </svg>
+      <h3 class="undefined font-semibold text-foreground">
+        Smarter Decisions, Less Effort
+      </h3>
+    </dt>
+    <dd>
+      <p class="text-sm mt-2 text-muted-foreground">
+        Let our AI handle the hard parts, even when you’re not sure what’s next.
+      </p>
+    </dd>
+  </div>
+  <div>
+    <dt class="flex flex-col text-foreground lg:items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler-arrow-tools size-5 text-foreground"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
+        <path d="M14.5 5.5l4 4"></path>
+        <path d="M12 8l-5 -5l-4 4l5 5"></path>
+        <path d="M7 8l-1.5 1.5"></path>
+        <path d="M16 12l5 5l-4 4l-5 -5"></path>
+        <path d="M16 17l-1.5 1.5"></path>
+      </svg>
+      <h3 class="undefined font-semibold text-foreground">Math? Handled.</h3>
+    </dt>
+    <dd>
+      <p class="text-sm mt-2 text-muted-foreground">
+        We do the calculations so you can focus on what matters most.
+      </p>
+    </dd>
+  </div>
+  <div>
+    <dt class="flex flex-col text-foreground lg:items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler-arrow-alert-triangle size-5 text-foreground"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+        ></path>
+        <path
+          d="M9 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+        ></path>
+        <path
+          d="M15 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+        ></path>
+        <path d="M4 20h14"></path>
+      </svg>
+      <h3 class="undefined font-semibold text-foreground">
+        Order in the Chaos
+      </h3>
+    </dt>
+    <dd>
+      <p class="text-sm mt-2 text-muted-foreground">
+        Keep your projects on track before things get out of hand.
+      </p>
+    </dd>
+  </div>
+</dl>
+<div
+  class="items-start p-8 mt-8 bg-linear-180 outline outline-border from-muted to-background rounded-xl grid grid-cols-1 md:grid-cols-2 gap-8"
+>
+  <div>
+    <h3
+      class="text-xl sm:text-xl md:text-2xl font-semibold tracking-tighter text-foreground text-balance"
+    >
+      Try a <span class="text-foreground">7-day free trial</span> and see how
+      much you can get done.
+    </h3>
+    <div class="flex flex-wrap mt-4 sm:items-center gap-4">
+      <button
+        class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-background bg-foreground outline outline-foreground hover:opacity-90 focus-visible:outline-border h-9 px-4 text-sm"
+      >
+        Start free trial
+      </button>
+      <div class="text-xs text-muted-foreground lg:items-center">
+        <span class="block"> 4.8/5 from real users</span>
+        <span class="block"> (and 300+ reviews) </span>
+      </div>
+    </div>
+  </div>
+  <ul
+    class="text-base font-medium list-none text-foreground grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-4"
+    role="list"
+  >
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> No setup, no hassle </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> No credit card required </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Cancel anytime, no worries </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Works on any device </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Instant access, no waiting </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Friendly support, real humans </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Secure and private by default </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Regular updates </span>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-start gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler-circle-check size-4 text-muted-foreground"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z"
+            stroke-width="0"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span class="text-sm"> Built for teams of any size </span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+---
+
+<div
+  class="items-start max-w-md mx-auto grid grid-cols-1 lg:max-w-none md:grid-cols-2 lg:p-20 lg:bg-linear-180 lg:outline lg:outline-border lg:from-background lg:to-background lg:rounded-xl"
+>
+  <div class="lg:pr-24 md:pr-12">
+    <svg
+      class="h-12 text-foreground"
+      viewBox="0 0 2895 2895"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1936.72 1316.69V1677.28L1700.54 1540.97V1452.99L1537.73 1359.06L1461.65 1315.07V1042.46L1536.29 1085.55L1773.92 1222.76L1936.72 1316.69Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M988.017 1041.56V1315.79L913.191 1359.06L753.454 1451.19V1537.55L516.003 1674.75V1314.16L675.746 1221.85L911.752 1085.55L988.017 1041.56Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M2408.73 1044.08L2096.46 1224.38L1936.72 1316.69L1773.92 1222.75L1536.29 1085.55L1461.65 1042.46L1621.57 950.15L1696.21 907.06L1933.65 769.856L2408.73 1044.08Z"
+        fill="currentColor"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1696.23 632.653L1383.96 812.947L1224.03 905.257L1061.23 811.324L748.96 631.03L1221.15 358.425L1696.23 632.653Z"
+        fill="currentColor"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M988.023 1041.56L911.761 1085.55L675.754 1221.85L516.012 1314.16L353.21 1220.05L40.9387 1039.76L512.947 767.333L748.954 903.635L825.218 947.627L988.023 1041.56Z"
+        fill="currentColor"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M2408.73 1044.08V1404.67L1936.72 1677.28V1316.69L2096.46 1224.38L2408.73 1044.08Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1700.55 1452.99V1813.58L1228.54 2086.18V1725.59L1388.28 1633.28L1624.47 1496.98L1700.55 1452.99Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1700.55 1452.99L1624.47 1496.98L1388.28 1633.28L1228.54 1725.59L1065.74 1631.48L828.288 1494.46L753.468 1451.19L913.207 1359.06L988.031 1315.79L1149.39 1222.75L1224.03 1179.66L1225.48 1178.76L1300.12 1221.85L1461.66 1315.07L1537.75 1359.06L1700.55 1452.99Z"
+        fill="currentColor"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1228.54 1725.59V2086.18L753.468 1811.77V1451.19L828.288 1494.46L1065.74 1631.48L1228.54 1725.59Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M516.012 1314.16V1674.75L40.9387 1400.34V1039.76L353.21 1220.05L516.012 1314.16Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1696.22 632.651V907.059L1621.58 950.149L1461.66 1042.46V1128.64L1300.12 1221.85L1225.47 1178.76L1224.03 1179.66V905.256L1383.95 812.945L1696.22 632.651Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+      <path
+        d="M1224.03 905.257V1179.66L1149.39 1222.75L988.03 1129.54V1041.56L825.225 947.626L748.96 903.634V631.029L1061.23 811.323L1224.03 905.257Z"
+        stroke="currentColor"
+        stroke-width="18.0294"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
+    </svg>
+    <h1
+      class="text-xl md:text-2xl lg:text-3xl mt-12 font-semibold tracking-tight text-foreground lg:text-balance"
+    >
+      Finally, a tool that won’t make you question your career choices
+    </h1>
+    <p class="text-base mt-4 font-medium text-muted-foreground">
+      Say goodbye to clunky workflows, endless tabs, and the vague existential
+      dread of “collaboration.”
+    </p>
+    <div class="flex flex-wrap items-center mt-8 gap-2">
+      <button
+        class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-accent-foreground bg-brand outline outline-brand hover:opacity-90 focus-visible:outline-border h-9 px-4 text-sm"
+      >
+        Push the button
+      </button>
+      <button
+        class="relative flex items-center justify-center text-center font-medium transition-colors duration-200 ease-in-out select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:z-10 justify-center rounded-md text-muted-foreground bg-muted outline outline-border hover:opacity-90 focus-visible:outline-border h-9 px-4 text-sm"
+      >
+        Still skeptical?
+      </button>
+    </div>
+    <article role="list" class="pt-6 mt-6 border-t border-border">
+      <div>
+        <figure class="flex flex-col h-full">
+          <blockquote class="text-sm italic font-medium text-muted-foreground">
+            "I used to design dashboards that even I couldn’t navigate. Then I
+            met Oxbow. Now I spend less time crying into my Tailwind sites and
+            more time pretending I&#39;m productive."
+          </blockquote>
+          <figcaption>
+            <div class="flex items-center mt-8 gap-2">
+              <img
+                src="/_astro/1.DY3DawfE_2h7o1Q.webp"
+                alt="Avatar of Tina Byte"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="auto"
+                width="1920"
+                height="1920"
+                class="inline-block rounded-full size-12"
+              />
+              <div>
+                <p class="text-base font-medium text-foreground">Tina Byte</p>
+                <p class="text-sm font-medium text-muted-foreground">
+                  Pixel Pusher at PushButton
+                </p>
+              </div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </article>
+  </div>
+  <div class="z-10 h-full mt-12 lg:-mt-32">
+    <img
+      src="/_astro/activity.BiMDWJrj_15cNnj.svg"
+      alt="Product showcase"
+      loading="eager"
+      decoding="async"
+      fetchpriority="auto"
+      width="600"
+      height="800"
+      class="w-full shadow rounded-xl outline outline-border"
+    />
+  </div>
+</div>
