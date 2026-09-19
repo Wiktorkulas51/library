@@ -1,0 +1,23 @@
+---
+import ComponentPreview from '@components/dev/component-library/ComponentPreview.astro';
+import { getDeveloperCatalog } from '@components/dev/component-library/component-catalog';
+
+export function getStaticPaths() {
+	const catalog = getDeveloperCatalog();
+
+	return catalog.map((selected) => ({
+		params: {
+			section: selected.sectionId,
+			variant: selected.variantId,
+		},
+		props: { selected },
+	}));
+}
+
+const { selected: staticSelected } = Astro.props;
+const selected = getDeveloperCatalog().find((item) => (
+	item.sectionId === Astro.params.section && item.variantId === Astro.params.variant
+)) || staticSelected;
+---
+
+<ComponentPreview selected={selected} />

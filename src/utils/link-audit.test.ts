@@ -174,8 +174,8 @@ describe('link audit', () => {
       expect(issues.filter((i) => i.rule === 'broken-route')).toHaveLength(0);
     });
 
-    it('accepts /qa/mobile-fixture/', () => {
-      const source = '<a href="/qa/mobile-fixture/">QA</a>';
+    it('accepts /', () => {
+      const source = '<a href="/">Library</a>';
       const issues = auditLinks(source, 'src/test.astro', defaultRoutes);
       expect(issues.filter((i) => i.rule === 'broken-route')).toHaveLength(0);
     });

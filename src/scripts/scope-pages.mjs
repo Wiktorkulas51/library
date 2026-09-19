@@ -1,7 +1,7 @@
 // scope-pages.mjs - DOES NOT build pages outside BUILD_SCOPE instead of cleaning them up after build.
 //
 // ⚠️ ⚠️ ⚠️ RULE FOR AI (APPLICABLE TO EVERY PROJECT) - READ BEFORE YOU DO ANYTHING ⚠️ ⚠️ ⚠️
-// NEVER leave pages in src/pages/_disabled/ in either the Starter Kit,
+// NEVER leave pages in src/pages/_disabled/ in either the UI Library,
 // or in a client project copied from it! That folder is ignored
 // by Astro, so after moving the dev and qa pages these addresses return 404.
 // IN THE STARTER KIT - DON'T DO THIS IN ANY PROJECT.
@@ -42,7 +42,7 @@ const manifestPath = path.join(cacheDir, 'scope-pages-manifest.json');
 // or someone started the stage manually). Instead of overwriting the manifest and leaving it
 // pages in _disabled, restore everything from the previous session first.
 // This ensures that _disabled never accumulates pages (works identically
-// after copying the starter kit to the client's project - the rule is universal).
+// after copying the library to the client's project - the rule is universal).
 function ensureNoStaleManifest() {
   if (fs.existsSync(manifestPath)) {
     console.warn('⚠️ scope-pages: znaleziono manifest z poprzedniej sesji (stage bez restore). Przywracam strony...');

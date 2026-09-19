@@ -6,16 +6,16 @@ product
 
 ## Users
 
-WebScale designers and developers use the Starter Kit component library while
-assembling client websites. They browse section variants, compare isolated
+WebScale designers and developers use this UI library while assembling
+client websites and templates. They browse section variants, compare isolated
 previews, filter a large catalog, search by implementation details, and open a
 variant when it is ready for reuse.
 
 ## Product Purpose
 
-The library turns the Starter Kit registry into a fast visual decision tool.
-Success means a user can understand the catalog state, find the right family,
-compare variants, and open a preview without fighting the interface.
+The library is a fast visual decision tool for reusable UI. Success means a
+user can understand the catalog state, find the right family, compare variants,
+and open a preview without fighting the interface.
 
 ## Brand Personality
 

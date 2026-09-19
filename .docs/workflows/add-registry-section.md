@@ -57,7 +57,7 @@ npm run test
 npm run verify
 ```
 
-Po zmianie renderowania sprawdź również `/dev/components/` oraz stronę używającą nowego wariantu.
+Po zmianie renderowania sprawdź również `/` oraz odpowiedni podgląd pod `/components/`.
 
 ## 5. Definition of Done
 

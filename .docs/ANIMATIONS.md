@@ -1,4 +1,4 @@
-# Standard animacji Starter Kita
+# Standard animacji UI Library
 
 Status: obowiązujący standard dla nowych bloków i zmian w istniejących komponentach.
 Audyt implementacji: 2026-08-11.
@@ -22,7 +22,7 @@ Ten plik jest źródłem prawdy dla animacji. Reguły w `AI_STANDARDS.md`,
   `src/styles/motion.css`.
 - `Section.astro` dodaje `data-motion-section`, więc zwykłe sekcje dostają
   auto reveal bez ręcznego markup'u.
-- `Layout.astro` ładuje `ClientRouter`, `motion.js` oraz opcjonalny `lenis.js`.
+- `GalleryLayout.astro` ładuje `ClientRouter`, `motion.js` oraz opcjonalny `lenis.js`.
 - Natywne płynne przewijanie jest zdefiniowane w `src/styles/foundations.css` i działa
   tylko przy `prefers-reduced-motion: no-preference`.
 - `public/js/lenis.js` obsługuje jedną instancję Lenis, kotwice, zmianę strony
@@ -180,7 +180,7 @@ Odpowiedzialne pliki: `src/styles/navigation.css`, `public/js/navbar.js`,
 - Osobny system reveal w każdym bloku.
 - Ponowne wprowadzanie `data-reveal`, `reveal-group` lub `auto-reveal-item`.
 - Smooth scroll uruchamiany przy reduced motion.
-- Nieskończone animacje dekoracyjne jako domyślny styl Starter Kita.
+- Nieskończone animacje dekoracyjne nie są domyślnym stylem biblioteki.
 - `@keyframes` na elemencie interaktywnym, jeśli ten sam element potrzebuje
   `transition` na tej samej właściwości.
 - `animation-fill-mode: both` lub `forwards` na właściwości, którą kontroluje
@@ -239,7 +239,7 @@ Ręcznie:
 - `public/js/motion.js`
 - `src/styles/motion.css`
 - `public/js/lenis.js`
-- `src/layouts/Layout.astro`
+- `src/layouts/GalleryLayout.astro`
 - `src/components/ui/layout/Section.astro`
 - `src/scripts/check-legacy-motion.ts`
 - `.husky/_/pre-commit-user`

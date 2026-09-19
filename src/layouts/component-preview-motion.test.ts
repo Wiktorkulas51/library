@@ -7,7 +7,7 @@ const read = (file: string) => readFileSync(resolve(root, file), 'utf8');
 
 describe('component preview motion scope', () => {
 	it('keeps hover transitions enabled in the full component preview', () => {
-		const layout = read('src/layouts/Layout.astro');
+		const layout = read('src/layouts/GalleryLayout.astro');
 		const previewFrame = read('src/components/dev/component-library/ComponentPreviewFrame.astro');
 
 		expect(previewFrame).toContain("...(isThumbnail ? ['component-frame-thumbnail'] : [])");

@@ -7,7 +7,7 @@
     "items": [
       { "title": "Wielkość organizacji", "description": "Liczba osób, oddziałów i procesów.", "icon": "buildings" },
       { "title": "Złożoność procesów", "description": "Branża i wrażliwość danych.", "icon": "git-branch" },
-      { "title": "Infrastruktura IT", "description": "Systemy, aplikacje i dostawcy.", "icon": "server" },
+    { "title": "Infrastruktura IT", "description": "Systemy, aplikacje i dostawcy.", "icon": "database" },
       { "title": "Cel audytu", "description": "Raport, wdrożenie zmian lub szkolenie.", "icon": "target" }
     ]
   }

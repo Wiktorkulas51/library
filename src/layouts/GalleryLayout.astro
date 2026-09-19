@@ -1,0 +1,134 @@
+---
+// GalleryLayout: lean shell for the component library gallery.
+// No navbar, no footer, no marketing chrome (FloatingBar, CookieConsent,
+// analytics, SEO tags). Keeps styles, motion, block scripts (forms,
+// accordion, lightbox, toast) and dev toolbars.
+import '@styles/global.css';
+// Full regular Phosphor set is generated from package version for development.
+import '@styles/.generated/phosphor.css';
+import { ClientRouter } from 'astro:transitions';
+import { ACTIVE_TEMPLATE } from '@/config/template';
+import { SITE_LOCALE } from '../../site.config.mjs';
+import Toast from '@components/ui/atoms/Toast.astro';
+import ImageLightbox from '@/components/ui/molecules/ImageLightbox.astro';
+import VersionToolbar from '@components/dev/VersionToolbar.astro';
+import FontSwitcherToolbar from '@components/dev/FontSwitcherToolbar.astro';
+import DeveloperToolsDock from '@components/dev/DeveloperToolsDock.astro';
+import Icon from '@components/ui/atoms/Icon.astro';
+import galleryCopy from '@data/dev/component-library/component-gallery.json';
+
+interface Props {
+	title?: string;
+	description?: string;
+	bodyClass?: string;
+	/** Page language code. */
+	lang?: string;
+	theme?: string;
+	/** Optional `.ui-section` background pattern. */
+	sectionPattern?: 'off' | 'repeat' | 'mesh' | 'noise';
+	/** Enables Lenis smooth scroll only on pages that need it. */
+	enableLenis?: boolean;
+	/** Disables scripts and interactive elements for static iframe previews. */
+	clientRuntime?: boolean;
+}
+
+const {
+	title = galleryCopy.title,
+	description = galleryCopy.description,
+	bodyClass = '',
+	lang = SITE_LOCALE,
+	theme: themeProp,
+	sectionPattern = 'off',
+	enableLenis = false,
+	clientRuntime = true,
+} = Astro.props;
+
+// Theme from props, URL param or default from active template.
+const urlTheme = Astro.url.searchParams.get('theme');
+const theme = themeProp || urlTheme || (ACTIVE_TEMPLATE as string);
+
+const componentToolBodyClasses = ['component-library', 'component-preview-page', 'component-frame'];
+const bodyClassNames = bodyClass.split(/\s+/);
+const isComponentToolPage = bodyClassNames.some((className) => componentToolBodyClasses.includes(className));
+// Iframe thumbnails must stay static to avoid running many observers
+// and animations at once.
+const isComponentThumbnail = bodyClassNames.includes('component-frame-thumbnail');
+const showDevLibraryLink = import.meta.env.DEV && !isComponentToolPage;
+---
+
+<!DOCTYPE html>
+<html
+	lang={lang}
+	data-theme={theme}
+	data-lenis={enableLenis ? 'true' : undefined}
+	data-motion-disabled={isComponentThumbnail ? '' : undefined}
+	{...(sectionPattern !== 'off' ? { 'data-section-pattern': sectionPattern } : {})}
+>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || 'http://localhost:4324').href} />
+	<script is:inline>
+		if (document.documentElement.hasAttribute('data-motion-disabled')) {
+			document.documentElement.removeAttribute('data-motion-ready');
+		} else {
+			document.documentElement.setAttribute('data-motion-ready', '');
+			// Why: hidden state is set by CSS immediately, revealed only by motion.js.
+			// If script fails to load (network error, 404), content would stay
+			// at opacity: 0. After timeout we remove data-motion-ready; if it
+			// arrives later anyway, reveal has no visual effect and nothing breaks.
+			setTimeout(function () {
+				if (!window.__webscaleFadeMotion) {
+					document.documentElement.removeAttribute('data-motion-ready');
+				}
+			}, 3000);
+		}
+	</script>
+	{clientRuntime && <ClientRouter />}
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta name="robots" content="noindex, nofollow" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={new URL(Astro.url.pathname, Astro.site || 'http://localhost:4324').href} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={new URL('/og-image.png', Astro.site || 'http://localhost:4324').href} />
+</head>
+<body
+	class:list={['min-h-screen flex flex-col ui-bg-page font-sans text-brand-dark antialiased selection:bg-brand-primary/10 selection:text-brand-primary', bodyClass]}
+>
+	{showDevLibraryLink && (
+		<a
+			href="/"
+			class="fixed bottom-4 left-1/2 z-[1100] inline-flex size-11 -translate-x-[2.875rem] items-center justify-center rounded-md border border-brand-dark/15 bg-brand-light text-brand-dark shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-brand-light focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-brand-primary/50"
+			aria-label={galleryCopy.title}
+			title={galleryCopy.title}
+		>
+			<Icon name="shapes" size="1.25rem" />
+		</a>
+	)}
+	<main class="flex-1 flex flex-col">
+		<slot />
+	</main>
+
+	<!-- Scripts -->
+	<slot name="scripts" />
+
+	{clientRuntime && <script is:inline src="/js/motion.js" defer></script>}
+	{clientRuntime && <script is:inline data-astro-rerun src="/js/form-handler.js" defer></script>}
+	{clientRuntime && <script is:inline data-astro-rerun src="/js/accordion.js" defer></script>}
+	<!-- Lenis is active, initialized by public/js/lenis.js with a data-astro-rerun guard. -->
+	{clientRuntime && enableLenis && <script is:inline src="/js/lenis-lib.min.js" defer></script>}
+	{clientRuntime && enableLenis && <script is:inline src="/js/lenis.js" defer></script>}
+	{clientRuntime && <script is:inline data-astro-rerun src="/js/theme-switcher.js" defer></script>}
+	{clientRuntime && <Toast />}
+	{clientRuntime && <ImageLightbox />}
+	{clientRuntime && import.meta.env.DEV && <VersionToolbar />}
+	{clientRuntime && import.meta.env.DEV && <FontSwitcherToolbar />}
+	{clientRuntime && import.meta.env.DEV && <DeveloperToolsDock />}
+</body>
+</html>

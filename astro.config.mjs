@@ -5,7 +5,6 @@ import { SITE_URL } from './site.config.mjs';
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,18 +18,8 @@ export default defineConfig({
     assets: '_assets',
     inlineStylesheets: 'never',
   },
-  // Sitemap: filter cuts utility pages (component gallery /dev/ and
-  // fixture QA /qa/) that have a meta noindex - they went into it without it
-  // sitemap-index.xml and sent Google a contradictory signal (as for webscale).
-  // serialize adds lastmod (build date), because the integration does not add it itself.
   integrations: [
     react(),
-    sitemap({
-      filter: (page) => !page.includes('/dev/') && !page.includes('/qa/'),
-      serialize(item) {
-        return { ...item, lastmod: new Date().toISOString() };
-      },
-    }),
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -43,7 +32,7 @@ export default defineConfig({
       watch: {
         // Dlaczego usePolling: na Windows chokidar gubi zdarzenia "create" dla
         // nowych plikow (agenci zapisuja szybko partie plikow), przez co Astro
-        // nie rejestruje nowych routow (np. /dev/components/*) i zwraca 404
+        // nie rejestruje nowych routow biblioteki i zwraca 404
         // dopoki jakikolwiek inny plik nie wymusi pelnego rescannu.
         // Polling gwarantuje wykrycie kazdej zmiany/utworzenia niezawodnie.
         usePolling: true,

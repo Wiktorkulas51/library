@@ -127,7 +127,7 @@ function priceToNumber(price: string): number {
                       <span class:list={["inline-flex items-center gap-1.5", isSortable ? "group/sort" : ""]}>
                         {col.label}
                         {isSortable && (
-                          <i class="ph ph-sort-ascending text-brand-dark/40" aria-hidden="true"></i>
+                          <i class="ph ph-caret-up-down text-brand-dark/40" aria-hidden="true"></i>
                         )}
                       </span>
                     ) : null}
@@ -269,13 +269,15 @@ function priceToNumber(price: string): number {
         // Reset icons and color of the active header
         sortHeaders.forEach((h) => {
           const icon = h.querySelector("i");
-          if (icon) icon.className = "ph ph-sort-ascending text-brand-dark/40";
+          if (icon) icon.className = "ph ph-caret-up-down text-brand-dark/40";
           h.classList.remove("text-brand-accent");
         });
 
         // Highlighting the active column
         const icon = header.querySelector("i");
-        if (icon) icon.className = `ph ph-sort-${currentSort.order === "asc" ? "ascending" : "descending"} text-brand-accent`;
+          if (icon) icon.className = currentSort.order === "asc"
+            ? "ph ph-caret-up text-brand-accent"
+            : "ph ph-caret-down text-brand-accent";
         header.classList.add("text-brand-accent");
 
         if (!tableBody) return;

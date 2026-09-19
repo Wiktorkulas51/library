@@ -9,7 +9,6 @@ interface QaStep {
 const STANDARD_STEPS: QaStep[] = [
   { name: 'npm run test', command: 'npm run test -- --run', description: 'Wszystkie testy jednostkowe i kontraktowe' },
   { name: 'npm run check:types', command: 'npm run check:types', description: 'Diagnostyka TypeScript i komponentów Astro' },
-  { name: 'npm run cms:check', command: 'npm run cms:check', description: 'Spójność JSON, CMS i rejestru sekcji' },
   { name: 'npm run check:hardcoded', command: 'npm run check:hardcoded', description: 'Brak treści klienta zaszytej w komponentach' },
   { name: 'npm run check:imports', command: 'npm run check:imports', description: 'Importy między katalogami używają aliasów' },
   { name: 'npm run check:registrations', command: 'npm run check:registrations', description: 'Spójność manifestu, rejestru i plików komponentów' },
@@ -17,8 +16,6 @@ const STANDARD_STEPS: QaStep[] = [
   { name: 'npm run check:motion', command: 'npm run check:motion', description: 'Brak wycofanych tokenów animacji' },
   { name: 'npm run check:icons', command: 'npm run check:icons', description: 'Spójność używanych ikon' },
   { name: 'npm run check:data', command: 'npm run check:data', description: 'Kontrakty danych sekcji i stron' },
-  { name: 'npm run check:form', command: 'npm run check:form', description: 'Konfiguracja formularza i podstawowe zabezpieczenia' },
-  { name: 'npm run test:form', command: 'npm run test:form', description: 'Test endpointu PHP z pominięciem, gdy PHP nie jest dostępne' },
   { name: 'npm run test:mobile', command: 'npm run test:mobile', description: 'Testy reguł audytu mobilnego' },
   { name: 'npm run check:mobile', command: 'npm run check:mobile', description: 'Audyt mobilny bez nowych naruszeń' },
   { name: 'npm run build', command: 'npm run build', description: 'Build produkcyjny' },
@@ -26,7 +23,6 @@ const STANDARD_STEPS: QaStep[] = [
   { name: 'npm run check:links', command: 'npm run check:links', description: 'Linki, trasy, nagłówki i akcje formularzy' },
   { name: 'npm run check:page-registry', command: 'npm run check:page-registry', description: 'Konfiguracje stron i warianty rejestru' },
   { name: 'npm run check:images', command: 'npm run check:images', description: 'Obrazy i fallback SmartImage' },
-  { name: 'npm run check:seo', command: 'npm run check:seo', description: 'Bezpieczne SEO bazowego Starter Kita' },
 ];
 
 const STRICT_STEPS = STANDARD_STEPS.map((step) =>
@@ -43,15 +39,6 @@ const MODES: Record<string, { name: string; steps: QaStep[] }> = {
   strict: {
     name: 'Strict QA',
     steps: STRICT_STEPS,
-  },
-  client: {
-    name: 'Client Production Gate',
-    steps: [
-      { name: 'npm run check:content', command: 'npm run check:content', description: 'Walidacja świadomych placeholderów startera' },
-      { name: 'npm run build:prod', command: 'npm run build:prod', description: 'Build z blokada na placeholdery i czyszczeniem studia' },
-      { name: 'npm run check:seo:client', command: 'npm run check:seo:client', description: 'Walidacja indeksowalnego SEO projektu klienta' },
-      { name: 'npm run check:form:client', command: 'npm run check:form:client', description: 'Walidacja konfiguracji formularza klienta' },
-    ],
   },
 };
 
@@ -81,7 +68,7 @@ function showHelp(): void {
   const lines = [
     '',
     '  ============================================================',
-    '  ˚  Starter Kit — System uruchamiania QA',
+    '  ˚  UI Library — System uruchamiania QA',
     '  ============================================================',
     '',
     '  DOSTEPNE KOMENDY:',
@@ -89,25 +76,20 @@ function showHelp(): void {
     `  npm run qa          Standardowy gate: testy + checki + build (${STANDARD_STEPS.length} kroków)`,
     '  npm run verify      Alias bramki QA dla lokalnego developmentu i CI',
     '  npm run qa:strict   Jak qa, ale check:mobile w trybie strict',
-    '  npm run qa:client   Bramka produkcyjna klienta: check:content + build:prod',
     '  npm run qa:help     Ta pomoc',
     '',
     '  PROFIL ZALECEN:',
     '',
     '  qa         — po kazdej zmianie UI (najczestszy wybor)',
     '  qa:strict  — przed mergem do mastera, wymaga 0 known legacy',
-    '  qa:client  — przed oddaniem strony klientowi',
     '',
     '  WAZNE:',
     '',
-    '  - Starter kit zawiera swiadome placeholdery (example.com,',
-    '    Nazwa strony, +48 123 456 789 itd.). Sa one wykrywane przez',
-    '    check:content i powoduja oczekiwany blad. Przed oddaniem',
-    '    projektu klienta nalezy je zastapic prawdziwymi danymi.',
+    '  - Biblioteka jest katalogiem komponentow. Dane klientow nie sa',
+    '    kryterium zaliczenia lokalnej bramki QA.',
     '  - Fixture QA: /qa/mobile-fixture/',
     '  - Po kazdej zmianie UI uruchom npm run qa.',
     '  - Nie uznawaj zadania za zakonczone bez wyniku npm run qa.',
-    '  - Zrodlo zadan: .docs/QA-TASKS.md',
     '',
     '  RECZNE TESTY POZA AUTOMATEM:',
     '',
@@ -162,14 +144,6 @@ function main(): void {
   console.log(`  PODSUMOWANIE: ${mode.name}`);
   console.log('='.repeat(72));
   console.log(`  Zakonczone: ${passed}/${total}  Bledy: ${failed}  Czas: ${elapsed}s`);
-
-  if (modeArg === 'client') {
-    if (failed > 0) {
-      console.log(`  UWAGA: Starter kit ma świadome placeholdery.`);
-      console.log(`  To jest oczekiwane. qa:client przechodzi dopiero po`);
-      console.log(`  zastapieniu ich danymi klienta.`);
-    }
-  }
 
   if (failed > 0) {
     console.log(`\n  >>> NIE ZALICZONE <<<\n`);

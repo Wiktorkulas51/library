@@ -39,10 +39,9 @@ describe('run-qa orkiestrator', () => {
     it('wyswietla pomoc i zwraca kod 0', { timeout: 20_000 }, () => {
       const { code, output } = runQuick('help');
       expect(code).toBe(0);
-      expect(output).toContain('Starter Kit');
+      expect(output).toContain('UI Library');
       expect(output).toContain('npm run qa');
       expect(output).toContain('npm run qa:strict');
-      expect(output).toContain('npm run qa:client');
     });
   });
 
@@ -54,12 +53,4 @@ describe('run-qa orkiestrator', () => {
     });
   });
 
-  describe('qa:client', () => {
-    it('wykrywa placeholdery i zatrzymuje sie', { timeout: 90_000 }, () => {
-      const { code, output } = runQuick('client', 60_000);
-      expect(code).toBe(1);
-      expect(output).toContain('placeholder');
-      expect(output).toContain('NIE ZALICZONE');
-    });
-  });
 });

@@ -33,7 +33,7 @@ Lista znanych, potencjalnie naprawionych problemów. Zanim zaczniesz debugować 
 
 **Diagnoza (kolejno):**
 1. Czy URL ma parametr `?vt=1`? Bez niego toolbar jest celowo ukryty, nawet jeśli w DOM są warianty.
-2. Czy `VersionToolbar` jest zaimportowany w `src/layouts/Layout.astro`?
+2. Czy `VersionToolbar` jest zaimportowany w `src/layouts/GalleryLayout.astro`?
 3. Czy w grupie są co najmniej 2 elementy `data-version`? Pasek nie pokazuje grup z jedną wersją.
 
 **Rozwiązanie:** dodaj `?vt=1` do URL (demo: `/dev/demo/?vt=1`). Szczegóły atrybutów i workflow: `.docs/VERSION_TOOLBAR.md`.
