@@ -63,16 +63,16 @@ function renderHeroGalleryHtml(data: HeroGalleryData): string {
   } = data;
 
   const aspectPattern = [
-    'aspect-[3/4]',
-    'aspect-[2/3]',
-    'aspect-[3/4]',
-    'aspect-[2/3]',
-    'aspect-[3/4]',
-    'aspect-[2/3]',
-    'aspect-[3/4]',
-    'aspect-[2/3]',
-    'aspect-[3/4]',
-    'aspect-[2/3]',
+    'aspect-[3/2]',
+    'aspect-square',
+    'aspect-[3/2]',
+    'aspect-square',
+    'aspect-[3/2]',
+    'aspect-square',
+    'aspect-[3/2]',
+    'aspect-square',
+    'aspect-[3/2]',
+    'aspect-square',
   ];
   const columns = [0, 1, 2, 3, 4].map((col) => gallery.slice(col * 2, col * 2 + 2));
   const galleryHtml = columns
@@ -168,7 +168,7 @@ describe('HeroGalleryBlock, kontrakt renderowania', () => {
     });
   });
 
-  it('górny rząd jest równy, a dolny delikatnie wyższy', () => {
+  it('górny rząd jest niski i równy, a dolny symetrycznie większy', () => {
     const $ = cheerio.load(renderHeroGalleryHtml(PL_DATA));
     const classes = $('.grid img')
       .map((_, el) => $(el).attr('class') ?? '')
@@ -176,9 +176,9 @@ describe('HeroGalleryBlock, kontrakt renderowania', () => {
     expect(classes.length).toBe(10);
     classes.forEach((cls, index) => {
       if (index % 2 === 0) {
-        expect(cls).toContain('aspect-[3/4]');
+        expect(cls).toContain('aspect-[3/2]');
       } else {
-        expect(cls).toContain('aspect-[2/3]');
+        expect(cls).toContain('aspect-square');
       }
     });
   });

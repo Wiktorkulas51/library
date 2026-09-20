@@ -45,19 +45,20 @@ const columns = [0, 1, 2, 3, 4].map((col) =>
   }))
 );
 
-// Dlaczego: górny rząd ma równe proporcje, dolny rząd jest delikatnie
-// wyższy. Różnica wynika z samego aspect ratio, bez magicznych pikseli.
+// Dlaczego: górny rząd ma równe niskie proporcje, dolny rząd jest
+// symetrycznie większy. Wysokości zmniejszone względem pierwszej wersji,
+// różnica wynika z samego aspect ratio, bez magicznych pikseli.
 const aspectPattern = [
-  "aspect-[3/4]",
-  "aspect-[2/3]",
-  "aspect-[3/4]",
-  "aspect-[2/3]",
-  "aspect-[3/4]",
-  "aspect-[2/3]",
-  "aspect-[3/4]",
-  "aspect-[2/3]",
-  "aspect-[3/4]",
-  "aspect-[2/3]",
+  "aspect-[3/2]",
+  "aspect-square",
+  "aspect-[3/2]",
+  "aspect-square",
+  "aspect-[3/2]",
+  "aspect-square",
+  "aspect-[3/2]",
+  "aspect-square",
+  "aspect-[3/2]",
+  "aspect-square",
 ];
 
 // Dlaczego: przesunięcia kolumn tworzą łuk ze screena bez magicznych
