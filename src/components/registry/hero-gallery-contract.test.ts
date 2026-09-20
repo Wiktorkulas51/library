@@ -64,15 +64,15 @@ function renderHeroGalleryHtml(data: HeroGalleryData): string {
 
   const aspectPattern = [
     'aspect-[3/4]',
-    'aspect-square',
-    'aspect-[3/5]',
-    'aspect-[4/3]',
-    'aspect-[4/5]',
-    'aspect-[16/10]',
-    'aspect-[3/5]',
-    'aspect-[4/3]',
-    'aspect-[4/5]',
+    'aspect-[2/3]',
     'aspect-[3/4]',
+    'aspect-[2/3]',
+    'aspect-[3/4]',
+    'aspect-[2/3]',
+    'aspect-[3/4]',
+    'aspect-[2/3]',
+    'aspect-[3/4]',
+    'aspect-[2/3]',
   ];
   const columns = [0, 1, 2, 3, 4].map((col) => gallery.slice(col * 2, col * 2 + 2));
   const galleryHtml = columns
@@ -166,15 +166,19 @@ describe('HeroGalleryBlock, kontrakt renderowania', () => {
     });
   });
 
-  it('zdjęcia mają nierówne proporcje jak w oryginale', () => {
+  it('górny rząd jest równy, a dolny delikatnie wyższy', () => {
     const $ = cheerio.load(renderHeroGalleryHtml(PL_DATA));
     const classes = $('.grid img')
       .map((_, el) => $(el).attr('class') ?? '')
-      .get()
-      .join(' ');
-    expect(classes).toContain('aspect-[3/5]');
-    expect(classes).toContain('aspect-square');
-    expect(classes).toContain('aspect-[4/3]');
+      .get();
+    expect(classes.length).toBe(10);
+    classes.forEach((cls, index) => {
+      if (index % 2 === 0) {
+        expect(cls).toContain('aspect-[3/4]');
+      } else {
+        expect(cls).toContain('aspect-[2/3]');
+      }
+    });
   });
 
   it('zdjęcia używają placeholderów biblioteki', () => {

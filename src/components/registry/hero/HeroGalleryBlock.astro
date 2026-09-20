@@ -45,20 +45,19 @@ const columns = [0, 1, 2, 3, 4].map((col) =>
   }))
 );
 
-// Dlaczego: proporcje celowo nierówne jak w oryginale Mentara.
-// Środkowe zdjęcia są wyższe, dolne częściowo ucięte, boczne niższe.
-// Klasy aspect ze standardowych proporcji, bez magicznych pikseli.
+// Dlaczego: górny rząd ma równe proporcje, dolny rząd jest delikatnie
+// wyższy. Różnica wynika z samego aspect ratio, bez magicznych pikseli.
 const aspectPattern = [
   "aspect-[3/4]",
-  "aspect-square",
-  "aspect-[3/5]",
-  "aspect-[4/3]",
-  "aspect-[4/5]",
-  "aspect-[16/10]",
-  "aspect-[3/5]",
-  "aspect-[4/3]",
-  "aspect-[4/5]",
+  "aspect-[2/3]",
   "aspect-[3/4]",
+  "aspect-[2/3]",
+  "aspect-[3/4]",
+  "aspect-[2/3]",
+  "aspect-[3/4]",
+  "aspect-[2/3]",
+  "aspect-[3/4]",
+  "aspect-[2/3]",
 ];
 
 // Dlaczego: przesunięcia kolumn tworzą łuk ze screena bez magicznych
