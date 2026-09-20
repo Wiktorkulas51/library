@@ -111,8 +111,10 @@ function renderHeroGalleryHtml(data: HeroGalleryData): string {
       <a href="/kontakt/" aria-label="Napisz wiadomość"><i class="ph ph-envelope"></i></a>
       <a href="/kontakt/" aria-label="Zadzwoń"><i class="ph ph-phone"></i></a>
     </div>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
+    <div class="relative z-0 mt-10 w-full px-3 md:ml-[-4vw] md:w-[108vw] md:max-w-none md:px-0">
+      <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
       ${galleryHtml}
+      </div>
     </div>
   </section>`;
 }
@@ -193,6 +195,14 @@ describe('HeroGalleryBlock, kontrakt renderowania', () => {
     expect(html).not.toContain('href="#"');
     expect(html).not.toContain('#1a3c34');
     expect(html).not.toContain('#d4f542');
+  });
+
+  it('galeria wyłamuje się poza kontener tekstowy (full bleed)', () => {
+    const $ = cheerio.load(renderHeroGalleryHtml(PL_DATA));
+    const bleed = $('section > div.relative.z-0');
+    expect(bleed.hasClass('md:w-[108vw]')).toBe(true);
+    expect(bleed.hasClass('md:ml-[-4vw]')).toBe(true);
+    expect(bleed.hasClass('max-w-[1400px]')).toBe(false);
   });
 
   it('EN renderuje angielski nagłówek i odznakę', () => {

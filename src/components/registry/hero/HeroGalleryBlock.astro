@@ -164,10 +164,12 @@ const columnOffset = [
     </div>
   </Container>
 
-  {/* Dlaczego: kolaż jako grid 2 kolumn na mobile i 5 na desktop.
-      Proporcje zdjęć są różne celowo, jak w oryginale, zaokrąglenie
-      pochodzi z tokena radius. */}
-  <div class="relative z-0 mx-auto mt-10 w-full max-w-[1400px] px-3 md:px-6">
+  {/* Dlaczego: galeria wychodzi poza rytm tekstowego Containera.
+      Tekst zostaje wąsko wyśrodkowany, a kolaż rozlewa się na pełną
+      szerokość viewportu i jest przycięty przez overflow sekcji.
+      To łamie równe tailwindowe marginesy bez rezygnacji z Tailwinda.
+      Na mobile zostaje zwykły grid w paddingu, breakout działa od md. */}
+  <div class="relative z-0 mt-10 w-full px-3 md:ml-[-4vw] md:w-[108vw] md:max-w-none md:px-0">
     <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
       {columns.map((items, colIndex) => (
         <div class:list={["flex flex-col gap-3 md:gap-4", columnOffset[colIndex]]}>
