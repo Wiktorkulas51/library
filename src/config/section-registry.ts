@@ -185,4 +185,5 @@ export const SECTION_REGISTRY: Record<string, SectionEntry> = {
   locationsTrainer: contactSections.locationsTrainer,
   bmiCalculator: ctaSections.bmiCalculator,
   qualificationQuiz: ctaSections.qualificationQuiz,
+  heroGallery: heroSections.heroGallery,
 };

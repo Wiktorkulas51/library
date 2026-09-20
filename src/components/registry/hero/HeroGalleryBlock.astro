@@ -1,0 +1,177 @@
+---
+// Dlaczego: HeroGalleryBlock odtwarza układ ze screena Mentara.
+// Centralny nagłówek z odznaką zaufania i dwoma CTA w kształcie pigułek,
+// na dole rozłożony kolaż zdjęć w pięciu kolumnach ze schodkowym
+// przesunięciem. Kolory klienta zamieniono na globalne tokeny
+// brand, a treść pochodzi z JSON z wariantami PL i EN.
+import Section from "@components/ui/layout/Section.astro";
+import Container from "@components/ui/layout/Container.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Button from "@components/ui/atoms/Button.astro";
+import Icon from "@components/ui/atoms/Icon.astro";
+import jsonData from "@data/sections/hero-gallery.json";
+
+export interface Props {
+  /** Dane sekcji z JSON. Props nadpisują domyślne dane (wzorzec "props || json"). */
+  data?: typeof jsonData;
+  /** Język treści z JSON. PL jest domyślny, EN to odpowiednik angielski. */
+  locale?: "pl" | "en";
+  /** Kotwica sekcji (domyślnie "hero-gallery"). */
+  sectionId?: string;
+  /** Dodatkowe klasy sekcji (np. z PageBuilder). */
+  class?: string;
+}
+
+const {
+  data: overrideData,
+  locale = "pl",
+  sectionId = "hero-gallery",
+  class: className = "",
+} = Astro.props as Props;
+
+// Dlaczego: wzorzec "props || json" jak w HeroPhotoBlock, blok działa
+// samodzielnie z danymi sekcji, a PageBuilder lub CMS może nadpisać treść.
+const data = overrideData ?? jsonData;
+const t = data[locale] ?? data.pl;
+const gallery = t.gallery ?? [];
+
+// Dlaczego: 10 zdjęć dzielimy na 5 kolumn po 2 zdjęcia, tak powstaje
+// rytm ze screena. Zewnętrzne kolumny startują wyżej, środkowa najniżej.
+const columns = [0, 1, 2, 3, 4].map((col) => gallery.slice(col * 2, col * 2 + 2));
+
+// Dlaczego: przesunięcia kolumn tworzą łuk ze screena bez magicznych
+// wartości w px. Klasy reagują dopiero od md, na mobile kolumny są równe.
+const columnOffset = [
+  "md:mt-0",
+  "md:mt-12",
+  "md:mt-24",
+  "md:mt-12",
+  "md:mt-0",
+];
+---
+
+<Section
+  id={sectionId}
+  tone="page"
+  class:list={["relative overflow-hidden bg-brand-dark text-white", className]}
+>
+  <Container class="relative z-10 pt-16 text-center md:pt-24">
+    {/* Dlaczego: odznaka zaufania jako pigułka z obramowaniem, awatary
+        zachodzą na siebie ujemnym marginesem. Brak kropek i pulsowania. */}
+    <div class="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 py-1.5 pl-1.5 pr-4">
+      <div class="flex -space-x-2">
+        {[0, 1, 2, 3].map((index) => (
+          <img
+            src="/assets/placeholders/image-square.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+            decoding="async"
+            class="size-8 rounded-full border-2 border-brand-dark object-cover"
+          />
+        ))}
+      </div>
+      <Text tag="p" class="text-sm font-semibold text-white/80">{t.badge}</Text>
+    </div>
+
+    <Heading
+      level={1}
+      tag="h1"
+      class="mx-auto mt-6 max-w-4xl text-balance text-[clamp(2rem,5.5vw,3.75rem)] font-extrabold leading-[1.06] text-white"
+    >
+      {t.heading}
+    </Heading>
+
+    <Text
+      variant="lead"
+      tag="p"
+      class="mx-auto mt-5 max-w-2xl font-medium leading-[1.7] text-white/70"
+    >
+      {t.description}
+    </Text>
+
+    {/* Dlaczego: CTA przez atom Button, strzałka w kółku jako osobny
+        element w slocie icon-right. Primary używa wariantu accent,
+        secondary wariantu outline z jasnym obramowaniem. */}
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <Button
+        href={t.primaryCTA.href}
+        variant="accent"
+        size="lg"
+        class="!rounded-full !px-2 !py-2 !pl-6"
+      >
+        {t.primaryCTA.label}
+        <span slot="icon-right" class="ml-2 inline-flex size-9 items-center justify-center rounded-full bg-brand-dark text-white">
+          <Icon name="arrow-up-right" size={18} />
+        </span>
+      </Button>
+      <Button
+        href={t.secondaryCTA.href}
+        variant="outline"
+        size="lg"
+        class="!rounded-full !border-white/20 !bg-transparent !px-2 !py-2 !pl-6 !text-white hover:!border-white hover:!bg-white/10"
+      >
+        {t.secondaryCTA.label}
+        <span slot="icon-right" class="ml-2 inline-flex size-9 items-center justify-center rounded-full bg-white text-brand-dark">
+          <Icon name="arrow-up-right" size={18} />
+        </span>
+      </Button>
+    </div>
+
+    {/* Dlaczego: para ikon kontaktowych ze screena nad środkowym zdjęciem.
+        To linki z etykietami dostępności, nie dekoracja bez znaczenia. */}
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <Button
+        href="/kontakt/"
+        variant="outline"
+        size="icon"
+        aria-label="Napisz wiadomość"
+        class="!rounded-full !border-white/15 !bg-white/5 !text-white hover:!bg-white/15"
+      >
+        <Icon name="envelope" size={18} />
+      </Button>
+      <Button
+        href="/kontakt/"
+        variant="outline"
+        size="icon"
+        aria-label="Zadzwoń"
+        class="!rounded-full !border-white/15 !bg-white/5 !text-white hover:!bg-white/15"
+      >
+        <Icon name="phone" size={18} />
+      </Button>
+    </div>
+  </Container>
+
+  {/* Dlaczego: kolaż jako grid 2 kolumn na mobile i 5 na desktop.
+      Zdjęcia mają wspólne proporcje i zaokrąglenie z tokena radius. */}
+  <div class="relative z-0 mx-auto mt-10 w-full max-w-[1400px] px-3 md:px-6">
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
+      {columns.map((items, colIndex) => (
+        <div class:list={["flex flex-col gap-3 md:gap-4", columnOffset[colIndex]]}>
+          {items.map((image) => (
+            <img
+              src={image.src}
+              alt={image.alt}
+              width="400"
+              height="520"
+              loading={colIndex < 2 ? "eager" : "lazy"}
+              decoding="async"
+              class="aspect-[3/4] w-full rounded-lg object-cover"
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+
+    {/* Dlaczego: dolne wyciemnienie odcina kolaż jak na screenie
+        i daje miejsce na kolejną sekcję. Gradient budujemy
+        na tokenie brand-dark przez color-mix, bez heksów. */}
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+      style="background: linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--color-brand-dark) 85%, transparent) 100%);"
+    ></div>
+  </div>
+</Section>

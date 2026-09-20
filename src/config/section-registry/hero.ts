@@ -93,4 +93,11 @@ export const heroSections: Record<string, SectionEntry> = {
     defaultVariant: 'default',
     variants: { default: { component: 'HeroCountdownBlock', dataKey: 'hero-countdown' } },
   },
+  heroGallery: {
+    id: 'heroGallery', label: 'Hero z kolażem zdjęć', groupId: 'hero', hint: 'Centralny nagłówek z odznaką zaufania i kolażem 10 zdjęć w 5 kolumnach (inspiracja Mentara)',
+    source: 'mentara',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 6h16a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    defaultVariant: 'default',
+    variants: { default: { component: 'HeroGalleryBlock', dataKey: 'hero-gallery' } },
+  },
 };

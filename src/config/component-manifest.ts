@@ -81,6 +81,7 @@ export const COMPONENT_MANIFEST: Record<string, ComponentManifestEntry> = {
   HeroEditorialBlock: { category: "core", status: "provisional" },
   HeroLawBlock: { category: "client", status: "confirmed" },
   HeroPhotoBlock: { category: "core", status: "provisional" },
+  HeroGalleryBlock: { category: "core", status: "provisional" },
   HeroSplitBlock: { category: "core", status: "provisional" },
   HeroStatsBlock: { category: "core", status: "provisional" },
   HeroTomRosBlock: { category: "client", status: "confirmed" },

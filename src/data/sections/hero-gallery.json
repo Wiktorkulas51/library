@@ -1,0 +1,52 @@
+{
+  "pl": {
+    "badge": "500+ Zaufanych pacjentów",
+    "heading": "Wzmocnij swoją drogę do zdrowia psychicznego!",
+    "description": "Wzmacniaj swoją drogę do zdrowia psychicznego! Pielęgnując silne relacje i otwartość na pozytywy, budujemy odporność i radość, zamieniając wyzwania w szanse na rozwój i dobrostan.",
+    "primaryCTA": {
+      "label": "Umów wizytę",
+      "href": "/kontakt/"
+    },
+    "secondaryCTA": {
+      "label": "Nasi terapeuci",
+      "href": "/zespol/"
+    },
+    "gallery": [
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Sesja terapeutyczna, rozmowa na kanapie" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Pacjentka podczas rozmowy indywidualnej" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Terapeutka rozmawia z pacjentką" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Uśmiechnięta pacjentka z kubkiem" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Pacjentka ociera łzy chusteczką" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Terapeutka gestykuluje podczas sesji grupowej" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Zamyślona pacjentka trzyma głowę" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Zmartwiona pacjentka zakrywa twarz dłońmi" },
+      { "src": "/assets/placeholders/image-square.svg", "alt": "Gabinet terapeutyczny, fragment wnętrza" },
+      { "src": "/assets/placeholders/image-square.svg", "alt": "Detale gabinetu podczas sesji" }
+    ]
+  },
+  "en": {
+    "badge": "500+ Trusted patients",
+    "heading": "Empower your mental health journey!",
+    "description": "Empower your mental health journey! By nurturing strong connections and embracing positivity, we can cultivate resilience and joy, transforming challenges into opportunities for growth and well-being.",
+    "primaryCTA": {
+      "label": "Appointment",
+      "href": "/kontakt/"
+    },
+    "secondaryCTA": {
+      "label": "Our Therapist",
+      "href": "/zespol/"
+    },
+    "gallery": [
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Therapy session, talk on the couch" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Patient during a one to one talk" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Therapist talking to a patient" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Smiling patient with a cup" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Patient wiping tears with a tissue" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Therapist gesturing during a group session" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Thoughtful patient holding her head" },
+      { "src": "/assets/placeholders/image-portrait.svg", "alt": "Worried patient covering her face" },
+      { "src": "/assets/placeholders/image-square.svg", "alt": "Therapy office interior detail" },
+      { "src": "/assets/placeholders/image-square.svg", "alt": "Office details during a session" }
+    ]
+  }
+}
