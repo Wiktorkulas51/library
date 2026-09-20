@@ -38,7 +38,28 @@ const gallery = t.gallery ?? [];
 
 // Dlaczego: 10 zdjęć dzielimy na 5 kolumn po 2 zdjęcia, tak powstaje
 // rytm ze screena. Zewnętrzne kolumny startują wyżej, środkowa najniżej.
-const columns = [0, 1, 2, 3, 4].map((col) => gallery.slice(col * 2, col * 2 + 2));
+const columns = [0, 1, 2, 3, 4].map((col) =>
+  gallery.slice(col * 2, col * 2 + 2).map((image, itemIndex) => ({
+    ...image,
+    globalIndex: col * 2 + itemIndex,
+  }))
+);
+
+// Dlaczego: proporcje celowo nierówne jak w oryginale Mentara.
+// Środkowe zdjęcia są wyższe, dolne częściowo ucięte, boczne niższe.
+// Klasy aspect ze standardowych proporcji, bez magicznych pikseli.
+const aspectPattern = [
+  "aspect-[3/4]",
+  "aspect-square",
+  "aspect-[3/5]",
+  "aspect-[4/3]",
+  "aspect-[4/5]",
+  "aspect-[16/10]",
+  "aspect-[3/5]",
+  "aspect-[4/3]",
+  "aspect-[4/5]",
+  "aspect-[3/4]",
+];
 
 // Dlaczego: przesunięcia kolumn tworzą łuk ze screena bez magicznych
 // wartości w px. Klasy reagują dopiero od md, na mobile kolumny są równe.
@@ -145,7 +166,8 @@ const columnOffset = [
   </Container>
 
   {/* Dlaczego: kolaż jako grid 2 kolumn na mobile i 5 na desktop.
-      Zdjęcia mają wspólne proporcje i zaokrąglenie z tokena radius. */}
+      Proporcje zdjęć są różne celowo, jak w oryginale, zaokrąglenie
+      pochodzi z tokena radius. */}
   <div class="relative z-0 mx-auto mt-10 w-full max-w-[1400px] px-3 md:px-6">
     <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
       {columns.map((items, colIndex) => (
@@ -158,7 +180,7 @@ const columnOffset = [
               height="520"
               loading={colIndex < 2 ? "eager" : "lazy"}
               decoding="async"
-              class="aspect-[3/4] w-full rounded-lg object-cover"
+              class:list={["w-full rounded-lg object-cover", aspectPattern[image.globalIndex] ?? "aspect-[3/4]"]}
             />
           ))}
         </div>

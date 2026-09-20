@@ -62,15 +62,29 @@ function renderHeroGalleryHtml(data: HeroGalleryData): string {
     gallery,
   } = data;
 
+  const aspectPattern = [
+    'aspect-[3/4]',
+    'aspect-square',
+    'aspect-[3/5]',
+    'aspect-[4/3]',
+    'aspect-[4/5]',
+    'aspect-[16/10]',
+    'aspect-[3/5]',
+    'aspect-[4/3]',
+    'aspect-[4/5]',
+    'aspect-[3/4]',
+  ];
   const columns = [0, 1, 2, 3, 4].map((col) => gallery.slice(col * 2, col * 2 + 2));
   const galleryHtml = columns
     .map(
       (items, colIndex) =>
-        `<div class="flex flex-col gap-3 md:gap-4 md:mt-${colIndex === 2 ? '24' : colIndex % 2 === 1 ? '12' : '0'}">` +
+        `<div class="flex flex-col gap-3 md:gap-4">` +
         items
           .map(
-            (image) =>
-              `<img src="${image.src}" alt="${image.alt}" class="aspect-[3/4] w-full rounded-lg object-cover" loading="lazy" decoding="async">`
+            (image, itemIndex) => {
+              const globalIndex = colIndex * 2 + itemIndex;
+              return `<img src="${image.src}" alt="${image.alt}" class="${aspectPattern[globalIndex]} w-full rounded-lg object-cover" loading="lazy" decoding="async">`;
+            }
           )
           .join('') +
         `</div>`
@@ -150,6 +164,17 @@ describe('HeroGalleryBlock, kontrakt renderowania', () => {
     $('.grid img').each((_, el) => {
       expect($(el).attr('alt')?.length).toBeGreaterThan(3);
     });
+  });
+
+  it('zdjęcia mają nierówne proporcje jak w oryginale', () => {
+    const $ = cheerio.load(renderHeroGalleryHtml(PL_DATA));
+    const classes = $('.grid img')
+      .map((_, el) => $(el).attr('class') ?? '')
+      .get()
+      .join(' ');
+    expect(classes).toContain('aspect-[3/5]');
+    expect(classes).toContain('aspect-square');
+    expect(classes).toContain('aspect-[4/3]');
   });
 
   it('zdjęcia używają placeholderów biblioteki', () => {
