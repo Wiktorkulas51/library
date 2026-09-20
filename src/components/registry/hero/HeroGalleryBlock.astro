@@ -165,11 +165,11 @@ const columnOffset = [
   </Container>
 
   {/* Dlaczego: galeria wychodzi poza rytm tekstowego Containera.
-      Tekst zostaje wąsko wyśrodkowany, a kolaż rozlewa się na pełną
-      szerokość viewportu i jest przycięty przez overflow sekcji.
+      Tekst zostaje wąsko wyśrodkowany, a kolaż zajmuje prawie pełną
+      szerokość z delikatnym odstępem od krawędzi, jak w oryginale.
       To łamie równe tailwindowe marginesy bez rezygnacji z Tailwinda.
-      Na mobile zostaje zwykły grid w paddingu, breakout działa od md. */}
-  <div class="relative z-0 mt-10 w-full px-3 md:ml-[-4vw] md:w-[108vw] md:max-w-none md:px-0">
+      Na mobile zwykły grid w paddingu, pełna szerokość działa od md. */}
+  <div class="relative z-0 mt-10 w-full px-2 md:px-4">
     <div class="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
       {columns.map((items, colIndex) => (
         <div class:list={["flex flex-col gap-3 md:gap-4", columnOffset[colIndex]]}>
