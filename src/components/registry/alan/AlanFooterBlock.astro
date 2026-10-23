@@ -1,0 +1,291 @@
+---
+/**
+ * Ciemna stopka Alan Zbel: logo, opis, profile społecznościowe, lista "Odkryj więcej"
+ * z numerowanymi wierszami oraz pasek prawny. Wszystkie treści pochodzą z JSON.
+ */
+import Container from "@components/ui/layout/Container.astro";
+import Icon from "@components/ui/atoms/Icon.astro";
+import data from "@data/sections/alan-footer.json";
+import { formatInternalLink } from "@utils/url";
+
+type AlanFooterData = typeof data;
+
+export interface Props {
+  data?: AlanFooterData;
+  class?: string;
+}
+
+const { data: overrideData, class: className = "" } = Astro.props as Props;
+const t = overrideData ?? data;
+const year = new Date().getFullYear();
+---
+
+<footer class:list={["alan-footer-block", className]}>
+  <Container class="alan-footer">
+    <div class="alan-footer__top">
+      <div class="alan-footer__brand">
+        <a class="alan-footer__logo" href={formatInternalLink("/")} aria-label={t.logoAriaLabel}>
+          <img class="alan-footer__logo-image" src={t.logoSrc} alt="" aria-hidden="true" width={t.logoWidth} height={t.logoHeight} loading="lazy" decoding="async" />
+        </a>
+        <p class="alan-footer__description">{t.description}</p>
+        <nav class="alan-footer__socials" aria-label={t.socialsLabel}>
+          {t.socials.map((social) => (
+            <a class="alan-footer__social group" href={social.href} target="_blank" rel="noopener noreferrer">
+              {social.label}
+              <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up-right" /></span>
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <nav class="alan-footer__links" aria-label={t.navigationLabel}>
+        <p class="alan-footer__links-label">{t.linksLabel}</p>
+        {t.links.map((link, index) => (
+          <a class="alan-footer__link group" href={formatInternalLink(link.href)}>
+            <span class="alan-footer__link-number">0{index + 1}</span>
+            {link.label}
+            <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up-right" /></span>
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="alan-footer__bottom">
+      <div class="alan-footer__legal-group">
+        <p class="alan-footer__copyright">© {year} {t.copyright}</p>
+        <nav class="alan-footer__legal" aria-label={t.legalLabel}>
+          {t.legalLinks.map((link) => (
+            <a class="alan-footer__legal-link" href={formatInternalLink(link.href)}>{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <a class="alan-footer__top-link group" href={t.backToTopHref} aria-label={t.backToTopAriaLabel}>
+        {t.backToTopLabel}
+        <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up" /></span>
+      </a>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  /* Why: kolory Alana są lokalnymi zmiennymi bloku, a nie zmianą motywu biblioteki.
+     Wartości zapasowe pozwalają wyrenderować stopkę poprawnie na każdym motywie. */
+  .alan-footer-block {
+    --alan-footer-surface: #0c0c0b;
+    --alan-footer-text: #e8e7e1;
+    --alan-footer-muted: #b3b2aa;
+    --alan-footer-line: #23221f;
+    --alan-footer-outline: #34332f;
+    --alan-footer-accent: #b9d35a;
+    --alan-footer-accent-light: #f2f2ee;
+    --alan-site-width: var(--site-width, 88rem);
+    --alan-site-gutter: var(--site-gutter, clamp(1.25rem, 5vw, 5rem));
+
+    background-color: var(--alan-footer-surface);
+    border-top: 1px solid var(--alan-footer-line);
+    color: var(--alan-footer-text);
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .alan-footer-block .alan-footer__top {
+    display: grid;
+    gap: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .alan-footer-block .alan-footer__brand {
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 1.4rem;
+  }
+
+  .alan-footer-block .alan-footer__logo {
+    display: block;
+    height: 3rem;
+    width: clamp(12rem, 24vw, 18rem);
+    text-decoration: none;
+  }
+
+  .alan-footer-block .alan-footer__logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .alan-footer-block .alan-footer__description {
+    max-width: 22rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--alan-footer-muted);
+  }
+
+  .alan-footer-block .alan-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .alan-footer-block .alan-footer__social {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--alan-footer-text);
+    text-decoration: underline;
+    text-decoration-color: var(--alan-footer-outline);
+    text-underline-offset: 4px;
+    transition: color 300ms ease, text-decoration-color 300ms ease;
+  }
+
+  .alan-footer-block .alan-footer__social:hover,
+  .alan-footer-block .alan-footer__social:focus-visible {
+    color: var(--alan-footer-accent);
+    text-decoration-color: var(--alan-footer-accent);
+  }
+
+  .alan-footer-block .alan-footer__links {
+    display: grid;
+    align-content: start;
+  }
+
+  .alan-footer-block .alan-footer__links-label {
+    padding-bottom: 1.4rem;
+    font-family: var(--font-sans); /* Alan ma bezszeryfowe nagłówki (Satoshi), a token biblioteki daje szeryf. */
+    font-size: 0.7rem;
+    font-weight: 900;
+    line-height: 1.625;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--alan-footer-muted);
+  }
+
+  .alan-footer-block .alan-footer__link {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--alan-footer-line);
+    padding-block: 1.1rem;
+    font-size: 1.4rem;
+    color: var(--alan-footer-text);
+    text-decoration: none;
+    transition: color 300ms ease;
+  }
+
+  .alan-footer-block .alan-footer__link:hover,
+  .alan-footer-block .alan-footer__link:focus-visible {
+    color: var(--alan-footer-accent);
+  }
+
+  .alan-footer-block .alan-footer__link-number {
+    font-size: 0.65rem;
+    color: var(--alan-footer-muted);
+  }
+
+  .alan-footer-block .alan-footer__icon {
+    display: inline-block;
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .alan-footer-block .alan-footer__social:hover .alan-footer__icon,
+  .alan-footer-block .alan-footer__social:focus-visible .alan-footer__icon {
+    transform: translate(2px, -2px);
+  }
+
+  .alan-footer-block .alan-footer__link:hover .alan-footer__icon,
+  .alan-footer-block .alan-footer__link:focus-visible .alan-footer__icon {
+    transform: translate(3px, -3px);
+  }
+
+  .alan-footer-block .alan-footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    border-top: 1px solid var(--alan-footer-line);
+    padding-top: 1.5rem;
+  }
+
+  .alan-footer-block .alan-footer__legal-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .alan-footer-block .alan-footer__copyright {
+    font-size: 0.7rem;
+    line-height: 1;
+    color: var(--alan-footer-muted);
+  }
+
+  .alan-footer-block .alan-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    font-size: 0.7rem;
+    line-height: 1;
+  }
+
+  .alan-footer-block .alan-footer__legal-link {
+    color: var(--alan-footer-muted);
+    text-underline-offset: 4px;
+    transition: color 300ms ease;
+  }
+
+  .alan-footer-block .alan-footer__legal-link:hover,
+  .alan-footer-block .alan-footer__legal-link:focus-visible {
+    color: var(--alan-footer-accent-light);
+    text-decoration: underline;
+  }
+
+  .alan-footer-block .alan-footer__top-link {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    color: var(--alan-footer-muted);
+    text-decoration: none;
+    transition: color 300ms ease;
+  }
+
+  .alan-footer-block .alan-footer__top-link:hover,
+  .alan-footer-block .alan-footer__top-link:focus-visible {
+    color: var(--alan-footer-accent);
+  }
+
+  .alan-footer-block .alan-footer__top-link:hover .alan-footer__icon,
+  .alan-footer-block .alan-footer__top-link:focus-visible .alan-footer__icon {
+    transform: translateY(-3px);
+  }
+
+  @media (min-width: 48rem) {
+    .alan-footer-block .alan-footer__top {
+      grid-template-columns: 1.4fr 1fr;
+      gap: 8rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .alan-footer-block .alan-footer__social,
+    .alan-footer-block .alan-footer__link,
+    .alan-footer-block .alan-footer__legal-link,
+    .alan-footer-block .alan-footer__top-link,
+    .alan-footer-block .alan-footer__icon {
+      transition: none;
+    }
+  }
+</style>

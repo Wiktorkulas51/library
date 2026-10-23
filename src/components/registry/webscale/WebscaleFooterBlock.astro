@@ -1,0 +1,152 @@
+---
+// Dlaczego: port stopki WebScale w wariancie bez ramy i bez shadera. Rozmyte
+// logo WEBSCALE w tle zostaje, a dane pochodzą z JSON. Kolory są zmiennymi
+// --wsb-* na korzeniu, tak jak w navbarze, więc motyw przemalowuje się w jednym miejscu.
+import Icon from "@components/ui/atoms/Icon.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import { formatInternalLink } from "@utils/url";
+import jsonData from "@data/sections/webscale-footer.json";
+
+type FooterData = typeof jsonData;
+
+export interface Props {
+  data?: FooterData;
+  id?: string;
+  class?: string;
+}
+
+const { data, id = "webscale-footer", class: className = "" } = Astro.props as Props;
+const t = data ?? jsonData;
+const headingId = `${id}-heading`;
+const year = new Date().getFullYear();
+
+// Dlaczego: formatInternalLink dokleja końcowy ukośnik, a plik RSS musi zostać bez zmian.
+const toHref = (href: string) => (href.endsWith(".xml") ? href : formatInternalLink(href));
+---
+
+<footer id={id} class:list={["wsb-footer relative border-t border-white/10 bg-white/5 backdrop-blur-xl", className]} aria-labelledby={headingId}>
+  <h2 id={headingId} class="sr-only">{t.headingLabel}</h2>
+
+  <div class="relative mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 top-[35%] z-0 hidden items-end justify-center overflow-hidden md:flex" aria-hidden="true">
+      <div class="wsb-footer__wordmark">{t.wordmark}</div>
+    </div>
+
+    <div class="relative z-10 xl:grid xl:grid-cols-3 xl:gap-12">
+      <div class="flex flex-col items-center space-y-8 text-center xl:items-start xl:text-left">
+        <a href={formatInternalLink("/")} class="inline-block transition-opacity hover:opacity-80">
+          <img class="h-10 w-auto" src={t.logoSrc} alt={t.logoAlt} width="640" height="111" loading="lazy" />
+        </a>
+        <Text tag="p" class="wsb-footer__description mx-auto max-w-xs xl:mx-0">{t.description}</Text>
+        <div class="flex justify-center gap-4 xl:justify-start">
+          {t.socials.map((social) => (
+            <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="wsb-footer__social">
+              <Icon name={social.icon} size="1.5rem" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="wsb-footer__columns mx-auto mt-16 grid w-full max-w-md grid-cols-1 justify-items-center gap-x-8 gap-y-10 text-center sm:grid-cols-2 sm:justify-items-stretch sm:text-left md:max-w-none md:grid-cols-4 xl:col-span-2 xl:mt-0">
+        {t.columns.map((column) => (
+          <div>
+            <Text tag="h3" class="wsb-footer__heading">{column.title}</Text>
+            <ul role="list" class="mt-6 space-y-4">
+              {column.links.map((link) => (
+                <li>
+                  {link.href ? (
+                    <a href={toHref(link.href)} class="wsb-footer__link">{link.label}</a>
+                  ) : (
+                    <Text tag="span" class="wsb-footer__text">{link.label}</Text>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="relative z-10 mt-10 flex flex-col items-center justify-between gap-4 pt-8 sm:mt-20 md:flex-row lg:mt-24">
+      <Text tag="p" class="wsb-footer__legal">{`© ${year} ${t.copyright.owner} ${t.copyright.rights}`}</Text>
+      <Text tag="p" class="wsb-footer__legal">{t.operatesIn}</Text>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Dlaczego: reguły są pod .wsb-footer, żeby nie wyciekły do innych podglądów biblioteki. */
+  .wsb-footer {
+    --wsb-primary: #2563EB;
+    --wsb-ink: #0F172A;
+    --wsb-muted: #64748B;
+    --wsb-subtle: #94A3B8;
+    font-family: var(--font-sans);
+    color: var(--wsb-ink);
+  }
+
+  .wsb-footer__wordmark {
+    transform: translateY(25%);
+    white-space: nowrap;
+    text-align: center;
+    font-size: clamp(5rem, 20vw, 17rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--wsb-primary);
+    opacity: 0.3;
+    filter: blur(5px);
+    user-select: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 35%);
+    mask-image: linear-gradient(to bottom, transparent, black 35%);
+  }
+
+  .wsb-footer__description {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    color: var(--wsb-muted);
+  }
+
+  .wsb-footer__social {
+    color: var(--wsb-subtle);
+    transition: color 300ms ease;
+  }
+  .wsb-footer__social:hover {
+    color: var(--wsb-primary);
+  }
+
+  .wsb-footer__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--wsb-ink);
+  }
+
+  .wsb-footer__link,
+  .wsb-footer__text {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    color: var(--wsb-muted);
+    text-decoration: none;
+  }
+  .wsb-footer__link {
+    transition: color 300ms ease;
+  }
+  .wsb-footer__link:hover {
+    color: var(--wsb-primary);
+  }
+
+  .wsb-footer__legal {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: var(--wsb-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wsb-footer__social,
+    .wsb-footer__link {
+      transition: none;
+    }
+  }
+</style>

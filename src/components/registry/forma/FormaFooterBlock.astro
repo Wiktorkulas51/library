@@ -1,0 +1,213 @@
+---
+// Why: Port of the Forma footer in the graphite-quiet variant. Dark background, a large
+// statement with an underlined CTA, and one row with the inverted wordmark, links and credit.
+// Forma colors are declared on the root so the block renders the same inside the library.
+import Container from "@components/ui/layout/Container.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import { formatInternalLink } from "@utils/url";
+import data from "@data/sections/forma-footer.json";
+
+type FooterData = typeof data;
+
+export interface Props {
+  data?: FooterData;
+  id?: string;
+  class?: string;
+}
+
+const { data: overrideData, id, class: className = "" } = Astro.props as Props;
+const t = overrideData ?? data;
+---
+
+<footer id={id} class:list={["forma-footer", className]}>
+  <Container>
+    <div class="forma-footer__intro">
+      <Text class="forma-footer__statement">
+        {t.introLines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </Text>
+      <a href={formatInternalLink(t.introCta.href)}>{t.introCta.label} <span class="forma-arrow-loop forma-arrow-loop--inline" aria-hidden="true"><span class="forma-arrow-loop__out">↗</span><span class="forma-arrow-loop__in">↗</span></span></a>
+    </div>
+
+    <div class="forma-footer__inner">
+      <a class="forma-footer__wordmark" href={formatInternalLink(t.wordmarkHref)} aria-label={t.wordmarkLabel}>
+        <img src={t.wordmarkSrc} alt={t.wordmarkAlt} width="768" height="146" loading="lazy" decoding="async" />
+      </a>
+
+      <nav aria-label={t.navLabel} class="forma-footer__nav">
+        {t.links.map((link) => (
+          <a href={formatInternalLink(link.href)}>{link.label}</a>
+        ))}
+      </nav>
+
+      <a class="forma-footer__credit" href={t.credit.href} target="_blank" rel="noopener noreferrer">{t.credit.label}</a>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .forma-footer {
+    --color-brand-dark: #22221f;
+    --color-brand-primary: #d07a3b;
+    --color-surface: #ffffff;
+    --color-surface-container-high: #ddd8cf;
+    --color-outline-variant: #ddd8cf;
+
+    padding-block: clamp(2rem, 5vw, 4rem) 1rem;
+    background: var(--color-brand-dark);
+    color: var(--color-surface);
+  }
+
+  .forma-footer__intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    padding-bottom: 1.75rem;
+  }
+
+  .forma-footer__intro :global(.forma-footer__statement) {
+    max-width: 28ch;
+    margin: 0;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+  }
+
+  .forma-footer__intro > a {
+    justify-self: start;
+    align-self: end;
+    padding-block: 0.7rem;
+    border-bottom: 1px solid currentColor;
+    color: var(--color-surface);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .forma-footer .forma-arrow-loop--inline {
+    display: inline-grid;
+    margin-left: 0.5rem;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+
+  .forma-footer .forma-arrow-loop--inline > :is(.forma-arrow-loop__out, .forma-arrow-loop__in) {
+    grid-area: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: transform 180ms ease-out;
+  }
+
+  .forma-footer .forma-arrow-loop--inline > .forma-arrow-loop__in {
+    transform: translate(-140%, 140%);
+  }
+
+  .forma-footer__intro > a:is(:hover, :focus-visible) .forma-arrow-loop--inline > :is(.forma-arrow-loop__out, .forma-arrow-loop__in) {
+    transition-duration: 300ms;
+  }
+
+  .forma-footer__intro > a:is(:hover, :focus-visible) .forma-arrow-loop--inline > .forma-arrow-loop__out {
+    color: var(--color-brand-primary);
+    transform: translate(140%, -140%);
+  }
+
+  .forma-footer__intro > a:is(:hover, :focus-visible) .forma-arrow-loop--inline > .forma-arrow-loop__in {
+    color: var(--color-brand-primary);
+    transform: translate(0, 0);
+  }
+
+  .forma-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-block: 1.1rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-surface) 20%, transparent);
+  }
+
+  .forma-footer__wordmark {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .forma-footer__wordmark img {
+    display: block;
+    width: 9rem;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .forma-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .forma-footer__nav a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--color-surface-container-high);
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  .forma-footer__nav a:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .forma-footer__credit {
+    margin-left: auto;
+    justify-self: end;
+    color: var(--color-surface-container-high);
+    font-size: 0.78rem;
+    text-decoration: underline;
+    text-decoration-color: var(--color-outline-variant);
+    text-underline-offset: 0.2em;
+    transition: color 200ms ease;
+  }
+
+  .forma-footer__credit:hover {
+    color: var(--color-brand-primary);
+  }
+
+  .forma-footer a:focus-visible {
+    border-radius: 0.25rem;
+    outline: 3px solid var(--color-brand-primary);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 40rem) {
+    .forma-footer__inner {
+      justify-content: flex-start;
+    }
+
+    .forma-footer__nav {
+      order: 1;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    .forma-footer__intro {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .forma-footer__nav a,
+    .forma-footer__credit {
+      transition: none;
+    }
+  }
+</style>

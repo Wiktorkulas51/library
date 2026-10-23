@@ -1,0 +1,401 @@
+---
+/**
+ * Pływający nagłówek strony głównej Alan Zbel.
+ * Why: header zwęża się i zyskuje warstwę tła przy przewijaniu. Postęp 0 do 1 liczy
+ * wspólny skrypt header-scroll-progress.js (data-header-progress), a CSS tylko czyta
+ * --nav-scroll-progress. Dzięki temu nie ma przełączania klas ani zmiany position.
+ */
+import Button from "@components/ui/atoms/Button.astro";
+import data from "@data/sections/alan-header.json";
+import { formatInternalLink } from "@utils/url";
+
+type AlanHeaderData = typeof data;
+
+export interface Props {
+  data?: AlanHeaderData;
+  class?: string;
+}
+
+const { data: overrideData, class: className = "" } = Astro.props as Props;
+const t = overrideData ?? data;
+---
+
+<div class:list={["alan-header-block", className]}>
+  <header data-header-progress data-header-progress-distance="220" class="alan-header">
+    <a class="alan-header__logo" href={formatInternalLink("/")} aria-label={t.logoAriaLabel}>
+      <img class="alan-header__logo-image" src={t.logoSrc} alt="" aria-hidden="true" width={t.logoWidth} height={t.logoHeight} loading="eager" decoding="async" />
+    </a>
+
+    <nav class="alan-header__nav" aria-label={t.navLabel}>
+      {t.items.map((item) => (
+        <a class="alan-header__link" href={formatInternalLink(item.href)}>{item.label}</a>
+      ))}
+    </nav>
+
+    <nav class="alan-header__socials" aria-label={t.socialsLabel}>
+      {t.socials.map((social) => (
+        <a class="alan-header__social" href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a>
+      ))}
+    </nav>
+
+    <div class="alan-header__cta-wrap">
+      <Button href={t.cta.href} size="sm" class="alan-header__cta">{t.cta.label}</Button>
+    </div>
+
+    <!-- Why: własny przycisk zamiast MenuToggle. MenuToggle niesie data-navbar-toggle, które navbar.js
+         wiąże z globalnym #site-nav-drawer, a ten blok ma własny drawer i nie może z nim kolidować. -->
+    <button type="button" class="ui-nav-menu-toggle alan-header__toggle lg:hidden" data-alan-header-toggle aria-controls="alan-header-drawer" aria-expanded="false" aria-label={t.menuOpenLabel}>
+      <span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+      <span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+      <span class="ui-nav-menu-toggle__bar" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <!-- Why: drawer jest rodzeństwem paska, nie jego dzieckiem. Pasek ma transform, a ten tworzy
+       własny blok zawierający dla position: fixed i zamknąłby drawer w 100% pasku. -->
+  <div id="alan-header-drawer" class="ui-nav-drawer-root lg:hidden" role="presentation" data-alan-header-drawer>
+    <div class="ui-nav-drawer-backdrop" data-alan-header-close aria-hidden="true"></div>
+
+    <aside class="ui-nav-drawer--sheet" role="dialog" aria-modal="true" aria-label={t.drawerLabel}>
+      <div class="ui-nav-drawer__deck" aria-hidden="true">
+        <div class="ui-nav-drawer__layer ui-nav-drawer__layer--1"></div>
+        <div class="ui-nav-drawer__layer ui-nav-drawer__layer--2"></div>
+        <div class="ui-nav-drawer__layer ui-nav-drawer__layer--3"></div>
+      </div>
+
+      <div class="ui-nav-drawer__content">
+        <div class="ui-nav-drawer__top">
+          <button type="button" class="ui-nav-drawer__close" data-alan-header-close aria-label={t.menuCloseLabel}>
+            <span class="ui-nav-drawer__close-bar" aria-hidden="true"></span>
+            <span class="ui-nav-drawer__close-bar" aria-hidden="true"></span>
+            <span class="ui-nav-drawer__close-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="ui-nav-drawer__scroller">
+          <nav class="ui-nav-drawer__nav" aria-label={t.navLabel}>
+            {t.items.map((item, index) => (
+              <div class="ui-nav-drawer__item" style={`--stagger: ${index}`}>
+                <a class="ui-nav-drawer__link" href={formatInternalLink(item.href)} data-alan-header-close>{item.label}</a>
+              </div>
+            ))}
+            <div class="ui-nav-drawer__item" style={`--stagger: ${t.items.length}`}>
+              <a class="ui-nav-drawer__cta" href={formatInternalLink(t.cta.href)} data-alan-header-close>{t.cta.label}</a>
+            </div>
+            <div class="ui-nav-drawer__item alan-header__drawer-socials" style={`--stagger: ${t.items.length + 1}`}>
+              <div role="group" aria-label={t.socialsLabel}>
+                {t.socials.map((social) => (
+                  <a class="alan-header__drawer-social" href={social.href} target="_blank" rel="noopener noreferrer" data-alan-header-close>{social.label}</a>
+                ))}
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script is:inline src="/js/header-scroll-progress.js" data-astro-rerun defer></script>
+<script is:inline data-astro-rerun>
+  // Why: jeden zestaw słuchaczy na dokumencie (delegacja), więc ponowne uruchomienie po
+  // podmianie strony nie dubluje obsługi kliknięć. Każdy blok ma własny drawer.
+  (function () {
+    if (window.alanHeaderDrawerBound) return;
+    window.alanHeaderDrawerBound = true;
+
+    function setDrawerOpen(root, isOpen, restoreFocus) {
+      var drawer = root.querySelector('[data-alan-header-drawer]');
+      var toggle = root.querySelector('[data-alan-header-toggle]');
+      if (!drawer || !toggle) return;
+      drawer.classList.toggle('is-open', isOpen);
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      // Why: blokada przewijania strony, gdy menu zasłania treść. Bez niej tło przewija się pod drawerem.
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) {
+        requestAnimationFrame(function () {
+          var first = drawer.querySelector('a, button');
+          if (first) first.focus();
+        });
+      } else if (restoreFocus !== false) {
+        toggle.focus();
+      }
+    }
+
+    function findOpenRoot() {
+      var open = document.querySelector('.alan-header-block [data-alan-header-drawer].is-open');
+      return open ? open.closest('.alan-header-block') : null;
+    }
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target || !target.closest) return;
+      var toggle = target.closest('[data-alan-header-toggle]');
+      if (toggle) {
+        var root = toggle.closest('.alan-header-block');
+        if (!root) return;
+        var drawer = root.querySelector('[data-alan-header-drawer]');
+        setDrawerOpen(root, !(drawer && drawer.classList.contains('is-open')));
+        return;
+      }
+      var closer = target.closest('[data-alan-header-close]');
+      if (closer) {
+        var closeRoot = closer.closest('.alan-header-block');
+        if (closeRoot) setDrawerOpen(closeRoot, false);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+      var root = findOpenRoot();
+      if (root) setDrawerOpen(root, false);
+    });
+
+    // Why: drawer jest ukryty od 64rem. Po obróceniu telefonu albo poszerzeniu okna z otwartym
+    // drawerem blokada przewijania zostałaby na stronie, więc zamykamy go bez przenoszenia fokusu.
+    window.matchMedia('(min-width: 64rem)').addEventListener('change', function (event) {
+      if (!event.matches) return;
+      var root = findOpenRoot();
+      if (root) setDrawerOpen(root, false, false);
+    });
+  })();
+</script>
+
+<style>
+  /* Why: kolory Alana są nadpisaniem tokenów biblioteki na korzeniu bloku, a nie zmianą motywu.
+     Dzięki temu przycisk, drawer i tło paska biorą barwy Alana, a inne bloki na stronie zostają
+     przy swoim motywie. Wartości z motywu Alana, bez zależności od motywu biblioteki. */
+  .alan-header-block {
+    --color-surface: #131312;
+    --color-on-surface: #f2f2ee;
+    --color-on-surface-variant: #b3b2aa;
+    --color-outline: #34332f;
+    --color-outline-variant: #23221f;
+    --color-brand-primary: #b9d35a;
+    --color-brand-accent: #94a84c;
+    --color-brand-dark: #0c0c0b;
+    --color-brand-light: #f2f2ee;
+    --color-brand-cream: #e8e7e1;
+    --color-primary: #b9d35a;
+    --color-on-primary: #0b0d0b;
+    --ui-text-on-dark: #f1f3ee;
+    --ui-nav-drawer-bg: var(--color-brand-dark);
+    --ui-nav-drawer-link: rgb(255 255 255 / 0.92);
+    --ui-nav-drawer-link-hover: var(--color-brand-primary);
+    /* Why: zmienne szerokości mają wartości zapasowe, bo na stronie biblioteki nie ma klasy .site-page. */
+    --alan-site-width: var(--site-width, 88rem);
+    --alan-site-gutter: var(--site-gutter, clamp(1.25rem, 5vw, 5rem));
+    --alan-header-width-full: min(calc(100% - var(--alan-site-gutter) * 2), var(--alan-site-width));
+    --alan-header-width-compact: min(calc(100% - var(--alan-site-gutter) * 2), 64rem);
+  }
+
+  /* Dlaczego: stała wysokość 5.5rem. Zmiana wysokości co klatkę przeliczałaby układ strony.
+     Zwężanie i przesunięcie 0.5rem idą wyłącznie z --nav-scroll-progress.
+     Bez backdrop-filter: rozmycie zmieniane przy scrollu przerysowuje całe tło pod paskiem. */
+  .alan-header-block .alan-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    isolation: isolate;
+    margin: 0 auto;
+    display: flex;
+    min-height: 5.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.75rem, 2vw, 2rem);
+    width: calc(
+      var(--alan-header-width-full) -
+        var(--nav-scroll-progress, 0) * (var(--alan-header-width-full) - var(--alan-header-width-compact))
+    );
+    padding-inline: calc(var(--nav-scroll-progress, 0) * 1.25rem);
+    transform: translate3d(0, calc(var(--nav-scroll-progress, 0) * 0.5rem), 0);
+    color: var(--ui-text-on-dark);
+  }
+
+  @media (max-width: 47.99rem) {
+    .alan-header-block .alan-header {
+      gap: 0.65rem;
+    }
+  }
+
+  /* Dlaczego: warstwa tła ma stały wygląd docelowy, a zmienia się tylko opacity.
+     Karta graficzna składa to bez ponownego malowania paska. */
+  .alan-header-block .alan-header::before {
+    content: "";
+    position: absolute;
+    inset: calc(var(--nav-scroll-progress, 0) * 0.5rem) 0;
+    z-index: -1;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 1rem;
+    background-color: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    box-shadow: 0 0.75rem 2rem -0.75rem rgb(0 0 0 / 0.5);
+    opacity: var(--nav-scroll-progress, 0);
+    pointer-events: none;
+    will-change: opacity;
+  }
+
+  .alan-header-block .alan-header__logo {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--ui-text-on-dark);
+    text-decoration: none;
+  }
+
+  .alan-header-block .alan-header__logo-image {
+    display: block;
+    width: auto;
+    height: calc(3.5rem - var(--nav-scroll-progress, 0) * 1rem);
+    flex: none;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  @media (max-width: 47.99rem) {
+    .alan-header-block .alan-header__logo {
+      gap: 0.45rem;
+    }
+
+    .alan-header-block .alan-header__logo-image {
+      width: 7.25rem;
+    }
+  }
+
+  .alan-header-block .alan-header__nav {
+    display: none;
+    margin-right: auto;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2.25rem);
+  }
+
+  .alan-header-block .alan-header__link {
+    position: relative;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: var(--ui-text-on-dark);
+    text-decoration: none;
+    transition: color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .alan-header-block .alan-header__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .alan-header-block .alan-header__link:hover,
+  .alan-header-block .alan-header__link:focus-visible {
+    color: var(--color-brand-primary);
+  }
+
+  .alan-header-block .alan-header__link:hover::after,
+  .alan-header-block .alan-header__link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .alan-header-block .alan-header__socials {
+    display: none;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .alan-header-block .alan-header__social {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 0.5rem;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--color-on-surface-variant);
+    text-decoration: none;
+    transition: color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .alan-header-block .alan-header__social:hover,
+  .alan-header-block .alan-header__social:focus-visible {
+    color: var(--color-brand-primary);
+  }
+
+  .alan-header-block .alan-header__cta-wrap {
+    display: none;
+  }
+
+  /* Why: biblioteka ustawia tekst przycisku primary na biały, a na jasnym akcencie Alana
+     taki napis byłby nieczytelny. Kolor tekstu bierzemy z tokena on-primary. */
+  .alan-header-block .alan-header__cta {
+    flex: none;
+    font-size: 0.8rem;
+    color: var(--color-on-primary);
+    /* Alan ma CTA w bezszeryfowym foncie nagłówków (Satoshi), a token biblioteki daje szeryf. */
+    font-family: var(--font-sans);
+  }
+
+  .alan-header-block .alan-header__toggle {
+    flex: none;
+  }
+
+  @media (min-width: 64rem) {
+    .alan-header-block .alan-header__nav,
+    .alan-header-block .alan-header__socials {
+      display: flex;
+    }
+
+    .alan-header-block .alan-header__cta-wrap {
+      display: block;
+    }
+  }
+
+  /* Dlaczego: w drawerze CTA ma kolor akcentu Alana, a nie domyślny kolor przycisku biblioteki. */
+  .alan-header-block .ui-nav-drawer__cta {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .alan-header-block .alan-header__drawer-socials > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    border-top: 1px solid var(--color-outline-variant);
+    padding-top: 1rem;
+  }
+
+  .alan-header-block .alan-header__drawer-social {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-on-surface-variant);
+    text-decoration: underline;
+    text-decoration-color: var(--color-outline);
+    text-underline-offset: 4px;
+  }
+
+  .alan-header-block .alan-header__drawer-social:hover,
+  .alan-header-block .alan-header__drawer-social:focus-visible {
+    color: var(--color-brand-primary);
+    text-decoration-color: var(--color-brand-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .alan-header-block .alan-header__link,
+    .alan-header-block .alan-header__link::after,
+    .alan-header-block .alan-header__social {
+      transition: none;
+    }
+  }
+</style>

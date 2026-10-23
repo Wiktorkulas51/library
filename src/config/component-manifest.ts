@@ -34,6 +34,8 @@ export const COMPONENT_MANIFEST: Record<string, ComponentManifestEntry> = {
   AboutTomRosBlock: { category: "client", status: "confirmed" },
   AboutWireframeBlock: { category: "catalog", status: "confirmed" },
   AccommodationCardsBlock: { category: "client", status: "confirmed" },
+  AlanFooterBlock: { category: "client", status: "provisional" },
+  AlanHeaderBlock: { category: "client", status: "provisional" },
   AudienceSplitBlock: { category: "core", status: "provisional" },
   BMICalculatorBlock: { category: "core", status: "provisional" },
   BlogListBlock: { category: "core", status: "provisional" },
@@ -71,6 +73,8 @@ export const COMPONENT_MANIFEST: Record<string, ComponentManifestEntry> = {
   FooterContactBlock: { category: "core", status: "provisional" },
   FooterMinimalBlock: { category: "core", status: "provisional" },
   FooterPromoBlock: { category: "core", status: "provisional" },
+  FormaFooterBlock: { category: "client", status: "provisional" },
+  FormaNavbarBlock: { category: "client", status: "provisional" },
   GalleryBlock: { category: "core", status: "provisional" },
   GalleryCrossfadeBlock: { category: "core", status: "provisional" },
   GalleryStudioBlock: { category: "catalog", status: "confirmed" },
@@ -142,6 +146,7 @@ export const COMPONENT_MANIFEST: Record<string, ComponentManifestEntry> = {
   MystekTrainingTargetsBlock: { category: "client", status: "confirmed" },
   MystekTrainingWhyBlock: { category: "client", status: "confirmed" },
   NavbarContactBlock: { category: "core", status: "provisional" },
+  NovaFooterBlock: { category: "client", status: "provisional" },
   OfferContactCtaMystekBlock: { category: "client", status: "confirmed" },
   OfferServiceBentoMystekBlock: { category: "client", status: "confirmed" },
   OnlineAdviceBlock: { category: "client", status: "confirmed" },
@@ -195,6 +200,8 @@ export const COMPONENT_MANIFEST: Record<string, ComponentManifestEntry> = {
   TrustBarBlock: { category: "core", status: "provisional" },
   UniversityFieldsBlock: { category: "core", status: "provisional" },
   UspPremiumBlock: { category: "core", status: "provisional" },
+  WebscaleFooterBlock: { category: "client", status: "provisional" },
+  WebscaleNavbarBlock: { category: "client", status: "provisional" },
 } as const satisfies Record<string, ComponentManifestEntry>;
 
 const manifestEntries = Object.entries(COMPONENT_MANIFEST) as [string, ComponentManifestEntry][];
