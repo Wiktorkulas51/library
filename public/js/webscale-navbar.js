@@ -169,8 +169,11 @@
       }
     };
 
+    let skipFocusOpen = false;
+
     triggers.forEach((trigger) => {
-      const handleEnter = () => {
+      const handleEnter = (event) => {
+        if (event.type === "focus" && skipFocusOpen) return;
         moveIndicator(trigger);
         if (trigger.dataset.wsbPanelKey) {
           openPanel(trigger);
@@ -192,6 +195,25 @@
         }
       }, { signal });
     });
+
+    // Dlaczego: scena z panelami stoi w DOM za wszystkimi linkami, więc zwykły Tab z triggera
+    // trafiłby na następny link i zamknął panel. Tab albo strzałka w dół przenosi fokus do panelu.
+    buttonTriggers.forEach((button) => {
+      button.addEventListener("keydown", (event) => {
+        const key = button.dataset.wsbPanelKey;
+        const intoPanel = event.key === "ArrowDown" || (event.key === "Tab" && !event.shiftKey && activeKey === key);
+        if (!intoPanel) return;
+        if (activeKey !== key) openPanel(button, true);
+        const firstItem = panels.get(key)?.querySelector("[data-wsb-menuitem]");
+        if (!firstItem) return;
+        event.preventDefault();
+        window.requestAnimationFrame(() => firstItem.focus());
+      }, { signal });
+    });
+
+    stage.addEventListener("focusout", (event) => {
+      if (!stage.contains(event.relatedTarget)) closePanel();
+    }, { signal });
 
     menuItems.forEach((menuItem) => {
       const showCardIndicator = () => moveCardIndicator(menuItem);
@@ -222,8 +244,15 @@
         return;
       }
       if (activeKey) {
+        const trigger = findTrigger(activeKey);
+        const focusInside = root.contains(document.activeElement);
         closePanel();
-        if (root.contains(document.activeElement)) document.activeElement.blur();
+        // Fokus wraca na trigger, żeby klawiatura nie zgubiła miejsca w menu.
+        if (focusInside && trigger) {
+          skipFocusOpen = true;
+          trigger.focus({ preventScroll: true });
+          skipFocusOpen = false;
+        }
       }
     }, { signal });
 
