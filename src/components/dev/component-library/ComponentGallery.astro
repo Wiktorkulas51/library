@@ -1,5 +1,6 @@
 ---
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import GalleryLayout from '@layouts/GalleryLayout.astro';
 import Section from '@components/ui/layout/Section.astro';
@@ -153,10 +154,12 @@ function thumbnailImageHref(item: DeveloperCatalogMetadata) {
   const fileName = `${item.sectionId}--${item.variantId}.webp`;
   const filePath = path.join(thumbnailDir, fileName);
   if (!fs.existsSync(filePath)) return null;
-  // Wersja z czasu zapisu odświeża obraz w przeglądarce po ponownym zrzucie.
-  const version = Math.round(fs.statSync(filePath).mtimeMs).toString(36);
+  // Wersja z treści pliku, a nie z daty: po klonowaniu i deployu data się zmienia
+  // i przeglądarka pobierałaby wszystkie obrazy od nowa.
+  const version = createHash('md5').update(fs.readFileSync(filePath)).digest('hex').slice(0, 8);
   return `/component-thumbnails/${encodeURIComponent(fileName)}?v=${version}`;
 }
+const thumbnailImages = new Map(catalog.map((item) => [item.uid, thumbnailImageHref(item)]));
 
 function copyPrompt(item: DeveloperCatalogMetadata) {
   return galleryCopy.copyPromptText
@@ -331,9 +334,9 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
                   <span class="absolute left-3 top-3 z-20 rounded-md bg-brand-dark/80 px-2 py-0.5 font-mono text-[11px] font-bold text-white">
                     #{item.uid}
                   </span>
-                  {thumbnailImageHref(item) ? (
+                  {thumbnailImages.get(item.uid) ? (
                     <img
-                      src={thumbnailImageHref(item)}
+                      src={thumbnailImages.get(item.uid)}
                       alt=""
                       width="720"
                       height="450"

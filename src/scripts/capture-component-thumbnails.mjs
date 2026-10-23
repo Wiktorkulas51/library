@@ -2,6 +2,7 @@
 // Dlaczego: miniatury jako iframe to pełna strona Astro na tym samym wątku co katalog,
 // więc każde ładowanie przy przewijaniu gubiło klatki. Obraz WebP nie kosztuje nic.
 //
+// Wymaga Chromium dla Playwrighta: npx playwright install chromium
 // Użycie (dev server biblioteki musi działać):
 //   npm run thumbs:capture                 tylko brakujące zrzuty
 //   npm run thumbs:capture -- --all        wszystkie od nowa
@@ -44,6 +45,8 @@ async function capture(context, item) {
     // Wyspy React (np. komponenty 21st.dev) hydratują się po load. Astro zdejmuje atrybut ssr
     // po hydratacji, więc czekamy, aż zniknie, żeby nie złapać pustej klatki.
     await page.waitForFunction(() => !document.querySelector('astro-island[ssr]'), null, { timeout: 20000 }).catch(() => {});
+    // Zrzut przed załadowaniem zdjęć pokazałby pusty kadr zamiast komponentu.
+    await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, { timeout: 15000 }).catch(() => {});
     // Komponenty sterowane scrollem układają elementy dopiero po zdarzeniu scroll albo resize.
     await page.evaluate(() => {
       window.scrollTo(0, 1);
@@ -59,7 +62,7 @@ async function capture(context, item) {
     // więc galeria pokaże dla niego żywy iframe.
     const { channels } = await sharp(png).stats();
     if (channels.every((channel) => channel.stdev < 1.5)) {
-      fs.rmSync(target, { force: true });
+      // Istniejącego zrzutu nie kasujemy: pusta klatka może wynikać z chwilowego błędu ładowania.
       return false;
     }
     await sharp(png)
@@ -72,7 +75,10 @@ async function capture(context, item) {
   }
 }
 
-const items = (await readCatalogUrls()).filter((item) => (
+const catalogItems = await readCatalogUrls();
+const unknownOnly = only.filter((section) => !catalogItems.some((item) => item.section === section));
+if (unknownOnly.length) console.warn(`thumbs:capture: nie ma w katalogu: ${unknownOnly.join(', ')}`);
+const items = catalogItems.filter((item) => (
   (!only.length || only.includes(item.section))
   && (captureAll || only.length || !fs.existsSync(path.join(outputDir, fileNameFor(item.section, item.variant))))
 ));
@@ -106,7 +112,7 @@ await Promise.all(Array.from({ length: concurrency }, async () => {
 }));
 
 await browser.close();
-if (blanks.length) console.log(`thumbs:capture: puste klatki, zostaje żywy iframe: ${blanks.join(', ')}`);
+if (blanks.length) console.log(`thumbs:capture: puste klatki (bez zapisu, karta pokaże iframe, jeśli brak starszego zrzutu): ${blanks.join(', ')}`);
 if (failures.length) {
   console.error(`thumbs:capture: ${failures.length} błędów:\n${failures.join('\n')}`);
   process.exit(1);
