@@ -32,7 +32,7 @@ const year = new Date().getFullYear();
           {t.socials.map((social) => (
             <a class="alan-footer__social group" href={social.href} target="_blank" rel="noopener noreferrer">
               {social.label}
-              <Icon name="arrow-up-right" class="alan-footer__icon" />
+              <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up-right" /></span>
             </a>
           ))}
         </nav>
@@ -44,7 +44,7 @@ const year = new Date().getFullYear();
           <a class="alan-footer__link group" href={formatInternalLink(link.href)}>
             <span class="alan-footer__link-number">0{index + 1}</span>
             {link.label}
-            <Icon name="arrow-up-right" class="alan-footer__icon" />
+            <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up-right" /></span>
           </a>
         ))}
       </nav>
@@ -62,7 +62,7 @@ const year = new Date().getFullYear();
 
       <a class="alan-footer__top-link group" href={t.backToTopHref} aria-label={t.backToTopAriaLabel}>
         {t.backToTopLabel}
-        <Icon name="arrow-up" class="alan-footer__icon" />
+        <span class="alan-footer__icon" aria-hidden="true"><Icon name="arrow-up" /></span>
       </a>
     </div>
   </Container>

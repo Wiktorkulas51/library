@@ -48,11 +48,11 @@ Jak działa:
 1. Dwa headery. Pierwszy `data-site-header data-site-header-static` jest `absolute` nad hero i przewija się razem ze stroną. Drugi `data-site-header-fixed` jest `fixed`, schowany przez `-translate-y-full opacity-0` i `aria-hidden="true"`.
 2. `navbar.js` w `requestAnimationFrame` sprawdza `pageYOffset`. Po przekroczeniu progu dodaje klasę `is-visible` do paska fixed (oraz `is-scrolled` do statycznego) i ustawia `aria-hidden="false"`.
 3. CSS animuje `translate` 0.35s `cubic-bezier(0.22, 1, 0.36, 1)` i `opacity` 0.35s. Przy `prefers-reduced-motion` pasek pojawia się bez ruchu.
-4. Nie ma skoku układu, bo oba headery są poza przepływem. `ResizeObserver` zapisuje wysokość statycznego headera do `--site-header-height`, a `<main>` dostaje z niej `padding-top`, chyba że strona ma `fullBleedTop`.
+4. Nie ma skoku układu, bo oba headery są poza przepływem. `ResizeObserver` zapisuje wysokość statycznego headera do `--site-header-height` (używają jej hero i `scroll-margin`). `NavStyles.astro` zeruje górny padding pierwszej sekcji pod statycznym headerem. W Starter Kicie `Layout` dodatkowo daje `<main>` padding z tej zmiennej, chyba że strona ma `fullBleedTop`.
 
 Ustawienia:
 - Próg: domyślnie 300 px, czyli po zjechaniu z większości hero. Inny próg ustawisz atrybutem `data-scroll-threshold="120"` na statycznym headerze.
-- Motyw: `navbarTheme="transparent" | "light" | "dark"` w `Layout`.
+- Motyw: prop `theme="transparent" | "light" | "dark"` komponentu `Navbar` (w Starter Kicie `navbarTheme` w `Layout`).
 
 Własny header klienta ze static→fixed: zachowaj te same atrybuty (`data-site-header-static`, `data-site-header-fixed`) i reguły CSS z `Floating.astro`, a `navbar.js` zadziała bez zmian.
 
