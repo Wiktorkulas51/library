@@ -1,0 +1,41 @@
+---
+import GalleryLayout from '@layouts/GalleryLayout.astro';
+import Section from '@components/ui/layout/Section.astro';
+import Container from '@components/ui/layout/Container.astro';
+import Heading from '@components/ui/atoms/Heading.astro';
+import Text from '@components/ui/atoms/Text.astro';
+import favorites from '@data/dev/component-library/21st-favorites.json';
+---
+
+<GalleryLayout title="Ulubione komponenty z 21st.dev" theme="default">
+  <Section tone="page" class="min-h-screen">
+    <Container class="py-10 sm:py-14 lg:py-16">
+      <header class="mb-10 max-w-3xl space-y-4">
+        <Text variant="accent-label">Źródło: 21st.dev CLI</Text>
+        <Heading tag="h1" variant="hero">Ulubione komponenty</Heading>
+        <Text variant="lead" class="text-brand-dark/65">
+          Oryginalne podglądy i komponenty zapisane na koncie WebScale. Otwórz element, aby zobaczyć jego lokalną wersję.
+        </Text>
+      </header>
+
+      <ul class="grid list-none gap-5 p-0 sm:grid-cols-2 xl:grid-cols-3">
+        {favorites.map((item) => (
+          <li class="overflow-hidden rounded-2xl border border-brand-dark/10 bg-white">
+            <a class="block h-full text-inherit no-underline" href={`/favorites/21st/${item.slug}/`}>
+              <img
+                src={item.previewUrl}
+                alt={`Podgląd komponentu ${item.name}`}
+                class="aspect-[16/10] w-full border-b border-brand-dark/10 object-cover object-top"
+                loading="lazy"
+              />
+              <div class="space-y-2 p-5">
+                <Heading tag="h2" variant="feature-title">{item.name}</Heading>
+                <Text variant="body" class="text-sm text-brand-dark/55">Autor: {item.author}</Text>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </Section>
+</GalleryLayout>

@@ -1,64 +1,51 @@
-# VersionToolbar — prototypowanie wariantów UI
+# VersionToolbar, prototypowanie wariantów UI
 
 ## Co to jest
 
-VersionToolbar (`src/components/dev/VersionToolbar.astro`) to sticky pasek na dole strony, aktywny tylko w dev. Skanuje DOM w poszukiwaniu grup `data-version-group` i pozwala przełączać wersje UI bez reloadu: klik w pasek albo parametr `?sv=` w URL.
+`VersionToolbar` (`src/components/dev/VersionToolbar.astro`) to kompaktowy pasek widoczny na stronach developerskich. Layout dodaje go automatycznie, także gdy strona ma `clientRuntime={false}`. Warianty można przełączać bez przeładowania strony. Sterowanie działa klawiaturą i dotykiem.
 
-Jest podpięty raz w `src/layouts/GalleryLayout.astro` (import oraz render na końcu `<body>`), więc działa na lokalnych stronach galerii. Nie dodawaj nowych tras developerskich. Podgląd uruchamiaj z poziomu rootu `/`.
+`VersionGroup` (`src/components/dev/VersionGroup.astro`) opisuje bazową wersję i dostępne alternatywy. W buildzie produkcyjnym renderowana jest wyłącznie wersja bazowa. Nie dodawaj osobnych tras demonstracyjnych ani sztucznych wariantów.
 
-## Jak włączyć
+## Dodawanie grupy
 
-Dodaj `?vt=1` do URL strony, np. `http://localhost:4321/?vt=1`. Pasek pojawia się na dole. Bez tego parametru toolbar jest ukryty, nawet jeśli w DOM są warianty.
+Najpierw znajdź właściwy komponent i przygotuj rzeczywiste alternatywy do porównania. Bazowy slot `original` jest wymagany. Sloty wariantów są opcjonalne i pojawią się w pasku tylko wtedy, gdy mają zawartość.
 
-## Atrybuty HTML
+```astro
+<VersionGroup id="hero" label="Hero" labels={{ v1: 'Kompaktowy' }}>
+  <Hero slot="original" />
+  <CompactHero slot="v1" />
+</VersionGroup>
+```
 
-| Atrybut | Opis |
-|---------|------|
-| `data-version-group="{nazwa}"` | Kontener grupujący wersje jednej sekcji (np. "hero", "products") |
-| `data-version="{id}"` | Pojedyncza wersja; tylko aktywna jest widoczna |
-| `data-version-label="{etykieta}"` | Czytelna nazwa przycisku w pasku (np. "Kierunek A") |
-| `data-css-toggle-group="{nazwa}"` | Grupa presetów CSS (szybkie eksperymenty bez duplikowania HTML) |
-| `data-css-toggle-presets='[{"label":"Ciemny","props":{"--bg":"#0a0a0a"}}]'` | Presety przełączające zmienne CSS na kontenerze |
+Id grupy i identyfikatory wariantów mogą zawierać litery, cyfry, `_` i `-`. Pierwsza widoczna wersja to `original`. Nie duplikuj istniejącej sekcji, dopóki nie ma konkretnego wariantu do sprawdzenia.
 
-## URL state
+## Stan wyboru
 
-Wybór trzyma się w URL (`?sv=grupa:wersja`, wiele grup po przecinku: `?sv=hero:v2,cta:banner`) i w localStorage. Link z `?sv=` można wysłać użytkownikowi, żeby zobaczył konkretną wersję bez klikania.
+Parametr URL `sv` pozwala wskazać wybrane warianty, np. `?sv=hero:v2,cta:v1`. Wybór z URL ma pierwszeństwo przed zapamiętanym wyborem. Bez parametru pasek przywraca stan z `sessionStorage`, osobno dla każdej ścieżki. Zmiana wariantu aktualizuje `sv`, zachowując pozostałe parametry URL.
 
-## Workflow dla AI (krok po kroku)
+Nie trzeba dodawać `?vt=1`. Pasek działa na wszystkich stronach developerskich, również gdy nie ma wariantów. W takim przypadku pokazuje informację, że strona nie zawiera wariantów.
 
-1. **Znajdź komponent** sekcji (np. `src/components/registry/HeroBlock.astro`).
-2. **Przygotuj eksplorację:** przeczytaj komponent, owiń istniejącą treść w:
-   ```astro
-   <section data-version-group="hero">
-     <div data-version="original" data-version-label="Oryginał">
-       <!-- istniejąca treść -->
-     </div>
-   </section>
-   ```
-   Pierwsza wersja ZAWSZE `data-version="original"` (kopia obecnego stanu).
-3. **Dodaj warianty:** 2-3 alternatywy w tym samym pliku:
-   ```astro
-   <div data-version="v2" data-version-label="Kierunek A" style="display:none">
-     <!-- nowy układ -->
-   </div>
-   ```
-   NIE twórz osobnych plików. Używaj czytelnych etykiet.
-4. **Odśwież stronę** z `?vt=1` i sprawdź, czy pasek pokazuje grupę i wersje jako przyciski.
-5. **Prezentacja:** powiedz użytkownikowi: "są 3 wersje, przełączaj paskiem na dole strony".
-6. **Decyzja i czyszczenie:** po wyborze skopiuj wybraną wersję na główny poziom i usuń WSZYSTKIE `data-version-group` oraz `data-version`. Nigdy nie zostawiaj martwych divów ani ukrytych wersji.
-7. **CSS toggle** (gdy warianty różnią się tylko kolorami, nie strukturą):
-   ```html
-   <div data-css-toggle-group="kolory" data-css-toggle-presets='[
-     {"label":"Ciemny","props":{"--bg":"#0a0a0a","--text":"#fff"}},
-     {"label":"Jasny","props":{"--bg":"#fafafa","--text":"#111"}}
-   ]'>
-   ```
-   Komponent używa `var(--bg)` i `var(--text)` w stylach. Zero duplikowania HTML.
+## Presety CSS
 
-## Zasady
+Dla różnic ograniczonych do zmiennych CSS można użyć elementu z `data-css-toggle-group` i tablicą JSON w `data-css-toggle-presets`:
 
-- Warianty są TYMCZASOWE, zawsze czyść po decyzji użytkownika.
-- Wszystko w jednym pliku komponentu, zero osobnych plików.
-- Po każdej zmianie odśwież stronę i sprawdź, czy pasek pokazuje oczekiwane opcje.
-- Toolbar znika automatycznie, gdy w DOM nie ma `data-version-group`.
-- Stan wyboru można wymusić linkiem: `?sv=hero:v2` pokazuje od razu wersję v2.
+```html
+<div
+  data-css-toggle-group="Kolory"
+  data-css-toggle-presets='[
+    {"label":"Ciemny","props":{"--bg":"#0a0a0a","--text":"#fff"}},
+    {"label":"Jasny","props":{"--bg":"#fafafa","--text":"#111"}}
+  ]'
+>
+```
+
+Każdy preset wymaga etykiety `label`; `props` może ustawiać zmienne CSS na elemencie. Potrzebne są co najmniej dwa presety.
+
+## Workflow
+
+1. Przeczytaj istniejący komponent i zachowaj jego bazowy wygląd w slocie `original`.
+2. Dodaj tylko alternatywy potrzebne do podjęcia konkretnej decyzji projektowej.
+3. Sprawdź stronę w dev i przełącz każdy wariant z paska. `sv` można skopiować, aby odtworzyć ten sam wybór.
+4. Po zatwierdzeniu kierunku usuń tymczasowe warianty albo przenieś wybraną implementację do głównego komponentu.
+
+Miniatury katalogu przekazują `devTools={false}`, aby nie renderować narzędzi w ich ramkach. Inne powierzchnie mogą wyłączyć pasek tym samym propem layoutu.

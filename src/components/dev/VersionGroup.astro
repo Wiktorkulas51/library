@@ -1,0 +1,41 @@
+---
+interface Props {
+	id: string;
+	label?: string;
+	labels?: Partial<Record<'v1' | 'v2' | 'v3' | 'v4', string>>;
+}
+
+const { id, label = id, labels = {} } = Astro.props;
+const versions = [
+	{ id: 'original', label: 'Bazowa', slot: 'original' },
+	{ id: 'v1', label: labels.v1 || 'Wariant 1', slot: 'v1' },
+	{ id: 'v2', label: labels.v2 || 'Wariant 2', slot: 'v2' },
+	{ id: 'v3', label: labels.v3 || 'Wariant 3', slot: 'v3' },
+	{ id: 'v4', label: labels.v4 || 'Wariant 4', slot: 'v4' },
+];
+
+if (!Astro.slots.has('original')) {
+	throw new Error(`VersionGroup "${id}" requires an original slot.`);
+}
+if (import.meta.env.DEV && !/^[a-zA-Z0-9_-]+$/.test(id)) {
+	throw new Error(`VersionGroup id "${id}" may use only letters, numbers, underscores, and hyphens.`);
+}
+
+const availableVersions = import.meta.env.DEV
+	? versions.filter((version) => version.slot === 'original' || Astro.slots.has(version.slot))
+	: [];
+---
+
+{import.meta.env.DEV ? (
+	<div data-version-group={id} data-version-group-label={label}>
+		{availableVersions.map((version) => (
+			<div
+				data-version={version.id}
+				data-version-label={version.label}
+				hidden={version.id !== 'original' ? true : undefined}
+			>
+				<slot name={version.slot} />
+			</div>
+		))}
+	</div>
+) : <slot name="original" />}

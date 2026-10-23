@@ -1,0 +1,227 @@
+[
+  {
+    "id": 22085,
+    "slug": "testimonials-13",
+    "name": "Testimonials 13",
+    "author": "shadcnui-blocks",
+    "description": "A testimonials section that scrolls customer quote cards with avatars and company logos in an auto-playing marquee that pauses on hover.",
+    "previewUrl": "https://cdn.21st.dev/shadcnui-blocks/testimonials-13/default/preview.1785100980327-6405d80e-774a-4f3f-a11b-537c49c0878b.png",
+    "url": "https://21st.dev/@shadcnui-blocks/components/testimonials-13"
+  },
+  {
+    "id": 27258,
+    "slug": "morph-gallery",
+    "name": "Morph Gallery",
+    "author": "kedhareswer",
+    "description": "WebGL image transition gallery: slides dissolve through noise instead of cross-fading, the incoming photo burning through the outgoing one in drifting shreds. Arrows, thumbnails, keyboard, swipe and autoplay, with a cross-fade fallback. Use as a hero or full-bleed background. Zero dependencies.",
+    "previewUrl": "https://cdn.21st.dev/user_30fkm37UoBFJx1GiK2Q4Sy8lSrO/morph-gallery/default/preview.1789562721993.webp",
+    "url": "https://21st.dev/@kedhareswer/components/morph-gallery"
+  },
+  {
+    "id": 26061,
+    "slug": "circular-split-roll",
+    "name": "Circular Split Roll",
+    "author": "hyperiux",
+    "description": "Scroll-pinned split gallery: titles orbit one circular path while image cards orbit another, each item easing into focus at the centre. Theme-aware, reduced-motion fallback grid, fully prop-driven.",
+    "previewUrl": "https://cdn.21st.dev/user_3IlVIzEF1oziaTRKTKA3Qak2f5C/circular-split-roll/default/preview.1788450011381.webp",
+    "url": "https://21st.dev/@hyperiux/components/circular-split-roll"
+  },
+  {
+    "id": 8386,
+    "slug": "cta-with-text-marquee",
+    "name": "CTA with Text Marquee",
+    "author": "lyanchouss",
+    "description": "Call-to-action section for daliagents.com with a scrolling marquee of Dali Agents service lanes, inviting visitors to start with one fixed-scope agent.",
+    "previewUrl": "https://cdn.21st.dev/lyanchouss/cta-with-text-marquee/default/preview.1759339049804.png",
+    "url": "https://21st.dev/@lyanchouss/components/cta-with-text-marquee"
+  },
+  {
+    "id": 12005,
+    "slug": "glass-video-hero",
+    "name": "Glass Video Hero",
+    "author": "rahil1202",
+    "description": "A premium landing hero featuring a full-screen video background, glassmorphism navigation bar, responsive mobile menu with focus trap, and interactive full-bleed height toggle. Designed for SaaS, travel, and modern product landing pages. Includes accessibility improvements, smooth transitions, and mobile-first responsive layout. Built using React, Tailwind CSS, and Lucide icons.",
+    "previewUrl": "https://cdn.21st.dev/rahil1202/glass-video-hero/default/preview.1775887842155.png",
+    "url": "https://21st.dev/@rahil1202/components/glass-video-hero"
+  },
+  {
+    "id": 9906,
+    "slug": "connoisseur-stack-interactor",
+    "name": "Connoisseur Stack Interactor",
+    "author": "hardikkashiyani123456788",
+    "description": "A high-performance, motion-managed section designed to showcase complex professional hierarchies with technical elegance. Built for users who value \"Smart Work\" over brute force.",
+    "previewUrl": "https://cdn.21st.dev/user_36PocTYc7us01xfx9KNTqyoT4SJ/connoisseur-stack-interactor/default/preview.1787571245465.png",
+    "url": "https://21st.dev/@hardikkashiyani123456788/components/connoisseur-stack-interactor"
+  },
+  {
+    "id": 7824,
+    "slug": "bento-gallery",
+    "name": "Bento Gallery",
+    "author": "ravikatiyar162",
+    "description": "Interactive Image Bento Gallery\nDescription: A responsive, horizontally draggable bento-style gallery designed exclusively for images. It features smooth animations powered by Framer Motion, a clean shadcn/ui aesthetic, and an elegant full-screen modal for viewing individual images.",
+    "previewUrl": "https://cdn.21st.dev/ravikatiyar162/bento-gallery/default/preview.1758349269185.png",
+    "url": "https://21st.dev/@ravikatiyar162/components/bento-gallery"
+  },
+  {
+    "id": 487,
+    "slug": "accordion",
+    "name": "Accordion",
+    "author": "originui",
+    "description": "Enchanced shadcn/ui accordion",
+    "previewUrl": "https://cdn.21st.dev/user_originui/accordion/default/preview.1737991123511.png",
+    "url": "https://21st.dev/@originui/components/accordion"
+  },
+  {
+    "id": 2541,
+    "slug": "interactive-selector",
+    "name": "Interactive Selector",
+    "author": "minhxthanh",
+    "description": "A visually striking, interactive React component showcasing premium camping options with smooth animations, responsive layout",
+    "previewUrl": "https://cdn.21st.dev/user_2uZPYwRKdEOMrOL0qhU6KNaMNK0/interactive-selector/default/preview.1750807248564.png",
+    "url": "https://21st.dev/@minhxthanh/components/interactive-selector"
+  },
+  {
+    "id": 1637,
+    "slug": "beams-background",
+    "name": "Beams Background",
+    "author": "kokonutd",
+    "description": "Beams Bacground animated with colors",
+    "previewUrl": "https://cdn.21st.dev/user_2rQ1QHrJyxpmWMHhqhANzWMc64n/beams-background/default/preview.png?v=1",
+    "url": "https://21st.dev/@kokonutd/components/beams-background"
+  },
+  {
+    "id": 23591,
+    "slug": "loading-state",
+    "name": "Loading State",
+    "author": "theshanelevine",
+    "description": "A compact pixel-grid loader with an animated wavefront, a shimmering status label, and a live elapsed timer for long-running or agent tasks.",
+    "previewUrl": "https://cdn.21st.dev/user_registry_theshanelevine_1785470434583/loading-state/default/preview.1787589441518.png",
+    "url": "https://21st.dev/@theshanelevine/components/loading-state"
+  },
+  {
+    "id": 23525,
+    "slug": "filter-grid",
+    "name": "Filter Grid",
+    "author": "ddoemonn",
+    "description": "An accessible, animated grid that filters its items with segmented radio chips, showing live per-filter counts and smoothly reflowing cells as the selection changes.",
+    "previewUrl": "https://cdn.21st.dev/user_2y2pjLtk7oS33zts6BqhEIOHrAj/filter-grid/default/preview.1787586365151.webp",
+    "url": "https://21st.dev/@ddoemonn/components/filter-grid"
+  },
+  {
+    "id": 63,
+    "slug": "tags-selector",
+    "name": "Tags Selector",
+    "author": "ln-dev7",
+    "description": "The Tags Selector component is a reusable UI element for selecting and managing tags from a predefined list.",
+    "previewUrl": "https://cdn.21st.dev/user_2rmPdOT0hL8MtSnYm8IpqqrYTVg/tags-selector/default/preview.1738000984358.png",
+    "url": "https://21st.dev/@ln-dev7/components/tags-selector"
+  },
+  {
+    "id": 1633,
+    "slug": "filters",
+    "name": "Filters",
+    "author": "andrewlu0",
+    "description": "A Linear inspired component to add / edit filters",
+    "previewUrl": "https://cdn.21st.dev/user_2sUpDx8JMTC3m5cKaN6Z3Uhc8Q4/filters/default/preview.1740483874850.png",
+    "url": "https://21st.dev/@andrewlu0/components/filters"
+  },
+  {
+    "id": 14941,
+    "slug": "dashboard-sidebar",
+    "name": "Dashboard Sidebar",
+    "author": "arunjdass",
+    "description": "A premium, dual-theme dashboard & sidebar shell featuring the Charcoal Ink (dark) and Alabaster (light) architectural palettes. Includes collapsible multi-tiered navigation, workspace content frames, and micro-contrast layout spacing. Fully responsive scaffolding for SaaS or AI p",
+    "previewUrl": "https://cdn.21st.dev/arunjdass/dashboard-sidebar/default/preview.1781812420625.png",
+    "url": "https://21st.dev/@arunjdass/components/dashboard-sidebar"
+  },
+  {
+    "id": 23997,
+    "slug": "coverflow-carousel",
+    "name": "Coverflow Carousel",
+    "author": "ruixen.ui",
+    "description": "A rack of square covers with the perspective reversed. The centre card sits square to the viewer while the ones beside it swing their outer edges forward, so the rack opens toward you instead of folding away. Drag it and the caption underneath follows.",
+    "previewUrl": "https://cdn.21st.dev/ruixen.ui/coverflow-carousel/default/preview.1785769945835-40fdf02e-f950-484c-aa20-a6b0993a08a7.png",
+    "url": "https://21st.dev/@ruixen.ui/components/coverflow-carousel"
+  },
+  {
+    "id": 2568,
+    "slug": "circular-testimonials",
+    "name": "Circular Testimonials",
+    "author": "maxim.bort.devel",
+    "description": "An animated testimonial section that displays user feedback in a visually engaging way.\n\nFor the disclaimer, credit information, and the Vanilla HTML/CSS/JS version, please visit https://codepen.io/Northstrix/pen/QwWoYzZ\n\nVue Version https://namer-ui-for-vue.netlify.app/components/circular-testimonials\n\n\nThis component (Next.js version) is also available on Namer UI https://namer-ui.netlify.app",
+    "previewUrl": "https://cdn.21st.dev/maxim.bort.devel/circular-testimonials/default/preview.1749048275501.png",
+    "url": "https://21st.dev/@maxim.bort.devel/components/circular-testimonials"
+  },
+  {
+    "id": 7139,
+    "slug": "contact-page",
+    "name": "Contact Page",
+    "author": "efferd",
+    "description": "A professional contact page with email, phone, office details, and social media links, featuring copy-to-clipboard actions and a modern UI layout. Ideal for business websites, SaaS apps, and company portfolios.",
+    "previewUrl": "https://cdn.21st.dev/sshahaider/contact-page/default/preview.1757519188483.png",
+    "url": "https://21st.dev/@efferd/components/contact-page"
+  },
+  {
+    "id": 857,
+    "slug": "timeline",
+    "name": "Timeline",
+    "author": "manuarora700",
+    "description": "A timeline component with sticky header and scroll beam follow.",
+    "previewUrl": "https://cdn.21st.dev/user_aceternity/timeline/default/preview.1788458538501.webp",
+    "url": "https://21st.dev/@manuarora700/components/timeline"
+  },
+  {
+    "id": 23572,
+    "slug": "tooltip-group",
+    "name": "Tooltip Group",
+    "author": "ddoemonn",
+    "description": "A shared-delay tooltip group where the first tooltip waits before opening and every neighbour after it appears instantly, with a single label that morphs and glides between triggers.",
+    "previewUrl": "https://cdn.21st.dev/user_2y2pjLtk7oS33zts6BqhEIOHrAj/tooltip-group/default/preview.1787588923666.png",
+    "url": "https://21st.dev/@ddoemonn/components/tooltip-group"
+  },
+  {
+    "id": 7783,
+    "slug": "react-tailwind-image-gallery",
+    "name": "React Tailwind Image Gallery",
+    "author": "dhileepkumargm",
+    "description": "A responsive React component for displaying an image gallery with hover-zoom effects, customizable grid spans, and a fullscreen modal lightbox—built with Tailwind CSS.",
+    "previewUrl": "https://cdn.21st.dev/dhileepkumargm/react-tailwind-image-gallery/default/preview.1785191232706-16260aa7-1d0a-4e32-8359-983fd2893e92.png",
+    "url": "https://21st.dev/@dhileepkumargm/components/react-tailwind-image-gallery"
+  },
+  {
+    "id": 20152,
+    "slug": "infinite-circular-scroll",
+    "name": "Infinite Circular Scroll",
+    "author": "pulkitxm",
+    "description": "A vertical list of cards that loops seamlessly as you scroll, with the scrollbar hidden for a continuous circular feel.",
+    "previewUrl": "https://cdn.21st.dev/pulkitxm/infinite-circular-scroll/default/preview.1784355317156-b6475953-54e0-44d0-9f9b-5376db56c4d3.png",
+    "url": "https://21st.dev/@pulkitxm/components/infinite-circular-scroll"
+  },
+  {
+    "id": 10484,
+    "slug": "scroll-fade-effect",
+    "name": "Scroll Fade Effect",
+    "author": "moumensoliman",
+    "description": "Fade content edges as you scroll, for both vertical and horizontal layouts.",
+    "previewUrl": "https://cdn.21st.dev/user_38G0vmio7769KItXe9W53CqheUX/scroll-fade-effect/default/preview.1785851117585.png",
+    "url": "https://21st.dev/@moumensoliman/components/scroll-fade-effect"
+  },
+  {
+    "id": 9422,
+    "slug": "circular-gallery-2",
+    "name": "Circular Gallery 2",
+    "author": "ravikatiyar162",
+    "description": "",
+    "previewUrl": "https://cdn.21st.dev/ravikatiyar162/circular-gallery-2/default/preview.1761994137915.png",
+    "url": "https://21st.dev/@ravikatiyar162/components/circular-gallery-2"
+  },
+  {
+    "id": 2837,
+    "slug": "sticky-scroll",
+    "name": "Sticky Scroll",
+    "author": "uilayout.contact",
+    "description": "Here is Sticky Scroll component",
+    "previewUrl": "https://cdn.21st.dev/larsen66/sticky-scroll/default/preview.1749995500796.png",
+    "url": "https://21st.dev/@uilayout.contact/components/sticky-scroll"
+  }
+]

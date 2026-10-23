@@ -1,4 +1,4 @@
-export type StudioSource = 'starter' | 'heinrich' | 'tom-ros' | 'modern-house' | 'tymoteusz' | 'marek-jodlowski' | 'promix' | 'lean-creative' | 'annawie' | 'stalanowski' | 'klisik' | 'kasia' | 'piekary9' | 'mystek' | 'webscale' | 'alan-zbel' | 'forma' | 'nova';
+export type StudioSource = 'starter' | 'heinrich' | 'tom-ros' | 'modern-house' | 'tymoteusz' | 'marek-jodlowski' | 'promix' | 'lean-creative' | 'annawie' | 'stalanowski' | 'klisik' | 'kasia' | 'piekary9' | 'mystek' | 'mentara' | 'webscale' | 'alan-zbel' | 'forma' | 'nova';
 
 export type VariantEntry = {
   component: any;

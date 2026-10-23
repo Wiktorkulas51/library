@@ -34,6 +34,10 @@ describe('wydajność biblioteki komponentów developerskich', () => {
 		expect(gallery).toContain("'data-category-id': section.sectionId");
 		expect(gallery).toContain("button.classList.toggle('hidden', !matches)");
 		expect(gallery).toContain('enableLenis={false}');
+		// Statyczne zrzuty zamiast żywych iframe'ów, iframe tylko gdy zrzutu brakuje.
+		expect(gallery).toContain('data-thumbnail-image');
+		expect(gallery).toContain("path.resolve('public/component-thumbnails')");
+		expect(read('package.json')).toContain('"thumbs:capture"');
 		expect(previewFrame).toContain('clientRuntime={!isThumbnail}');
 		expect(previewFrame).toContain('enableLenis={false}');
 		expect(previewFrame).toContain('body.component-frame-thumbnail:not(.component-frame-standalone) main');

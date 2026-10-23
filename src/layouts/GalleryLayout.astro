@@ -30,6 +30,8 @@ interface Props {
 	enableLenis?: boolean;
 	/** Disables scripts and interactive elements for static iframe previews. */
 	clientRuntime?: boolean;
+	/** Shows the development variant toolbar independently from clientRuntime. */
+	devTools?: boolean;
 }
 
 const {
@@ -41,6 +43,7 @@ const {
 	sectionPattern = 'off',
 	enableLenis = false,
 	clientRuntime = true,
+	devTools = true,
 } = Astro.props;
 
 // Theme from props, URL param or default from active template.
@@ -127,7 +130,7 @@ const showDevLibraryLink = import.meta.env.DEV && !isComponentToolPage;
 	{clientRuntime && <script is:inline data-astro-rerun src="/js/theme-switcher.js" defer></script>}
 	{clientRuntime && <Toast />}
 	{clientRuntime && <ImageLightbox />}
-	{clientRuntime && import.meta.env.DEV && <VersionToolbar />}
+	{import.meta.env.DEV && <VersionToolbar devTools={devTools} />}
 	{clientRuntime && import.meta.env.DEV && <FontSwitcherToolbar />}
 	{clientRuntime && import.meta.env.DEV && <DeveloperToolsDock />}
 </body>

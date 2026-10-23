@@ -22,6 +22,7 @@ const frameBodyClass = [
   theme="default"
   bodyClass={frameBodyClass}
   clientRuntime={!isThumbnail}
+  devTools={!isThumbnail}
   enableLenis={false}
 >
   <div class="component-frame__canvas">
@@ -115,7 +116,6 @@ const frameBodyClass = [
   body.component-frame #floating-bar,
   body.component-frame #cookie-consent,
   body.component-frame #cookie-settings-launcher,
-  body.component-frame #vt-bar,
   body.component-frame #fst,
   body.component-frame #site-nav-drawer,
   body.component-frame astro-dev-toolbar,

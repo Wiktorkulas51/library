@@ -1,7 +1,17 @@
 {
   "groups": [
-    { "id": "ui", "label": "UI" },
-    { "id": "patterns", "label": "Patterns" }
+    {
+      "id": "ui",
+      "label": "UI"
+    },
+    {
+      "id": "patterns",
+      "label": "Patterns"
+    },
+    {
+      "id": "21st",
+      "label": "21st.dev"
+    }
   ],
   "items": [
     {
@@ -73,6 +83,256 @@
       "componentName": "MobileDrawer",
       "previewId": "mobile-drawer",
       "hint": "Układ mobilnego menu z hierarchią linków i głównym CTA."
+    },
+    {
+      "id": "21st-testimonials-13",
+      "label": "Testimonials 13",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "Testimonials13",
+      "previewId": "21st-testimonials-13",
+      "hint": "Ulubiony komponent z 21st.dev, autor shadcnui-blocks."
+    },
+    {
+      "id": "21st-morph-gallery",
+      "label": "Morph Gallery",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "MorphGallery",
+      "previewId": "21st-morph-gallery",
+      "hint": "Ulubiony komponent z 21st.dev, autor kedhareswer."
+    },
+    {
+      "id": "21st-circular-split-roll",
+      "label": "Circular Split Roll",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "CircularSplitRoll",
+      "previewId": "21st-circular-split-roll",
+      "hint": "Ulubiony komponent z 21st.dev, autor hyperiux."
+    },
+    {
+      "id": "21st-cta-with-text-marquee",
+      "label": "CTA with Text Marquee",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "CtaWithTextMarquee",
+      "previewId": "21st-cta-with-text-marquee",
+      "hint": "Ulubiony komponent z 21st.dev, autor lyanchouss."
+    },
+    {
+      "id": "21st-glass-video-hero",
+      "label": "Glass Video Hero",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "GlassVideoHero",
+      "previewId": "21st-glass-video-hero",
+      "hint": "Ulubiony komponent z 21st.dev, autor rahil1202."
+    },
+    {
+      "id": "21st-connoisseur-stack-interactor",
+      "label": "Connoisseur Stack Interactor",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "ConnoisseurStackInteractor",
+      "previewId": "21st-connoisseur-stack-interactor",
+      "hint": "Ulubiony komponent z 21st.dev, autor hardikkashiyani123456788."
+    },
+    {
+      "id": "21st-bento-gallery",
+      "label": "Bento Gallery",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "BentoGallery",
+      "previewId": "21st-bento-gallery",
+      "hint": "Ulubiony komponent z 21st.dev, autor ravikatiyar162."
+    },
+    {
+      "id": "21st-accordion",
+      "label": "Accordion",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "Accordion",
+      "previewId": "21st-accordion",
+      "hint": "Ulubiony komponent z 21st.dev, autor originui."
+    },
+    {
+      "id": "21st-interactive-selector",
+      "label": "Interactive Selector",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "InteractiveSelector",
+      "previewId": "21st-interactive-selector",
+      "hint": "Ulubiony komponent z 21st.dev, autor minhxthanh."
+    },
+    {
+      "id": "21st-beams-background",
+      "label": "Beams Background",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "BeamsBackground",
+      "previewId": "21st-beams-background",
+      "hint": "Ulubiony komponent z 21st.dev, autor kokonutd."
+    },
+    {
+      "id": "21st-loading-state",
+      "label": "Loading State",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "LoadingState",
+      "previewId": "21st-loading-state",
+      "hint": "Ulubiony komponent z 21st.dev, autor theshanelevine."
+    },
+    {
+      "id": "21st-filter-grid",
+      "label": "Filter Grid",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "FilterGrid",
+      "previewId": "21st-filter-grid",
+      "hint": "Ulubiony komponent z 21st.dev, autor ddoemonn."
+    },
+    {
+      "id": "21st-tags-selector",
+      "label": "Tags Selector",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "TagsSelector",
+      "previewId": "21st-tags-selector",
+      "hint": "Ulubiony komponent z 21st.dev, autor ln-dev7."
+    },
+    {
+      "id": "21st-filters",
+      "label": "Filters",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "Filters",
+      "previewId": "21st-filters",
+      "hint": "Ulubiony komponent z 21st.dev, autor andrewlu0."
+    },
+    {
+      "id": "21st-dashboard-sidebar",
+      "label": "Dashboard Sidebar",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "DashboardSidebar",
+      "previewId": "21st-dashboard-sidebar",
+      "hint": "Ulubiony komponent z 21st.dev, autor arunjdass."
+    },
+    {
+      "id": "21st-coverflow-carousel",
+      "label": "Coverflow Carousel",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "CoverflowCarousel",
+      "previewId": "21st-coverflow-carousel",
+      "hint": "Ulubiony komponent z 21st.dev, autor ruixen.ui."
+    },
+    {
+      "id": "21st-circular-testimonials",
+      "label": "Circular Testimonials",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "CircularTestimonials",
+      "previewId": "21st-circular-testimonials",
+      "hint": "Ulubiony komponent z 21st.dev, autor maxim.bort.devel."
+    },
+    {
+      "id": "21st-contact-page",
+      "label": "Contact Page",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "ContactPage",
+      "previewId": "21st-contact-page",
+      "hint": "Ulubiony komponent z 21st.dev, autor efferd."
+    },
+    {
+      "id": "21st-timeline",
+      "label": "Timeline",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "Timeline",
+      "previewId": "21st-timeline",
+      "hint": "Ulubiony komponent z 21st.dev, autor manuarora700."
+    },
+    {
+      "id": "21st-tooltip-group",
+      "label": "Tooltip Group",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "TooltipGroup",
+      "previewId": "21st-tooltip-group",
+      "hint": "Ulubiony komponent z 21st.dev, autor ddoemonn."
+    },
+    {
+      "id": "21st-react-tailwind-image-gallery",
+      "label": "React Tailwind Image Gallery",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "ReactTailwindImageGallery",
+      "previewId": "21st-react-tailwind-image-gallery",
+      "hint": "Ulubiony komponent z 21st.dev, autor dhileepkumargm."
+    },
+    {
+      "id": "21st-infinite-circular-scroll",
+      "label": "Infinite Circular Scroll",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "InfiniteCircularScroll",
+      "previewId": "21st-infinite-circular-scroll",
+      "hint": "Ulubiony komponent z 21st.dev, autor pulkitxm."
+    },
+    {
+      "id": "21st-scroll-fade-effect",
+      "label": "Scroll Fade Effect",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "ScrollFadeEffect",
+      "previewId": "21st-scroll-fade-effect",
+      "hint": "Ulubiony komponent z 21st.dev, autor moumensoliman."
+    },
+    {
+      "id": "21st-circular-gallery-2",
+      "label": "Circular Gallery 2",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "CircularGallery2",
+      "previewId": "21st-circular-gallery-2",
+      "hint": "Ulubiony komponent z 21st.dev, autor ravikatiyar162."
+    },
+    {
+      "id": "21st-sticky-scroll",
+      "label": "Sticky Scroll",
+      "groupId": "21st",
+      "catalogType": "ui",
+      "variantId": "default",
+      "componentName": "StickyScroll",
+      "previewId": "21st-sticky-scroll",
+      "hint": "Ulubiony komponent z 21st.dev, autor uilayout.contact."
     }
   ]
 }

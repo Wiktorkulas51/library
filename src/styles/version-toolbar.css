@@ -1,74 +1,129 @@
-/* VersionToolbar - dev variant prototyping tool (`?vt=1`).
-   DEV-ONLY style: loaded locally in VersionToolbar.astro, not via global.css.
-   We only render the component in import.meta.env.DEV, so these rules do not
-   they go to the client's CSS bundle in the production build.*/
-
 #vt-bar {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99999;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 8px 16px;
-    display: none;
-    gap: 24px;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 13px;
-    color: #fff;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    max-width: 90vw;
-    overflow-x: auto;
-    white-space: nowrap;
-    align-items: center;
-    transition: opacity 0.2s ease;
+	position: fixed;
+	right: 0.75rem;
+	bottom: max(0.75rem, env(safe-area-inset-bottom));
+	z-index: 99999;
+	box-sizing: border-box;
+	width: min(18.75rem, calc(100vw - 1rem));
+	padding: 0.45rem;
+	border: 1px solid var(--color-outline-variant, #e5e7eb);
+	border-radius: 0.7rem;
+	background: var(--color-surface, #ffffff);
+	color: var(--color-on-surface, #111827);
+	box-shadow: 0 0.25rem 1rem color-mix(in srgb, var(--color-brand-dark, #111827) 14%, transparent);
+	font-family: var(--font-sans, system-ui, sans-serif);
+	font-size: 0.8125rem;
 }
-#vt-bar.is-visible { display: flex; }
-#vt-bar:empty { display: none; }
-#vt-bar .vt-group {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+
+#vt-bar[hidden], #vt-expand[hidden], #vt-bar .vt-menu[hidden] { display: none !important; }
+[data-version-group] [data-version][hidden] { display: none !important; }
+
+#vt-groups {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 0.35rem;
 }
-#vt-bar .vt-group-label {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-right: 6px;
-    user-select: none;
+
+#vt-bar .vt-dropdown { position: relative; min-width: 0; }
+#vt-bar .vt-combobox, #vt-bar .vt-collapse, #vt-bar #vt-expand, #vt-bar .vt-option {
+	box-sizing: border-box;
+	min-width: 0;
+	min-height: 2.75rem;
+	border: 1px solid var(--color-outline-variant, #e5e7eb);
+	border-radius: 0.45rem;
+	background: var(--color-surface, #ffffff);
+	color: var(--color-on-surface, #111827);
+	font: inherit;
 }
-#vt-bar .vt-btn {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.6);
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 11px;
-    font-family: inherit;
-    font-weight: 500;
-    transition: all 0.15s ease;
-    line-height: 1.4;
+
+#vt-bar .vt-combobox {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.4rem;
+	padding: 0.4rem 0.55rem;
+	text-align: left;
+	cursor: pointer;
+	border-color: transparent;
+	background: var(--color-surface-container-low, #f3f4f6);
 }
-#vt-bar .vt-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
+
+#vt-bar .vt-current-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#vt-bar .vt-combobox::after {
+	width: 0.4rem;
+	height: 0.4rem;
+	flex: none;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	content: '';
+	transform: translateY(-0.12rem) rotate(45deg);
 }
-#vt-bar .vt-btn.active {
-    background: rgba(197, 168, 107, 0.25);
-    border-color: rgba(197, 168, 107, 0.4);
-    color: #c5a86b;
+
+#vt-bar .vt-combobox[aria-expanded='true']::after { transform: translateY(0.1rem) rotate(225deg); }
+#vt-bar .vt-collapse, #vt-bar #vt-expand { padding: 0.4rem 0.6rem; cursor: pointer; }
+#vt-bar .vt-collapse { border-color: transparent; color: var(--color-on-surface-variant, #4b5563); font-size: 0.75rem; }
+#vt-bar .vt-empty-state { align-self: center; padding: 0 0.25rem; color: var(--color-on-surface-variant, #4b5563); font-size: 0.75rem; }
+#vt-bar .vt-combobox:hover, #vt-bar .vt-collapse:hover, #vt-bar #vt-expand:hover { background: var(--color-surface-container-low, #f3f4f6); }
+
+#vt-bar .vt-combobox:focus-visible, #vt-bar .vt-collapse:focus-visible, #vt-bar #vt-expand:focus-visible, #vt-bar .vt-option:focus-visible, #vt-bar .vt-presets:focus-visible {
+	outline: 2px solid var(--color-brand-primary, #4b5563);
+	outline-offset: 2px;
 }
-#vt-bar .vt-sep {
-    width: 1px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.1);
-    display: inline-block;
-    vertical-align: middle;
+
+#vt-bar .vt-menu {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 100000;
+	box-sizing: border-box;
+	display: grid;
+	width: 13rem;
+	max-width: calc(100vw - 1.5rem);
+	max-height: min(20rem, 50dvh);
+	gap: 0.15rem;
+	overflow-y: auto;
+	padding: 0.3rem;
+	border: 1px solid var(--color-outline-variant, #e5e7eb);
+	border-radius: 0.6rem;
+	background: var(--color-surface, #ffffff);
+	color: var(--color-on-surface, #111827);
+	box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--color-brand-dark, #111827) 18%, transparent);
 }
+
+#vt-bar .vt-option {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	padding: 0.55rem 0.65rem;
+	text-align: left;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	cursor: pointer;
+	border: 0;
+	background: transparent;
+}
+
+#vt-bar .vt-option:hover, #vt-bar .vt-option[aria-selected='true'] {
+	background: color-mix(in srgb, var(--color-brand-primary, #4b5563) 9%, var(--color-surface, #ffffff));
+}
+
+#vt-bar .vt-option-mark { min-width: 1rem; flex: none; color: var(--color-brand-primary, #4b5563); text-align: center; }
+#vt-bar .vt-presets {
+	grid-column: 1 / -1;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0.4rem 0.6rem;
+	border: 1px solid var(--color-outline-variant, #e5e7eb);
+	border-radius: 0.45rem;
+	background: var(--color-surface, #ffffff);
+	color: var(--color-on-surface, #111827);
+	font: inherit;
+}
+
+#vt-bar.is-collapsed { width: auto; padding: 0.3rem; }
+#vt-bar.is-collapsed #vt-groups { display: none; }

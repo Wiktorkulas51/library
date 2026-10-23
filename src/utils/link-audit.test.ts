@@ -144,6 +144,12 @@ describe('link audit', () => {
       expect(issues.some((i) => i.rule === 'broken-route')).toBe(false);
     });
 
+    it('does not treat registry preview routes as broken project routes', () => {
+      const source = '<a href="/kontakt/">Kontakt</a><a href="/klient/">Klient</a>';
+      const issues = auditLinks(source, 'src/components/registry/demo/DemoBlock.astro', defaultRoutes);
+      expect(issues.some((i) => i.rule === 'broken-route')).toBe(false);
+    });
+
     it('reports multiple issues from one file', () => {
       const source = '<a href="/kontakt">Bez slash</a><a href="#">Pusty</a>';
       const issues = auditLinks(source, 'src/components/test.astro', defaultRoutes);
@@ -240,6 +246,12 @@ describe('link audit', () => {
       const source = '<html><body></body></html>';
       const issues = auditLinks(source, 'src/pages/dev/components.astro', defaultRoutes);
       expect(issues.filter((i) => i.rule === 'missing-h1')).toHaveLength(0);
+    });
+
+    it('skips H1 checks for catalog pages rendered through child components', () => {
+      const source = '<ComponentGallery />';
+      const issues = auditLinks(source, 'src/pages/components/preview/[section]/[variant].astro', defaultRoutes);
+      expect(issues.filter((i) => i.rule === 'missing-h1' || i.rule === 'multiple-h1')).toHaveLength(0);
     });
   });
 
