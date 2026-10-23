@@ -153,7 +153,10 @@ function copyPrompt(item: DeveloperCatalogMetadata) {
 
 const INITIAL_VISIBLE_COUNT = 6;
 const LOAD_BATCH_SIZE = 6;
-const initialVisibleCount = Math.min(activeItems.length, INITIAL_VISIBLE_COUNT);
+const initialVisibleCount = activeSectionId === '21st'
+  ? activeItems.length
+  : Math.min(activeItems.length, INITIAL_VISIBLE_COUNT);
+const activeItemIndexes = new Map(activeItems.map((item, index) => [item.uid, index]));
 
 // Why: when a section has one variant, the "default" label provides no useful
 // distinguishes. We then show the name of the section instead of the variantId, so that the tab
@@ -196,7 +199,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
         data-active-section={activeSectionId}
         data-active-type={activeCatalogType}
         data-active-client="all"
-        data-load-initial-count={INITIAL_VISIBLE_COUNT}
+        data-load-initial-count={initialVisibleCount}
         data-load-batch-size={LOAD_BATCH_SIZE}
       >
         <header class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -204,16 +207,19 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
             <Heading tag="h1" variant="hero">{galleryCopy.title}</Heading>
             <Text variant="lead" class="max-w-2xl text-brand-dark/65">{galleryCopy.description}</Text>
           </div>
-          <dl class="flex shrink-0 gap-3">
-            <div class="min-w-24 rounded-xl border border-brand-dark/10 bg-[var(--ui-bg-page)] px-5 py-3 text-center ui-elevation-soft">
-              <dd class="text-xl font-bold leading-none text-brand-dark">{sections.length}</dd>
-              <dt class="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-wider text-brand-dark/45">{galleryCopy.statCategoriesLabel}</dt>
-            </div>
-            <div class="min-w-24 rounded-xl border border-brand-dark/10 bg-[var(--ui-bg-page)] px-5 py-3 text-center ui-elevation-soft">
-              <dd class="text-xl font-bold leading-none text-brand-dark">{catalog.length}</dd>
-              <dt class="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-wider text-brand-dark/45">{galleryCopy.statVariantsLabel}</dt>
-            </div>
-          </dl>
+          <div class="flex flex-wrap items-center gap-3">
+            <dl class="flex shrink-0 gap-3">
+              <div class="min-w-24 rounded-xl border border-brand-dark/10 bg-[var(--ui-bg-page)] px-5 py-3 text-center ui-elevation-soft">
+                <dd class="text-xl font-bold leading-none text-brand-dark">{sections.length}</dd>
+                <dt class="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-wider text-brand-dark/45">{galleryCopy.statCategoriesLabel}</dt>
+              </div>
+              <div class="min-w-24 rounded-xl border border-brand-dark/10 bg-[var(--ui-bg-page)] px-5 py-3 text-center ui-elevation-soft">
+                <dd class="text-xl font-bold leading-none text-brand-dark">{catalog.length}</dd>
+                <dt class="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-wider text-brand-dark/45">{galleryCopy.statVariantsLabel}</dt>
+              </div>
+            </dl>
+            <Button href="/library/21st/" variant="outline" size="md">Ulubione z 21st.dev</Button>
+          </div>
         </header>
 
         <nav aria-label={galleryCopy.catalogLabel} class="component-filter-toolbar">
@@ -302,7 +308,9 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
                 data-catalog-type={item.catalogType}
                 data-component-card
                 data-component-index={index}
-                data-load-hidden={index >= INITIAL_VISIBLE_COUNT ? 'true' : undefined}
+                data-load-hidden={isAll
+                  ? index >= initialVisibleCount ? 'true' : undefined
+                  : item.groupId === activeSectionId && (activeItemIndexes.get(item.uid) ?? initialVisibleCount) >= initialVisibleCount ? 'true' : undefined}
               >
                 <div class="relative aspect-[16/10] overflow-hidden border-b border-brand-dark/10 bg-brand-dark/[0.03]">
                   <span class="absolute left-3 top-3 z-20 rounded-md bg-brand-dark/80 px-2 py-0.5 font-mono text-[11px] font-bold text-white">
@@ -589,6 +597,9 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
       const loadBatchSize = Number(root.dataset.loadBatchSize || 12);
       let revealedCount = Math.min(cards.length, initialVisibleCount);
       const galleryStateKey = 'component-gallery-state';
+      const getRevealLimit = (sectionId) => sectionId === '21st'
+        ? cards.filter((card) => card.getAttribute('data-group') === sectionId).length
+        : initialVisibleCount;
 
       const selectVercelTab = (group, tabId) => {
         window.dispatchEvent(new CustomEvent('developer-tabs-select', {
@@ -638,7 +649,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
       // Synchronize the active state with the selected tab and aria-current.
       const applyClientFilter = (clientId) => {
         root.dataset.activeClient = clientId;
-        revealedCount = Math.min(cards.length, initialVisibleCount);
+        revealedCount = Math.min(cards.length, getRevealLimit(root.dataset.activeSection || 'all'));
         clientButtons.forEach((button) => {
           const isActive = button.dataset.clientId === clientId;
           if (isActive) button.setAttribute('aria-current', 'page');
@@ -649,7 +660,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
 
       const applyTypeFilter = (catalogType) => {
         root.dataset.activeType = catalogType;
-        revealedCount = Math.min(cards.length, initialVisibleCount);
+        revealedCount = Math.min(cards.length, getRevealLimit(root.dataset.activeSection || 'all'));
         typeButtons.forEach((button) => {
           const isActive = button.dataset.catalogType === catalogType;
           button.classList.toggle('ui-button-primary', isActive);
@@ -690,7 +701,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
 
       const applySectionFilter = (sectionId, syncType = true) => {
         root.dataset.activeSection = sectionId;
-        revealedCount = Math.min(cards.length, initialVisibleCount);
+        revealedCount = Math.min(cards.length, getRevealLimit(sectionId));
         const activeButton = categoryButtons.find((button) => button.dataset.categoryId === sectionId);
         const categoryType = activeButton?.dataset.categoryType;
         if (syncType && sectionId !== 'all' && categoryType) applyTypeFilter(categoryType);
@@ -785,7 +796,7 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
         const activeSection = root.dataset.activeSection || 'all';
         const activeType = root.dataset.activeType || 'all';
         if (query !== lastQuery) {
-          revealedCount = Math.min(cards.length, initialVisibleCount);
+          revealedCount = Math.min(cards.length, getRevealLimit(activeSection));
           lastQuery = query;
         }
         persistGalleryState();

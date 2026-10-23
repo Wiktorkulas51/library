@@ -8,16 +8,43 @@ import SearchField from '@components/ui/patterns/SearchField.astro';
 import SelectDropdown from '@components/ui/patterns/SelectDropdown.astro';
 import ToastFeedback from '@components/ui/patterns/ToastFeedback.astro';
 import previewCopy from '@data/dev/component-library/ui-preview.json';
+import Testimonials13 from '@components/integrations/21st/testimonials-13.tsx';
+import MorphGallery from '@components/integrations/21st/morph-gallery.tsx';
+import CircularSplitRoll from '@components/integrations/21st/circular-split-roll.tsx';
+import CtaWithTextMarquee from '@components/integrations/21st/cta-with-text-marquee.tsx';
+import GlassVideoHero from '@components/integrations/21st/glass-video-hero.tsx';
+import ConnoisseurStackInteractor from '@components/integrations/21st/connoisseur-stack-interactor.tsx';
+import BentoGallery from '@components/integrations/21st/bento-gallery.tsx';
+import { AccordionDemo as Accordion } from '@components/integrations/21st/accordion.tsx';
+import { DemoOne as InteractiveSelector } from '@components/integrations/21st/interactive-selector.tsx';
+import { BeamsBackgroundDemo as BeamsBackground } from '@components/integrations/21st/beams-background.tsx';
+import LoadingState from '@components/integrations/21st/loading-state.tsx';
+import FilterGrid from '@components/integrations/21st/filter-grid.tsx';
+import { TagsSelectorDemo as TagsSelector } from '@components/integrations/21st/tags-selector.tsx';
+import { ComboboxDemo as Filters } from '@components/integrations/21st/filters.tsx';
+import DashboardSidebar from '@components/integrations/21st/dashboard-sidebar.tsx';
+import CoverflowCarousel from '@components/integrations/21st/coverflow-carousel.tsx';
+import { CircularTestimonialsDemo as CircularTestimonials } from '@components/integrations/21st/circular-testimonials.tsx';
+import ContactPage from '@components/integrations/21st/contact-page.tsx';
+import { TimelineDemo as Timeline } from '@components/integrations/21st/timeline.tsx';
+import TooltipGroup from '@components/integrations/21st/tooltip-group.tsx';
+import ReactTailwindImageGallery from '@components/integrations/21st/react-tailwind-image-gallery.tsx';
+import InfiniteCircularScroll from '@components/integrations/21st/infinite-circular-scroll.tsx';
+import ScrollFadeEffect from '@components/integrations/21st/scroll-fade-effect.tsx';
+import CircularGallery2 from '@components/integrations/21st/circular-gallery-2.tsx';
+import { DemoOne as StickyScroll } from '@components/integrations/21st/sticky-scroll.tsx';
 
 interface Props {
   previewId?: string;
 }
 
 const { previewId = 'search-field' } = Astro.props;
+const currentPreviewId: string = previewId;
+const isPreview = (id: string) => currentPreviewId === id;
 ---
 
-<div class="ui-bg-page flex min-h-[22rem] w-full items-center justify-center p-6 sm:p-10">
-  {previewId === 'search-field' && (
+<div class="ui-bg-page flex min-h-[22rem] w-full items-center justify-center p-6 sm:p-10" data-preview-id={currentPreviewId}>
+  {isPreview('search-field') && (
     <SearchField
       id="catalog-search"
       class="w-full max-w-xl"
@@ -28,7 +55,7 @@ const { previewId = 'search-field' } = Astro.props;
     />
   )}
 
-  {previewId === 'select-dropdown' && (
+  {isPreview('select-dropdown') && (
     <SelectDropdown
       id="catalog-project-type"
       class="w-full max-w-sm"
@@ -42,12 +69,12 @@ const { previewId = 'search-field' } = Astro.props;
     />
   )}
 
-  {previewId === 'filter-tabs' && (
+  {isPreview('filter-tabs') && (
     <div class="w-full max-w-2xl space-y-4">
       <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <Text variant="accent-label">{previewCopy.filters.label}</Text>
         <Text variant="body" class="text-sm text-brand-dark/55">{previewCopy.filters.activeCount}</Text>
-      </div>
+</div>
       <FilterTabs
         label={previewCopy.filters.label}
         activeId="all"
@@ -60,7 +87,7 @@ const { previewId = 'search-field' } = Astro.props;
     </div>
   )}
 
-  {previewId === 'toast-feedback' && (
+  {isPreview('toast-feedback') && (
     <ToastFeedback
       class="max-w-md"
       title={previewCopy.toast.title}
@@ -69,7 +96,7 @@ const { previewId = 'search-field' } = Astro.props;
     />
   )}
 
-  {previewId === 'form-field-error' && (
+  {isPreview('form-field-error') && (
     <FormField
       id="catalog-email"
       class="w-full max-w-md"
@@ -81,7 +108,7 @@ const { previewId = 'search-field' } = Astro.props;
     />
   )}
 
-  {previewId === 'form-statuses' && (
+  {isPreview('form-statuses') && (
     <div class="grid w-full max-w-5xl gap-4 lg:grid-cols-3">
       <FormStatus type="loading" title={previewCopy.formStatus.loadingTitle} description={previewCopy.formStatus.loadingDescription} />
       <FormStatus type="success" title={previewCopy.formStatus.successTitle} description={previewCopy.formStatus.successDescription} />
@@ -89,7 +116,7 @@ const { previewId = 'search-field' } = Astro.props;
     </div>
   )}
 
-  {previewId === 'mobile-drawer' && (
+  {isPreview('mobile-drawer') && (
     <MobileDrawer
       eyebrow={previewCopy.drawer.eyebrow}
       title={previewCopy.drawer.title}
@@ -104,4 +131,29 @@ const { previewId = 'search-field' } = Astro.props;
       ]}
     />
   )}
+  {isPreview('21st-testimonials-13') && <Testimonials13 client:load />}
+  {isPreview('21st-morph-gallery') && <MorphGallery client:load />}
+  {isPreview('21st-circular-split-roll') && <CircularSplitRoll client:load />}
+  {isPreview('21st-cta-with-text-marquee') && <CtaWithTextMarquee client:load />}
+  {isPreview('21st-glass-video-hero') && <GlassVideoHero client:load />}
+  {isPreview('21st-connoisseur-stack-interactor') && <ConnoisseurStackInteractor client:load />}
+  {isPreview('21st-bento-gallery') && <BentoGallery client:load />}
+  {isPreview('21st-accordion') && <Accordion client:load />}
+  {isPreview('21st-interactive-selector') && <InteractiveSelector client:load />}
+  {isPreview('21st-beams-background') && <BeamsBackground client:load />}
+  {isPreview('21st-loading-state') && <LoadingState client:load />}
+  {isPreview('21st-filter-grid') && <FilterGrid client:load />}
+  {isPreview('21st-tags-selector') && <TagsSelector client:load />}
+  {isPreview('21st-filters') && <Filters client:load />}
+  {isPreview('21st-dashboard-sidebar') && <DashboardSidebar client:load />}
+  {isPreview('21st-coverflow-carousel') && <CoverflowCarousel client:load />}
+  {isPreview('21st-circular-testimonials') && <CircularTestimonials client:load />}
+  {isPreview('21st-contact-page') && <ContactPage client:load />}
+  {isPreview('21st-timeline') && <Timeline client:load />}
+  {isPreview('21st-tooltip-group') && <TooltipGroup client:load />}
+  {isPreview('21st-react-tailwind-image-gallery') && <ReactTailwindImageGallery client:load />}
+  {isPreview('21st-infinite-circular-scroll') && <InfiniteCircularScroll client:load />}
+  {isPreview('21st-scroll-fade-effect') && <ScrollFadeEffect client:load />}
+  {isPreview('21st-circular-gallery-2') && <CircularGallery2 client:load />}
+  {isPreview('21st-sticky-scroll') && <StickyScroll client:load />}
 </div>

@@ -1,0 +1,123 @@
+---
+import GalleryLayout from '@layouts/GalleryLayout.astro';
+import Section from '@components/ui/layout/Section.astro';
+import Container from '@components/ui/layout/Container.astro';
+import Heading from '@components/ui/atoms/Heading.astro';
+import Text from '@components/ui/atoms/Text.astro';
+import Button from '@components/ui/atoms/Button.astro';
+import favorites from '@data/dev/component-library/21st-favorites.json';
+import Testimonials13 from '@components/integrations/21st/testimonials-13.tsx';
+import MorphGallery from '@components/integrations/21st/morph-gallery.tsx';
+import CircularSplitRoll from '@components/integrations/21st/circular-split-roll.tsx';
+import CtaWithTextMarquee from '@components/integrations/21st/cta-with-text-marquee.tsx';
+import GlassVideoHero from '@components/integrations/21st/glass-video-hero.tsx';
+import ConnoisseurStackInteractor from '@components/integrations/21st/connoisseur-stack-interactor.tsx';
+import BentoGallery from '@components/integrations/21st/bento-gallery.tsx';
+import Accordion from '@components/integrations/21st/accordion.tsx';
+import InteractiveSelector from '@components/integrations/21st/interactive-selector.tsx';
+import BeamsBackground from '@components/integrations/21st/beams-background.tsx';
+import LoadingState from '@components/integrations/21st/loading-state.tsx';
+import FilterGrid from '@components/integrations/21st/filter-grid.tsx';
+import { TagsSelectorDemo as TagsSelector } from '@components/integrations/21st/tags-selector.tsx';
+import Filters from '@components/integrations/21st/filters.tsx';
+import DashboardSidebar from '@components/integrations/21st/dashboard-sidebar.tsx';
+import CoverflowCarousel from '@components/integrations/21st/coverflow-carousel.tsx';
+import CircularTestimonials from '@components/integrations/21st/circular-testimonials.tsx';
+import ContactPage from '@components/integrations/21st/contact-page.tsx';
+import Timeline from '@components/integrations/21st/timeline.tsx';
+import TooltipGroup from '@components/integrations/21st/tooltip-group.tsx';
+import ReactTailwindImageGallery from '@components/integrations/21st/react-tailwind-image-gallery.tsx';
+import InfiniteCircularScroll from '@components/integrations/21st/infinite-circular-scroll.tsx';
+import ScrollFadeEffect from '@components/integrations/21st/scroll-fade-effect.tsx';
+import CircularGallery2 from '@components/integrations/21st/circular-gallery-2.tsx';
+import StickyScroll from '@components/integrations/21st/sticky-scroll.tsx';
+
+export function getStaticPaths() {
+  return favorites.map((favorite) => ({
+    params: { slug: favorite.slug },
+    props: { favorite },
+  }));
+}
+
+const { favorite } = Astro.props;
+---
+
+<GalleryLayout
+  title={`${favorite.name} · 21st.dev`}
+  theme="default"
+  bodyClass="component-frame component-frame-21st"
+  clientRuntime={false}
+>
+  <Section tone="page" class="min-h-screen">
+    <Container class="py-6 sm:py-10">
+      <header class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div class="space-y-2">
+          <Text variant="accent-label">{favorite.author} · 21st.dev</Text>
+          <Heading tag="h1" variant="section-heading-lg">{favorite.name}</Heading>
+          <Text variant="body" class="text-brand-dark/60">{favorite.description}</Text>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <Button href="/favorites/21st/" variant="outline" size="md">Wróć do ulubionych</Button>
+          <Button href={favorite.url} variant="primary" size="md" target="_blank" rel="noreferrer">Oryginał 21st.dev</Button>
+        </div>
+      </header>
+    </Container>
+    <div class="twentyfirst-preview-surface">
+      {favorite.slug === 'testimonials-13' && <Testimonials13 client:load />}
+      {favorite.slug === 'morph-gallery' && <MorphGallery client:load />}
+      {favorite.slug === 'circular-split-roll' && <CircularSplitRoll client:load />}
+      {favorite.slug === 'cta-with-text-marquee' && <CtaWithTextMarquee client:load />}
+      {favorite.slug === 'glass-video-hero' && <GlassVideoHero client:load />}
+      {favorite.slug === 'connoisseur-stack-interactor' && <ConnoisseurStackInteractor client:load />}
+      {favorite.slug === 'bento-gallery' && <BentoGallery client:load />}
+      {favorite.slug === 'accordion' && <Accordion client:load />}
+      {favorite.slug === 'interactive-selector' && <InteractiveSelector client:load />}
+      {favorite.slug === 'beams-background' && <BeamsBackground client:load />}
+      {favorite.slug === 'loading-state' && <LoadingState client:load />}
+      {favorite.slug === 'filter-grid' && <FilterGrid client:load />}
+      {favorite.slug === 'tags-selector' && <TagsSelector client:load />}
+      {favorite.slug === 'filters' && <Filters client:load />}
+      {favorite.slug === 'dashboard-sidebar' && <DashboardSidebar client:load />}
+      {favorite.slug === 'coverflow-carousel' && <CoverflowCarousel client:load />}
+      {favorite.slug === 'circular-testimonials' && <CircularTestimonials client:load />}
+      {favorite.slug === 'contact-page' && <ContactPage client:load />}
+      {favorite.slug === 'timeline' && <Timeline client:load />}
+      {favorite.slug === 'tooltip-group' && <TooltipGroup client:load />}
+      {favorite.slug === 'react-tailwind-image-gallery' && <ReactTailwindImageGallery client:load />}
+      {favorite.slug === 'infinite-circular-scroll' && <InfiniteCircularScroll client:load />}
+      {favorite.slug === 'scroll-fade-effect' && <ScrollFadeEffect client:load />}
+      {favorite.slug === 'circular-gallery-2' && <CircularGallery2 client:load />}
+      {favorite.slug === 'sticky-scroll' && <StickyScroll client:load />}
+    </div>
+  </Section>
+</GalleryLayout>
+
+<style is:global>
+  body.component-frame-21st main {
+    padding-top: 0 !important;
+  }
+
+  .twentyfirst-preview-surface {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+    color: var(--foreground);
+    background: var(--background);
+  }
+</style>

@@ -13,6 +13,7 @@ describe('developer catalog metadata', () => {
       'ui-search-field',
       'ui-select-dropdown',
       'ui-filter-tabs',
+      ...catalog.filter((item) => item.groupId === '21st').map((item) => item.sectionId),
     ]);
     expect(catalog.filter((item) => item.catalogType === 'pattern').map((item) => item.sectionId)).toEqual([
       'pattern-toast',
@@ -20,7 +21,8 @@ describe('developer catalog metadata', () => {
       'pattern-form-statuses',
       'pattern-mobile-drawer',
     ]);
-    expect(catalog.filter((item) => item.catalogType === 'ui' || item.catalogType === 'pattern').map((item) => item.componentName)).toEqual([
+    expect(catalog.filter((item) => item.groupId === '21st')).toHaveLength(25);
+    expect(catalog.filter((item) => item.catalogType === 'ui' || item.catalogType === 'pattern').map((item) => item.componentName)).toEqual(expect.arrayContaining([
       'SearchField',
       'SelectDropdown',
       'FilterTabs',
@@ -28,7 +30,7 @@ describe('developer catalog metadata', () => {
       'FormField',
       'FormStatus',
       'MobileDrawer',
-    ]);
+    ]));
     expect(catalog.filter((item) => item.catalogType === 'decoration').map((item) => item.sectionId).slice(0, 12)).toEqual([
       'decoration-gradient-orb',
       'decoration-blur-glow',
