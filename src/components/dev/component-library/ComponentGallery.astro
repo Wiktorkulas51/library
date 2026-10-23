@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import GalleryLayout from '@layouts/GalleryLayout.astro';
 import Section from '@components/ui/layout/Section.astro';
 import Container from '@components/ui/layout/Container.astro';
@@ -141,6 +143,19 @@ function previewHref(item: DeveloperCatalogMetadata) {
 
 function frameHref(item: DeveloperCatalogMetadata) {
   return `/components/thumbnail/${encodeURIComponent(item.sectionId)}/${encodeURIComponent(item.variantId)}/`;
+}
+
+// Dlaczego: żywa miniatura to iframe z pełną stroną na tym samym wątku co katalog i przy
+// przewijaniu gubiła klatki. Gdy istnieje statyczny zrzut (npm run thumbs:capture), karta
+// pokazuje obraz, a iframe zostaje tylko dla komponentów bez zrzutu.
+const thumbnailDir = path.resolve('public/component-thumbnails');
+function thumbnailImageHref(item: DeveloperCatalogMetadata) {
+  const fileName = `${item.sectionId}--${item.variantId}.webp`;
+  const filePath = path.join(thumbnailDir, fileName);
+  if (!fs.existsSync(filePath)) return null;
+  // Wersja z czasu zapisu odświeża obraz w przeglądarce po ponownym zrzucie.
+  const version = Math.round(fs.statSync(filePath).mtimeMs).toString(36);
+  return `/component-thumbnails/${encodeURIComponent(fileName)}?v=${version}`;
 }
 
 function copyPrompt(item: DeveloperCatalogMetadata) {
@@ -316,13 +331,27 @@ function pluralVariants(n: number, scope: 'kategoria' | 'katalog' = 'kategoria')
                   <span class="absolute left-3 top-3 z-20 rounded-md bg-brand-dark/80 px-2 py-0.5 font-mono text-[11px] font-bold text-white">
                     #{item.uid}
                   </span>
-                  <iframe
-                    title={`${itemLabel(item)}`}
-                    loading="lazy"
-                    class="component-thumbnail-frame pointer-events-none absolute top-0 left-1/2 border-0 bg-white"
-                    data-thumbnail-frame
-                    data-thumbnail-src={frameHref(item)}
-                  ></iframe>
+                  {thumbnailImageHref(item) ? (
+                    <img
+                      src={thumbnailImageHref(item)}
+                      alt=""
+                      width="720"
+                      height="450"
+                      loading="lazy"
+                      decoding="async"
+                      class="component-thumbnail-image pointer-events-none absolute inset-0 h-full w-full object-cover object-top"
+                      data-thumbnail-image
+                      data-thumbnail-src={frameHref(item)}
+                    />
+                  ) : (
+                    <iframe
+                      title={`${itemLabel(item)}`}
+                      loading="lazy"
+                      class="component-thumbnail-frame pointer-events-none absolute top-0 left-1/2 border-0 bg-white"
+                      data-thumbnail-frame
+                      data-thumbnail-src={frameHref(item)}
+                    ></iframe>
+                  )}
                   <a href={previewHref(item)} class="absolute inset-0 z-10" aria-label={`${galleryCopy.openPreviewLabel}: ${itemLabel(item)}`}>
                     <span class="sr-only">{galleryCopy.openPreviewLabel}</span>
                   </a>

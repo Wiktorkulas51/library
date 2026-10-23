@@ -19,3 +19,4 @@ This repository is a standalone Astro catalog of reusable WebScale UI components
 - Preserve unrelated work in the working tree and stage only task-scoped files.
 - After code changes run `npm run check:types`, focused tests, `npm run build`, and `npm run check:build-output`.
 - After UI changes inspect `/` and the relevant `/components/.../` preview at mobile and desktop widths.
+- Catalog cards show static screenshots from `public/component-thumbnails/` instead of live iframes, because live iframes dropped frames while scrolling. After adding or visually changing a component, run `npm run thumbs:capture -- --only=<sectionId>` with the dev server running on port 4324 and commit the updated `.webp`. Without a screenshot the card falls back to a live iframe. `npm run thumbs:capture -- --all` refreshes everything.

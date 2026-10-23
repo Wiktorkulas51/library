@@ -27,6 +27,7 @@
     "design:spec": "design.md spec design/default.md --output public/design-spec",
     "assets:gen": "node src/scripts/generate-favicons.cjs",
     "assets:img": "tsx src/scripts/optimize-images.ts",
+    "thumbs:capture": "node src/scripts/capture-component-thumbnails.mjs",
     "assets:thumbs": "tsx src/scripts/generate-gallery-thumbs.ts",
     "assets:fonts": "tsx src/scripts/download-fonts.ts",
     "assets:videos": "node src/scripts/compress-videos.mjs",
@@ -108,6 +109,7 @@
     "js-yaml": "^4.1.1",
     "parse5": "^7.3.0",
     "patch-package": "^8.0.1",
+    "playwright": "^1.64.0",
     "tsx": "^4.21.0",
     "vitest": "^4.1.5"
   }
