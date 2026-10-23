@@ -1,0 +1,17 @@
+{
+  "introLines": ["Od pomysłu do miejsca,", "w którym dobrze się żyje."],
+  "introCta": { "label": "Porozmawiajmy o projekcie", "href": "/#kontakt" },
+  "wordmarkSrc": "/images/library/forma/forma-wordmark.png",
+  "wordmarkAlt": "FORMA",
+  "wordmarkLabel": "FORMA, początek strony",
+  "wordmarkHref": "/#top",
+  "navLabel": "Stopka",
+  "links": [
+    { "label": "Usługi", "href": "/#uslugi" },
+    { "label": "Realizacje", "href": "/#realizacje" },
+    { "label": "Kontakt", "href": "/#kontakt" },
+    { "label": "Współpraca", "href": "/#dlaczego-my" },
+    { "label": "Pytania i odpowiedzi", "href": "/#faq" }
+  ],
+  "credit": { "label": "Realizacja: WebScale", "href": "https://webscale.pl" }
+}

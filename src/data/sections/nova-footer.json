@@ -1,0 +1,31 @@
+{
+  "anchorId": "kontakt",
+  "eyebrow": "Twoja marka zasługuje na więcej",
+  "heading": "Zacznijmy tworzyć razem",
+  "description": "Porozmawiajmy o Twoim projekcie i sprawdźmy, jak możemy pomóc w rozwoju Twojej marki.",
+  "primaryLabel": "Skontaktuj się",
+  "primaryHref": "#kontakt",
+  "secondaryLabel": "Poznaj ofertę",
+  "secondaryHref": "#uslugi",
+  "legalLinks": [
+    { "label": "Polityka prywatności", "href": "/polityka-prywatnosci/" },
+    { "label": "Cookies", "href": "/cookies/" }
+  ],
+  "footerLinks": [
+    { "label": "O nas", "href": "#zespol" },
+    { "label": "Usługi", "href": "#uslugi" },
+    { "label": "Realizacje", "href": "#realizacje" },
+    { "label": "Opinie", "href": "#opinie" }
+  ],
+  "ariaLegal": "Dokumenty prawne",
+  "ariaNavigation": "Nawigacja stopki",
+  "copyright": "Wszelkie prawa zastrzeżone.",
+  "attributionPrefix": "Projekt i wdrożenie: ",
+  "attributionLinkLabel": "WebScale",
+  "attributionLinkHref": "https://webscale.pl",
+  "backgroundImage": {
+    "src": "/images/library/nova/t001-nova-cta-mountains@1920.webp",
+    "alt": ""
+  },
+  "overlayOpacity": 0.6
+}

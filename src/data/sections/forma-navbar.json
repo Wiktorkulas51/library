@@ -1,0 +1,15 @@
+{
+  "logoSrc": "/images/library/forma/forma-wordmark.png",
+  "logoAlt": "FORMA",
+  "homeHref": "/",
+  "homeLabel": "FORMA, strona główna",
+  "navLabel": "Menu główne",
+  "menuOpenLabel": "Otwórz menu nawigacji",
+  "menuCloseLabel": "Zamknij menu nawigacji",
+  "links": [
+    { "label": "Usługi", "href": "/#uslugi" },
+    { "label": "Realizacje", "href": "/#realizacje" },
+    { "label": "O firmie", "href": "/#dlaczego-my" }
+  ],
+  "cta": { "label": "Kontakt", "href": "/#kontakt" }
+}

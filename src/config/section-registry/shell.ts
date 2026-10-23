@@ -68,4 +68,39 @@ export const shellSections: Record<string, SectionEntry> = {
     icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
     defaultVariant: 'default', variants: { default: { component: 'KasiaFooterBlock', dataKey: 'kasia-footer' } },
   },
+  webscaleNavbar: {
+    id: 'webscaleNavbar', label: 'Navbar WebScale', groupId: 'navbar', hint: 'Pasek fixed z mega dropdownami na wspólnej scenie, wskaźnikiem hover i pełnoekranowym menu mobilnym (WebScale)', source: 'webscale',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'WebscaleNavbarBlock', dataKey: 'webscale-navbar' } },
+  },
+  webscaleFooter: {
+    id: 'webscaleFooter', label: 'Footer WebScale', groupId: 'footer', hint: 'Stopka z kolumnami linków, socialami i dużym rozmytym znakiem słownym w tle (WebScale)', source: 'webscale',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'WebscaleFooterBlock', dataKey: 'webscale-footer' } },
+  },
+  alanHeader: {
+    id: 'alanHeader', label: 'Header zwężany przy scrollu', groupId: 'navbar', hint: 'Pasek fixed, który przy przewijaniu płynnie zwęża się i dostaje tło, z drawerem mobilnym (Alan Zbel)', source: 'alan-zbel',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'AlanHeaderBlock', dataKey: 'alan-header' } },
+  },
+  alanFooter: {
+    id: 'alanFooter', label: 'Footer z numerowaną listą', groupId: 'footer', hint: 'Ciemna stopka z opisem, socialami, numerowanymi linkami 01 do 04 i paskiem prawnym (Alan Zbel)', source: 'alan-zbel',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'AlanFooterBlock', dataKey: 'alan-footer' } },
+  },
+  formaNavbar: {
+    id: 'formaNavbar', label: 'Navbar pigułka sticky', groupId: 'navbar', hint: 'Sticky pigułka, która przy przewijaniu zwęża się i dostaje cień, z rozwijanym panelem mobilnym (Forma)', source: 'forma',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'FormaNavbarBlock', dataKey: 'forma-navbar' } },
+  },
+  formaFooter: {
+    id: 'formaFooter', label: 'Footer graphite', groupId: 'footer', hint: 'Ciemna stopka z dużym zdaniem, podkreślonym CTA ze strzałką i znakiem słownym (Forma)', source: 'forma',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'FormaFooterBlock', dataKey: 'forma-footer' } },
+  },
+  novaFooter: {
+    id: 'novaFooter', label: 'Footer ze zdjęciem i CTA', groupId: 'footer', hint: 'Stopka na zdjęciu z przyciemnieniem, dużym nagłówkiem, dwoma przyciskami i linkami (Nova)', source: 'nova',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/></svg>',
+    defaultVariant: 'default', variants: { default: { component: 'NovaFooterBlock', dataKey: 'nova-footer' } },
+  },
 };

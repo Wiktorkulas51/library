@@ -1,0 +1,294 @@
+---
+/**
+ * Stopka Nova: zdjęcie w tle z przyciemnieniem, zaokrąglone górne rogi, duży nagłówek
+ * z CTA oraz dolna belka z linkami i atrybucją. Treści i ustawienia pochodzą z JSON.
+ */
+// Why: dataKey trafia do bloku jako płaskie propsy (section-data spreaduje JSON), więc
+// props są kształtem JSON-a. Props nadpisują domyślne wartości z pliku JSON.
+import Container from "@components/ui/layout/Container.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Button from "@components/ui/atoms/Button.astro";
+import { formatInternalLink } from "@utils/url";
+import novaFooterData from "@data/sections/nova-footer.json";
+
+type NovaFooterData = typeof novaFooterData;
+
+export interface Props extends Partial<NovaFooterData> {
+  class?: string;
+}
+
+const { class: className = "", ...overrides } = Astro.props as Props;
+const copy: NovaFooterData = { ...novaFooterData, ...overrides };
+
+const legalLinks = copy.legalLinks.map((link) => ({ ...link, href: formatInternalLink(link.href) }));
+const footerLinks = copy.footerLinks.map((link) => ({ ...link, href: formatInternalLink(link.href) }));
+---
+
+<footer
+  id={copy.anchorId || undefined}
+  transition:animate="none"
+  class:list={["nova-footer", className]}
+  style={`--nova-footer-overlay-opacity: ${copy.overlayOpacity}`}
+>
+  <img class="nova-footer__image" src={copy.backgroundImage.src} alt={copy.backgroundImage.alt} loading="lazy" decoding="async" />
+  <div class="nova-footer__overlay" aria-hidden="true"></div>
+
+  <Container class="nova-footer__inner">
+    <div class="nova-footer__hero">
+      <Text tag="p" variant="accent-label" class="nova-footer__eyebrow">{copy.eyebrow}</Text>
+      <Heading level={2} class="nova-footer__heading">{copy.heading}</Heading>
+      <Text variant="body" class="nova-footer__description">{copy.description}</Text>
+      <div class="nova-footer__actions">
+        <Button href={copy.primaryHref} variant="accent" class="nova-footer__button nova-footer__button--accent">{copy.primaryLabel}</Button>
+        <Button href={copy.secondaryHref} variant="outline" class="nova-footer__button nova-footer__button--outline">{copy.secondaryLabel}</Button>
+      </div>
+    </div>
+
+    <div class="nova-footer__links">
+      <nav aria-label={copy.ariaLegal} class="nova-footer__nav">
+        {legalLinks.map((link) => <a href={link.href} class="nova-footer__link">{link.label}</a>)}
+      </nav>
+      <nav aria-label={copy.ariaNavigation} class="nova-footer__nav nova-footer__nav--main">
+        {footerLinks.map((link) => <a href={link.href} class="nova-footer__link nova-footer__link--main">{link.label}</a>)}
+      </nav>
+    </div>
+
+    <div class="nova-footer__bottom">
+      <Text tag="span" variant="feature-body-sm" class="nova-footer__meta">{copy.copyright}</Text>
+      <Text tag="span" variant="feature-body-sm" class="nova-footer__meta">
+        {copy.attributionPrefix}<a href={copy.attributionLinkHref} target="_blank" rel="noreferrer" class="nova-footer__attribution">{copy.attributionLinkLabel}</a>
+      </Text>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  /* Why: kolory Nova są zmiennymi na korzeniu bloku, a nie tokenami biblioteki, żeby stopka
+     zachowała wygląd motywu Nova. Konsument może je nadpisać inline lub bardziej szczegółowym selektorem. */
+  .nova-footer {
+    --nova-footer-brand-dark: #161616;
+    --nova-footer-brand-light: #fffdf9;
+    --nova-footer-brand-accent: #b98b6e;
+    --nova-footer-radius: 1.5rem;
+    --nova-footer-overlay-opacity: 0.6;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-top-left-radius: var(--nova-footer-radius);
+    border-top-right-radius: var(--nova-footer-radius);
+    background-color: var(--nova-footer-brand-dark);
+    color: var(--nova-footer-brand-light);
+  }
+
+  .nova-footer__image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .nova-footer__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: color-mix(in srgb, var(--nova-footer-brand-dark) calc(var(--nova-footer-overlay-opacity) * 100%), transparent);
+  }
+
+  /* Container nie przekazuje atrybutu scope Astro, więc jego klasa wymaga :global. */
+  .nova-footer :global(.nova-footer__inner) {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 2.5rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .nova-footer__hero {
+    margin-inline: auto;
+    max-width: 64rem;
+    text-align: center;
+  }
+
+  .nova-footer__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nova-footer-brand-accent);
+  }
+
+  .nova-footer__eyebrow::before,
+  .nova-footer__eyebrow::after {
+    content: "";
+    width: 2.5rem;
+    height: 1px;
+    flex-shrink: 0;
+    background-color: color-mix(in srgb, var(--nova-footer-brand-accent) 70%, transparent);
+  }
+
+  .nova-footer .nova-footer__heading {
+    margin: 0;
+    max-width: none;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    color: var(--nova-footer-brand-light);
+  }
+
+  .nova-footer .nova-footer__description {
+    margin: 1.5rem auto 0;
+    max-width: 36rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--nova-footer-brand-light) 80%, transparent);
+  }
+
+  .nova-footer__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 20rem;
+    margin: 2.5rem auto 0;
+  }
+
+  .nova-footer .nova-footer__button {
+    min-height: 2.75rem;
+    width: 100%;
+  }
+
+  .nova-footer .nova-footer__button--accent {
+    background-color: var(--nova-footer-brand-accent);
+    border-color: var(--nova-footer-brand-accent);
+    color: var(--nova-footer-brand-dark);
+  }
+
+  .nova-footer .nova-footer__button--outline {
+    border-color: color-mix(in srgb, var(--nova-footer-brand-light) 65%, transparent);
+    background-color: color-mix(in srgb, var(--nova-footer-brand-dark) 35%, transparent);
+    color: var(--nova-footer-brand-light);
+  }
+
+  .nova-footer .nova-footer__button--outline:hover {
+    border-color: var(--nova-footer-brand-accent);
+  }
+
+  .nova-footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .nova-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.5rem;
+    width: 100%;
+  }
+
+  .nova-footer__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-size: 0.875rem;
+    color: color-mix(in srgb, var(--nova-footer-brand-light) 80%, transparent);
+    transition: color 0.2s ease;
+  }
+
+  .nova-footer__link--main {
+    color: var(--nova-footer-brand-light);
+  }
+
+  .nova-footer__link:hover,
+  .nova-footer__link:focus-visible,
+  .nova-footer__attribution:hover,
+  .nova-footer__attribution:focus-visible {
+    color: var(--nova-footer-brand-accent);
+  }
+
+  .nova-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--nova-footer-brand-light) 25%, transparent);
+    text-align: center;
+    color: color-mix(in srgb, var(--nova-footer-brand-light) 75%, transparent);
+  }
+
+  .nova-footer__meta {
+    color: inherit;
+  }
+
+  .nova-footer__attribution {
+    color: var(--nova-footer-brand-light);
+    transition: color 0.2s ease;
+  }
+
+  @media (min-width: 640px) {
+    .nova-footer :global(.nova-footer__inner) {
+      padding-top: 5rem;
+    }
+
+    .nova-footer__actions {
+      flex-direction: row;
+      max-width: none;
+      margin-top: 3rem;
+    }
+
+    .nova-footer .nova-footer__button {
+      width: auto;
+    }
+
+    .nova-footer__links {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .nova-footer__nav {
+      width: auto;
+      justify-content: flex-start;
+    }
+
+    .nova-footer__bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .nova-footer .nova-footer__heading {
+      white-space: nowrap;
+    }
+
+    .nova-footer__nav--main {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nova-footer__link,
+    .nova-footer__attribution {
+      transition: none;
+    }
+  }
+</style>

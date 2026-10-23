@@ -22,6 +22,10 @@ export const DEVELOPER_SOURCE_LABELS: Record<DeveloperCatalogSource, string> = {
   kasia: 'Kasia',
   piekary9: 'Piekary',
   mystek: 'dr Krzysztof Mystek',
+  webscale: 'WebScale',
+  'alan-zbel': 'Alan Zbel',
+  forma: 'Forma (T002)',
+  nova: 'Nova (T001)',
 };
 
 export type DeveloperCatalogType = 'section' | 'ui' | 'pattern' | 'decoration';

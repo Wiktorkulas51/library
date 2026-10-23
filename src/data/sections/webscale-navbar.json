@@ -1,0 +1,109 @@
+{
+  "logoSrc": "/images/library/webscale/webscale-logo.svg",
+  "logoAlt": "WebScale.pl",
+  "mobileLogoAlt": "WebScale Logo",
+  "navLabel": "Nawigacja główna",
+  "menuToggleLabel": "Otwórz główne menu",
+  "menuCloseLabel": "Zamknij menu",
+  "services": {
+    "label": "Usługi",
+    "items": [
+      {
+        "label": "Redesign Strony",
+        "description": "Przebudowa strony, która nie dowozi",
+        "href": "/redesign-strony/",
+        "icon": "layout"
+      },
+      {
+        "label": "Pozycjonowanie (SEO)",
+        "description": "Bądź widoczny w Google",
+        "href": "/pozycjonowanie-jednorazowe/",
+        "icon": "magnifying-glass"
+      },
+      {
+        "label": "Darmowy audyt",
+        "description": "Bezpłatny raport z wyceną",
+        "href": "/darmowy-audyt/",
+        "icon": "shield-check"
+      },
+      {
+        "label": "Copywriting",
+        "description": "Treści, które sprzedają",
+        "href": "/redagowanie-strony-internetowej/",
+        "icon": "file-text"
+      },
+      {
+        "label": "Opieka nad stroną",
+        "description": "Aktualizacje i bezpieczeństwo",
+        "href": "/zarzadzanie-strona/",
+        "icon": "monitor"
+      }
+    ]
+  },
+  "templates": {
+    "label": "Szablony",
+    "allLabel": "Wszystkie szablony",
+    "allHref": "/ui/szablony/",
+    "items": [
+      {
+        "label": "Firmowe",
+        "description": "Strony dla firm",
+        "href": "/ui/szablony/?category=business#szablony",
+        "icon": "monitor"
+      },
+      {
+        "label": "Landing page",
+        "description": "Strony sprzedażowe",
+        "href": "/ui/szablony/?category=landing#szablony",
+        "icon": "pen-nib"
+      },
+      {
+        "label": "Portfolio",
+        "description": "Dla twórców",
+        "href": "/ui/szablony/?category=portfolio#szablony",
+        "icon": "file-text"
+      },
+      {
+        "label": "Najnowsze",
+        "description": "Ostatnio dodane",
+        "href": "/ui/szablony/?category=latest#szablony",
+        "icon": "shield-check"
+      }
+    ]
+  },
+  "tools": {
+    "label": "Narzędzia",
+    "allLabel": "Wszystkie narzędzia",
+    "allHref": "/narzedzia/",
+    "items": [
+      {
+        "label": "Generator linków kontaktowych",
+        "description": "Przygotuj link do telefonu lub e-maila oraz gotowy kod HTML z podglądem.",
+        "href": "/narzedzia/generator-linkow-kontaktowych/",
+        "icon": "magnifying-glass"
+      },
+      {
+        "label": "Generator CSS clamp",
+        "description": "Ustaw rozmiary tekstu i szerokości ekranu, aby wygenerować płynną typografię CSS.",
+        "href": "/narzedzia/generator-clamp/",
+        "icon": "file-text"
+      },
+      {
+        "label": "Generator kodów QR",
+        "description": "Zamień adres strony w kod QR i pobierz PNG lub SVG, bez rejestracji.",
+        "href": "/narzedzia/generator-qr/",
+        "icon": "stack"
+      }
+    ]
+  },
+  "links": [
+    { "label": "Blog", "href": "/blog/" },
+    { "label": "Portfolio", "href": "/portfolio/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ],
+  "cta": {
+    "label": "Wyceń projekt",
+    "hoverText": "Darmowa wycena",
+    "href": "/wycena/"
+  }
+}

@@ -9,6 +9,7 @@ This repository is a standalone Astro catalog of reusable WebScale UI components
 - `src/data/dev/component-library/` defines catalog metadata.
 - `src/styles/global.css`, `src/styles/themes.css`, and `DESIGN_RULES.md` define visual rules.
 - `site.config.mjs` defines the library build scope.
+- `HEADERS_FOOTERS.md` lists every navbar and footer variant and documents the static to fixed and scroll progress header patterns. Read it before building a header or footer.
 
 ## Working rules
 
