@@ -1,0 +1,61 @@
+{
+  "logoSrc": "/images/library/webscale/webscale-logo.svg",
+  "logoAlt": "WebScale.pl",
+  "headingLabel": "Stopka",
+  "description": "Tworzymy skuteczne strony internetowe, które zarabiają. Autorskie rozwiązania, bez abonamentu i bez problemów.",
+  "wordmark": "WEBSCALE",
+  "socials": [
+    { "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61587486436836", "icon": "facebook-logo" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/webscale-pl/", "icon": "linkedin-logo" },
+    { "label": "Pinterest", "href": "https://www.pinterest.com/0cccxioaw5tb0u7i852y84i2uirehr/", "icon": "pinterest-logo" },
+    { "label": "Google My Business", "href": "https://share.google/olpjRg5WxN15ZtjkF", "icon": "map-pin" },
+    { "label": "Dribbble", "href": "https://dribbble.com/shots/27328535-Business-card-page", "icon": "dribbble-logo" },
+    { "label": "GitHub", "href": "https://github.com/Wiktorkulas51", "icon": "github-logo" },
+    { "label": "Behance", "href": "https://www.behance.net/wiktor-kulas", "icon": "behance-logo" }
+  ],
+  "columns": [
+    {
+      "title": "Rozwiązania",
+      "links": [
+        { "label": "Tworzenie Stron WWW", "href": "/" },
+        { "label": "Strony dla branż", "href": "/strony-internetowe-dla/" },
+        { "label": "Pozycjonowanie (SEO)", "href": "/pozycjonowanie-jednorazowe/" },
+        { "label": "Copywriting", "href": "/redagowanie-strony-internetowej/" },
+        { "label": "Opieka nad stroną", "href": "/zarzadzanie-strona/" },
+        { "label": "Darmowy audyt", "href": "/darmowy-audyt/" },
+        { "label": "Narzędzia", "href": "/narzedzia/" }
+      ]
+    },
+    {
+      "title": "Informacje",
+      "links": [
+        { "label": "Regulamin", "href": "/regulamin/" },
+        { "label": "Polityka Prywatności", "href": "/polityka-prywatnosci/" },
+        { "label": "Polityka Cookies", "href": "/polityka-cookies/" }
+      ]
+    },
+    {
+      "title": "Kontakt",
+      "links": [
+        { "label": "+48 509 491 704", "href": "tel:+48509491704" },
+        { "label": "kontakt@webscale.pl", "href": "mailto:kontakt@webscale.pl" },
+        { "label": "ul. Powstańców Warszawy 6/2, 12-100 Szczytno" }
+      ]
+    },
+    {
+      "title": "Firma",
+      "links": [
+        { "label": "O nas", "href": "/o-nas/" },
+        { "label": "Blog", "href": "/blog/" },
+        { "label": "RSS", "href": "/blog/rss.xml" },
+        { "label": "Portfolio", "href": "/portfolio/" },
+        { "label": "Kontakt", "href": "/kontakt/" }
+      ]
+    }
+  ],
+  "copyright": {
+    "owner": "WebScale.pl.",
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "operatesIn": "Działamy online na całą Polskę"
+}

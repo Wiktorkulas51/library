@@ -1,0 +1,30 @@
+{
+  "logoSrc": "/images/library/alan-zbel/logo-alan-zbel.png",
+  "logoWidth": 2172,
+  "logoHeight": 724,
+  "logoAriaLabel": "Alan Zbel, strona główna",
+  "description": "Certyfikowany trener personalny z sześcioletnim doświadczeniem w treningu siłowym. Układam plany treningowe i prowadzę treningi online dopasowane do Twojego celu.",
+  "socialsLabel": "Profile społecznościowe",
+  "socials": [
+    { "label": "Instagram", "href": "https://www.instagram.com/alan_zbel" },
+    { "label": "TikTok", "href": "https://www.tiktok.com/@alan_zbell" }
+  ],
+  "linksLabel": "ODKRYJ WIĘCEJ",
+  "navigationLabel": "Nawigacja w stopce",
+  "links": [
+    { "label": "Plany", "href": "/plany/" },
+    { "label": "Prowadzenie", "href": "/prowadzenie/" },
+    { "label": "O mnie", "href": "/o-mnie/" },
+    { "label": "Kontakt", "href": "/kontakt/" }
+  ],
+  "copyright": "Alan Zbel. Wszelkie prawa zastrzeżone.",
+  "legalLabel": "Dokumenty prawne",
+  "legalLinks": [
+    { "label": "Regulamin sprzedaży", "href": "/regulamin/" },
+    { "label": "Polityka prywatności", "href": "/polityka-prywatnosci/" },
+    { "label": "Cookies", "href": "/cookies/" }
+  ],
+  "backToTopLabel": "WRÓĆ NA GÓRĘ",
+  "backToTopAriaLabel": "Wróć na górę strony",
+  "backToTopHref": "#top"
+}

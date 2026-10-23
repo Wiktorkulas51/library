@@ -19,11 +19,15 @@
   // Threshold 300px instead of 50px: navbar does not slide in immediately after a few pixels
   // of scroll, but only when hero is mostly scrolled away (user
   // actually leaves the first section), which looks more natural.
+  // Próg można nadpisać atrybutem data-scroll-threshold="120" na statycznym headerze,
+  // np. gdy hero jest niskie i 300px to już połowa treści.
+  var thresholdAttr = parseFloat(header.getAttribute('data-scroll-threshold') || '');
+  var threshold = thresholdAttr >= 0 ? thresholdAttr : 300;
   var rafId = 0;
   function onScroll() {
     if (rafId) return;
     rafId = requestAnimationFrame(function () {
-      var isScrolled = window.pageYOffset > 300;
+      var isScrolled = window.pageYOffset > threshold;
       header.classList.toggle('is-scrolled', isScrolled);
       if (fixedHeader) {
         fixedHeader.classList.toggle('is-visible', isScrolled);

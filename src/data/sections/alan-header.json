@@ -1,0 +1,24 @@
+{
+  "logoSrc": "/images/library/alan-zbel/logo-alan-zbel.png",
+  "logoWidth": 2172,
+  "logoHeight": 724,
+  "logoAriaLabel": "Alan Zbel, strona główna",
+  "navLabel": "Nawigacja główna",
+  "socialsLabel": "Profile społecznościowe Alana",
+  "menuOpenLabel": "Otwórz menu",
+  "menuCloseLabel": "Zamknij menu",
+  "drawerLabel": "Menu nawigacji",
+  "items": [
+    { "label": "Plany", "href": "/plany/" },
+    { "label": "O mnie", "href": "/o-mnie/" },
+    { "label": "Prowadzenie", "href": "/prowadzenie/" }
+  ],
+  "socials": [
+    { "label": "Instagram", "href": "https://www.instagram.com/alan_zbel" },
+    { "label": "TikTok", "href": "https://www.tiktok.com/@alan_zbell" }
+  ],
+  "cta": {
+    "label": "Kontakt",
+    "href": "/kontakt/"
+  }
+}

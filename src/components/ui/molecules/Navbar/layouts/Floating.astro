@@ -132,4 +132,12 @@ const fixedShellClass = isDark
 		pointer-events: auto;
 		translate: 0 0;
 	}
+
+	/* Dlaczego: wjazd paska od góry to ruch, którego część osób nie toleruje.
+	   Przy reduced motion pasek pojawia się od razu, bez przesuwania. */
+	@media (prefers-reduced-motion: reduce) {
+		[data-site-header-fixed] {
+			transition: none;
+		}
+	}
 </style>
